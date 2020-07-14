@@ -1,0 +1,69 @@
+.main-display {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.main-display h1 {
+  font-size: 35px;
+  color: #eee;
+}
+
+.main-display h2 {
+  font-size: 20px;
+  color: #eee;
+}
+
+.main-display form {
+  margin: 70px 0;
+  display: flex;
+}
+
+.main-display form input {
+  width: 650px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.main-display form button {
+  width: 130px;
+  height: 50px;
+  margin: 0 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5F99D7;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.main-display .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../../images/wherehouse-bg.jpg');
+  background-size: cover;
+  z-index: -1;
+}
+
+.main-display .bg::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
