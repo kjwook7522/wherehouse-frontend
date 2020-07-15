@@ -4,7 +4,7 @@ import './Main.css';
 
 function Main() {
   return <div>
-    <Nav />
+    <Nav type={'transparent'} />
     <MainSearch />
     <MainDescription />
     <Footer />
