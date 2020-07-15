@@ -6,6 +6,7 @@
   display: flex;
   background-color: transparent;
   box-sizing: border-box;
+  transition: all 0.3s ease;
   z-index: 1;
 }
 
@@ -38,4 +39,25 @@
   text-decoration: none;
   font-weight: bold;
   color: #5F99D7;
+}
+
+.nav .nav-right a:hover {
+  color: #15b7b9;
+}
+
+.nav .nav-right .box {
+  padding: 5px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #5F99D7;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.nav .nav-right .box:hover {
+  background-color: #15b7b9;
+  border-color: #15b7b9;
+  color: #fff;
 }

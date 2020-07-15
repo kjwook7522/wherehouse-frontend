@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClipboardList, faBox, faTruckLoading } from '@fortawesome/free-solid-svg-icons';
+import { faBox, faTruckLoading } from '@fortawesome/free-solid-svg-icons';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons'
 import './MainDescription.css';
 
