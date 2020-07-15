@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, MainSearch, MainDescription } from 'components';
+import { Nav, MainSearch, MainDescription, Footer } from 'components';
 import './Main.css';
 
 function Main() {
@@ -7,6 +7,7 @@ function Main() {
     <Nav />
     <MainSearch />
     <MainDescription />
+    <Footer />
   </div>
 }
 

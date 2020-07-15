@@ -1,0 +1,28 @@
+.footer {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #ccc;
+  color: #333;
+}
+
+.footer h1 {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.footer h2 {
+  margin: 3px 0;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.footer a {
+  color: #333;
+}
+
+.footer a:hover {
+  color: #0c056d;
+}
