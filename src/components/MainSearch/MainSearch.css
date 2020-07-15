@@ -44,7 +44,12 @@
   background-color: #5F99D7;
   font-size: 18px;
   color: #fff;
+  transition: all 0.2s ease;
   cursor: pointer;
+}
+
+.main-display form button:hover {
+  background-color: #3282b8;
 }
 
 .main-display .bg {
