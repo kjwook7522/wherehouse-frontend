@@ -1,0 +1,9 @@
+.container-list {
+  width: 40%;
+  height: calc(100vh - 60px);
+  position: relative;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
