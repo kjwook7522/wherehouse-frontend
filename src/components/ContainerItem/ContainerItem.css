@@ -1,0 +1,45 @@
+.container-item {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  border-radius: 3px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+  transition: all 0.2s ease;
+}
+
+.container-item:hover {
+  transform: translateZ(0) scale(0.98);
+}
+
+.container-item .preview-image img {
+  width: 170px;
+  height: 120px;
+  cursor: pointer;
+}
+
+.container-item .content {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.container-item .content h1 {
+  font-size: 22px;
+  color: #111d5e;
+}
+
+.container-item .content h2 {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.container-item .content .type-and-size {
+  display: flex;
+}
+
+.container-item .content .type-and-size span {
+  flex: 1;
+}
+
+.container-item .content .rate {
+  text-align: right;
+}

@@ -5,3 +5,4 @@ export { default as Footer } from './Footer/Footer';
 export { default as MainMap } from './MainMap/MainMap';
 export { default as ContainerList } from './ContainerList/ContainerList';
 export { default as ContainerFilter } from './ContainerFilter/ContainerFilter';
+export { default as ContainerItem } from './ContainerItem/ContainerItem';
