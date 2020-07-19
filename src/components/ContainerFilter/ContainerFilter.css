@@ -57,6 +57,7 @@
   background-color: #fff;
   text-align: center;
   color: #5F99D7;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 

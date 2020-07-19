@@ -4,3 +4,13 @@
   position: relative;
   top: 60px;
 }
+
+.container-marker {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: #5F99D7;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+  box-sizing: border-box;
+}
