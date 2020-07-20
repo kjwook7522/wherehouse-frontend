@@ -50,6 +50,32 @@ function MainMap() {
         size: navermaps.Size(30, 30) }
     });
     markerList.push(marker1, marker2, marker3, marker4);
+
+    const contentString = `
+      <div class='info-window'>
+        <h1>창고 제목</h1>
+        <p>주소: 서울특별시 동작구 상도로 369</p>
+      </div>
+    `
+
+    let infowindow = new navermaps.InfoWindow({
+      content: contentString,
+      maxWidth: 300,
+      disableAnchor: true,
+      borderWidth: 0,
+      backgroundColor: 'transparent',
+      pixelOffset: new navermaps.Point(0, -20)
+    })
+
+    markerList.forEach(marker => {
+      navermaps.Event.addListener(marker, 'click', e => {
+        if (infowindow.getMap()) {
+          infowindow.close();
+        } else {
+            infowindow.open(map.instance, marker);
+        }
+      })
+    })
   }, [])
 
   return <div className='map'>
