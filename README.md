@@ -2,4 +2,4 @@ Where House Front End 개발중...
 
 ## Main Page
 
-제작중
+메인화면 검색페이지 완료
