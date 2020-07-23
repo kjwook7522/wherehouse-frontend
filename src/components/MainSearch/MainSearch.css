@@ -16,11 +16,6 @@
   color: #eee;
 }
 
-.main-display h2 {
-  font-size: 20px;
-  color: #eee;
-}
-
 .main-display form {
   margin: 70px 0;
   display: flex;
@@ -52,6 +47,22 @@
 
 .main-display form button:hover {
   background-color: #3282b8;
+}
+
+.main-display .survey-btn {
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #15b7b9;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.main-display .survey-btn:hover {
+  transform: translateZ(0) scale(0.98);
 }
 
 .main-display .bg {
@@ -101,5 +112,9 @@
   .main-display form button {
     width: 100%;
     margin: 30px 0;
+  }
+
+  .main-display .survey-btn {
+    width: 90%;
   }
 }
