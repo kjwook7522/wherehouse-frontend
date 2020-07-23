@@ -4,7 +4,7 @@ import './MainSearch.css';
 function MainSearch() {
   return <div className="main-display">
     <h1>
-      WhereHouse에 오신 것을 환영합니다.
+      <span>WhereHouse에 오신 것을 환영합니다.</span>
       <br />
       여러분에 창고를 등록해보세요!
     </h1>

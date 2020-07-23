@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  word-break: keep-all;
 }
 
 
@@ -23,6 +24,7 @@
 .main-display form {
   margin: 70px 0;
   display: flex;
+  flex-direction: row;
 }
 
 .main-display form input {
@@ -71,4 +73,33 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .main-display {
+    height: 800px;
+  }
+
+  .main-display form input {
+    width: 500px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-display form {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .main-display form input {
+    width: 100%;
+  }
+
+  .main-display form button {
+    width: 100%;
+    margin: 30px 0;
+  }
 }
