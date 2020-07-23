@@ -62,3 +62,25 @@
   border-color: #15b7b9;
   color: #fff;
 }
+
+.nav .nav-right svg {
+  font-size: 25px;
+  display: none;
+}
+
+
+/* Responsive */
+
+@media (max-width: 767px) {
+  .nav .nav-left {
+    display: none;
+  }
+
+  .nav .nav-right a, .nav .nav-right .box {
+    display: none;
+  }
+
+  .nav .nav-right svg {
+    display: inline;
+  }
+}

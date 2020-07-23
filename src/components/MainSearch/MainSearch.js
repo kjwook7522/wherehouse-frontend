@@ -4,9 +4,11 @@ import './MainSearch.css';
 function MainSearch() {
   return <div className="main-display">
     <h1>
-      WhereHouse에 오신 것을 환영합니다.
+      <span>창고가 필요하신가요?</span>
       <br />
-      여러분에 창고를 등록해보세요!
+      <span>어려울것 하나 없습니다.</span>
+      <br />
+      <span>반창고가 찾아드립니다.</span>
     </h1>
 
     <form>
@@ -14,11 +16,7 @@ function MainSearch() {
       <button>검색</button>
     </form>
 
-    <h2>
-      도움이 필요하세요?
-      <br />
-      010-xxxx-xxxx
-    </h2>
+    <button className="survey-btn">바로 시작하기</button>
     <div className="bg"></div>
   </div>
 }
