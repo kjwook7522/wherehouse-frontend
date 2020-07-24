@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/agree.css">
+</head>
+<body>
+    <div class="header">
+        <h2>WhereHouse 회원가입</h2>
+        <hr/>
+    </div>
+    <div class="middle">
+        <div class="agreeContents">
+            <form action="agreeContents.php" method="get"></form>
+            <ul>
+                <li>
+                    <textarea id="" cols="30" rows="6" readonly>내용1</textarea>
+                </li>
+                <li>
+                    <textarea id="" cols="30" rows="6" readonly>내용2</textarea>
+                </li>
+                <li>
+                    <textarea id="" cols="30" rows="6" readonly>내용3</textarea>
+
+                </li>
+            </ul>
+        </div>
+        <div class="agreeCheckbox">
+            <form action="register.php" method="POST">
+                <input type="checkbox" id="agree1" name="agree1">(필수)서비스 이용약관 동의 체크박스<br/>
+                <input type="checkbox" id="agree2" name="agree2">(필수)서비스 이용약관 동의 체크박스<br/>
+                <input type="checkbox" id="agree3" name="agree3">(필수)개인정보 수집 및 제 3자 제공 동의 체크박스<br/>
+                <input type="checkbox" id="agree4" name="agree4">모든약관 동의<br/>
+            </form>
+        </div>
+        <div class="submitButton">
+            <button type="submit">회원가입</button>
+            <!--js로 회원가입 성공시 메인페이지 또는 로그인 페이지로 이동-->
+        </div>
+    </div>
+    <div class="footer">
+        <hr/>
+        <a href="registerQ.html"><button type="button"><</button></a> 
+        <button type="button">></button>
+        <!--js로 >버튼 클릭시 마지막임을 알리기-->
+     </div>
+</body>

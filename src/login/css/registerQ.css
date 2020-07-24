@@ -1,0 +1,12 @@
+/*전체 레이아웃*/
+.middle{margin-top:1%;padding:0.5%}
+
+/*정보입력 레이아웃*/
+input{margin:0.5%}
+
+/*전화번호 레이아웃*/
+.linePhone>input, .noLinePhone>input {width:40px;}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
