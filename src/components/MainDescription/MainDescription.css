@@ -1,6 +1,6 @@
 .description {
   width: 100%;
-  padding: 30px;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,13 +9,13 @@
   color: #333;
 }
 
-.description h1 {
+.description .title h1 {
   position: relative;
   margin: 40px 0;
   font-size: 40px;
 }
 
-.description h1::before {
+.description .title h1::before {
   content: '';
   width: 80px;
   position: absolute;
@@ -47,6 +47,68 @@
   font-size: 18px;
 }
 
+.description .detail {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.description .detail .detail-name {
+  list-style-type: none;
+}
+
+.description .detail .detail-name .detail-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.description .detail .detail-name .detail-item img {
+  width: 40vw;
+  height: 25vw;
+}
+
+.description .detail .detail-name .detail-item .detail-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+}
+
+.description .detail .detail-name .detail-item .detail-content h1 {
+  font-size: 24px;
+}
+
+.description .detail .detail-name .detail-item .detail-content h2 {
+  font-size: 28px;
+} 
+
+.description .detail .detail-name .detail-item .detail-content button {
+  width: 300px;
+  border: none;
+  border-radius: 5px;
+  background-color: #15b7b9;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.description .detail .detail-name .detail-item .detail-content button:hover {
+  transform: translateZ(0) scale(0.98);
+}
+
+.description .bg-navy { 
+  background-color: #07689f;
+}
+
+.description .bg-navy h1, .description .bg-navy h2 {
+  color: #fff;
+}
+
+.description .detail .detail-name .reverse {
+  flex-direction: row-reverse;
+}
 
 /* Responsive */
 
@@ -65,10 +127,36 @@
     width: 500px;
     margin: 50px 0;
   }
+
+  .description .detail .detail-name .detail-item .detail-content h1 {
+    font-size: 19px;
+  }
+  
+  .description .detail .detail-name .detail-item .detail-content h2 {
+    font-size: 23px;
+  } 
 }
 
 @media (max-width: 767px) {
   .description .item-name li {
     width: 300px;
+  }
+
+  .description .detail .detail-name .detail-item {
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+
+  .description .detail .detail-name .detail-item img {
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .description .detail .detail-name .detail-item .detail-content {
+    padding: 40px 10px;
+  }
+
+  .description .detail .detail-name .detail-item .detail-content button {
+    width: 90%;
   }
 }
