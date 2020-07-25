@@ -156,7 +156,11 @@
     padding: 40px 10px;
   }
 
-  .description .detail .detail-name .detail-item .detail-content button {
+  .description .detail .detail-name .detail-item .detail-content a {
     width: 90%;
+  }
+
+  .description .detail .detail-name .detail-item .detail-content a button {
+    width: 100%;
   }
 }

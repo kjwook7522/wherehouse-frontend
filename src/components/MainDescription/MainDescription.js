@@ -51,7 +51,7 @@ function MainDescription() {
             <h1>창고 하나 찾는데 뭐가 이렇게 복잡한지...</h1>
             <h2><b>여러분에게 알맞는 최적의 물류 파트너를 지원해 드립니다.</b></h2>
             <br />
-            <button style={{backgroundColor: '#96bb7c'}} onClick={warningMessage}>바로 시작하기</button>
+            <Link to='/'><button style={{backgroundColor: '#96bb7c'}} onClick={warningMessage}>바로 시작하기</button></Link>
           </div>
         </li>
         <li className='detail-item reverse'>
@@ -69,7 +69,7 @@ function MainDescription() {
             <h1>반창고와 함께할 물류 파트너를 찾습니다.</h1>
             <h2><b>창고 등록을 통해 반창고와 함께하세요.</b></h2>
             <br />
-            <button style={{backgroundColor: '#15b7b9'}} onClick={warningMessage}>창고 등록하기</button>
+            <Link to='/'><button style={{backgroundColor: '#15b7b9'}} onClick={warningMessage}>창고 등록하기</button></Link>
           </div>
         </li>
       </ul>
