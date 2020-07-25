@@ -23,7 +23,7 @@ function Nav({type}) {
     } else {
       console.log('Error: wrong type value.');
     }
-  }, []);
+  }, [type]);
 
   return <div className="nav">
     <div className="nav-left">
@@ -32,10 +32,10 @@ function Nav({type}) {
     </div>
     <div className="nav-right">
       <FontAwesomeIcon icon={faBars} color="#5F99D7" />
-      <a className="box" href="/site">창고등록하기</a>
+      <a className="box" href="/">창고등록하기</a>
       <a href="/">ABOUT US</a>
-      <a href="#">회원가입</a>
-      <a href="#">로그인</a>
+      <a href="/">회원가입</a>
+      <a href="/">로그인</a>
     </div>
   </div>
 }

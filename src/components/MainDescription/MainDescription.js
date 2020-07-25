@@ -1,14 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBox, faTruckLoading } from '@fortawesome/free-solid-svg-icons';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons'
 import './MainDescription.css';
 
 function MainDescription() {
+  const warningMessage = () => {
+    message.warning('아직 준비중입니다.');
+  };
+
   return <div className="description">
     <div className="title">
       <h1>복잡한 물류를 한번에</h1>
     </div>
+
     <div className="content">
       <ul className="item-name">
         <li>
@@ -34,6 +41,7 @@ function MainDescription() {
         </li>
       </ul>
     </div>
+
     <div className='detail'>
       <ul className='detail-name'>
         <li className='detail-item bg-navy'>
@@ -43,7 +51,7 @@ function MainDescription() {
             <h1>창고 하나 찾는데 뭐가 이렇게 복잡한지...</h1>
             <h2><b>여러분에게 알맞는 최적의 물류 파트너를 지원해 드립니다.</b></h2>
             <br />
-            <button style={{backgroundColor: '#96bb7c'}}>바로 시작하기</button>
+            <button style={{backgroundColor: '#96bb7c'}} onClick={warningMessage}>바로 시작하기</button>
           </div>
         </li>
         <li className='detail-item reverse'>
@@ -52,7 +60,7 @@ function MainDescription() {
             <h1>난 근처면 좋아! 직접 찾아보고 싶어!</h1>
             <h2><b>그렇다면, 검색하기를 통해 가장 가까운 창고를 찾아보세요.</b></h2>
             <br />
-            <button style={{backgroundColor: '#eebb4d'}}>지도 검색하기</button>
+            <Link to='/site'><button style={{backgroundColor: '#eebb4d'}}>지도 검색하기</button></Link>
           </div>
         </li>
         <li className='detail-item bg-navy'>
@@ -61,7 +69,7 @@ function MainDescription() {
             <h1>반창고와 함께할 물류 파트너를 찾습니다.</h1>
             <h2><b>창고 등록을 통해 반창고와 함께하세요.</b></h2>
             <br />
-            <button style={{backgroundColor: '#15b7b9'}}>창고 등록하기</button>
+            <button style={{backgroundColor: '#15b7b9'}} onClick={warningMessage}>창고 등록하기</button>
           </div>
         </li>
       </ul>
