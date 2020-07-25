@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>창고주 가입</title>
+    <link rel="stylesheet" href="../css/ownerQ.css">
+</head>
+<body>
+    <div class="header">
+        <h2>WhereHouse 회원가입</h2>
+        <hr/>
+    </div>
+    <div class="middle">
+        <form action="registerQ.php" method="POST">
+            <div class="information">
+                <table cols='2' rows='7'>
+                        <th>기업명</th>
+                        <th><input type="text" id="companyName" name="companyName></th>
+                    </tr>
+                    <tr>
+                        <th>기업 주소</th>
+                        <th> <input type="text" id="companyAddress" name="companyAddress"></th>
+                    </tr>
+                    <tr>
+                        <th>업종</th>
+                        <th><input type="text" id="companyType" name="companyType"></th>
+                    </tr>
+                    <tr>
+                        <th><br/></th>
+                        <th><br/></th>
+                    </tr>
+                        <th>창고 유형</th>
+                        <th><input type="text" id="storageType" name="storageType"></th>
+                    <tr/>
+                    <tr>
+                        <th>창고 크기</th>
+                        <th><input type="number" id="storageSize" name="storageType"></th>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+                </form>
+    </div>
+    <div class="footer">
+        <div class="submit">
+            <button type="submit" id="submitButton">완료</button>
+            <!--모든 양식 제대로 되어있을 경우 다음페이지 이동-->
+            <br/><br/>
+        </div>
+       <hr/>
+       <a href="registerType.html"><button type="button"><</button></a> 
+       <a href="registerQ.html"><button type="button">></button></a>
+    </div>
+
+</body>
