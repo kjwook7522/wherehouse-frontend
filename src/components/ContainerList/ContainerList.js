@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ContainerFilter, ContainerItem } from 'components';
 import './ContainerList.css';
 
 function ContainerList() {
   let item1 = {
+    id: 1,
     title: '개인용 창고',
     location: '서울특별시 동작구 상도로 369',
     imgName: 'sample_preview1.jpg',
@@ -12,6 +14,7 @@ function ContainerList() {
     rate: 3.5,
   }
   let item2 = {
+    id: 2,
     title: '화물 선박 창고',
     location: '서울특별시 동작구 상도로 369',
     imgName: 'sample_preview2.jpg',
@@ -20,6 +23,7 @@ function ContainerList() {
     rate: 4.5,
   }
   let item3 = {
+    id: 3,
     title: '해상 거치 창고',
     location: '서울특별시 동작구 상도로 369',
     imgName: 'sample_preview3.jpg',
@@ -31,7 +35,7 @@ function ContainerList() {
 
   return <div className='container-list'>
     <ContainerFilter />
-    {itemList.map((item, index) => <ContainerItem itemInfo={item} key={index} />)}
+    {itemList.map((item, index) => <Link to={'/container/' + item.id}><ContainerItem itemInfo={item} key={index} /></Link>)}
   </div>
 }
 

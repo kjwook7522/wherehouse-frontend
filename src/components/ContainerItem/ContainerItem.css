@@ -14,7 +14,6 @@
 .container-item .preview-image img {
   width: 170px;
   height: 120px;
-  cursor: pointer;
 }
 
 .container-item .content {
