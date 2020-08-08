@@ -27,7 +27,7 @@ function ContainerInfo({ containerid }) {
     <div className='container-info-wrapper'>
       <div className='container-info-main'>
         <p className='title'><FontAwesomeIcon icon={faImages} /> 사진</p>
-        {imageList.map(img => <img src={'/images/preview-image/' + img} alt='imageList' />)}
+        {imageList.map((img, index) => <img key={index} src={'/images/preview-image/' + img} alt='imageList' />)}
         <div className='container-description'>
           <h1>창고명</h1>
           <p>숭실대 창고</p>
