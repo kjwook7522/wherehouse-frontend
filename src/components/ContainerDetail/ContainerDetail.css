@@ -38,6 +38,9 @@
 
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg:hover {
   color: #5F99D7;
+}
+
+.container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg:active {
   transform: translateZ(0) scale(0.97);
 }
 
@@ -49,4 +52,39 @@
   font-weight: bold;
   font-size: 24px;
   text-align: center;
+}
+
+.container-detail .container-detail-info .running-day .select-day {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container-detail .container-detail-info .running-day .select-day span {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  border: 2px solid #5F99D7;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  color: #5F99D7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.container-detail .container-detail-info .running-day .select-day .active {
+  background-color: #5F99D7;
+  color: #fff;
+}
+
+.container-detail .container-detail-info .running-time .select-time {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container-detail .container-detail-info .running-time .select-time .time-picker {
+  margin: 0 10px;
 }
