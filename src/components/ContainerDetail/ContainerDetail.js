@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle, faPallet, faBoxOpen, faTruckLoading } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle, faPallet, faBoxOpen, faTruckLoading, faMoneyCheckAlt } from "@fortawesome/free-solid-svg-icons";
 import { TimePicker } from "antd";
 import "./ContainerDetail.css";
 
@@ -26,6 +26,63 @@ function ContainerDetail() {
     } else {
       dayBtn.classList.add("active");
     }
+  };
+
+  const makeList = () => {
+    const tr = document.createElement("tr");
+    const list = ["세부항목", "단위", "단가", "비고"];
+
+    const nodes = list.map(text => {
+      const td = document.createElement("td");
+      const input = document.createElement("input");
+      input.placeholder = text;
+      input.type = "text";
+      td.appendChild(input);
+      return td;
+    });
+
+    nodes.forEach(node => {
+      tr.appendChild(node);
+    });
+    return tr;
+  };
+
+  const makePlusBtn = id => {
+    const td = document.createElement("td");
+    const button = document.createElement("button");
+    button.innerText = "+";
+    button.id = id;
+    button.onclick = addNewLine;
+    td.appendChild(button);
+    return td;
+  }
+
+  const addNewLine = e => {
+    const plusBtn = e.currentTarget;
+    const td = plusBtn.parentNode
+    const type = plusBtn.id;
+    td.innerHTML = "";
+    td.removeAttribute("class");
+
+    let tbody;
+    switch(type) {
+      case "keeping":
+        tbody = document.querySelector(".keeping-payment tbody");
+        break;
+      case "working":
+        tbody = document.querySelector(".working-payment tbody");
+        break;
+      case "delivery":
+        tbody = document.querySelector(".delivery-payment tbody");
+        break;
+      case "other":
+        tbody = document.querySelector(".other-payment tbody");
+        break;
+    }
+
+    const tr = makeList();
+    tr.appendChild(makePlusBtn(type))
+    tbody.appendChild(tr);
   };
 
   return (
@@ -91,7 +148,141 @@ function ContainerDetail() {
       </div>
 
       <div className="container-detail-payment">
-        이용 비용
+        <p className="title">
+          <FontAwesomeIcon icon={faMoneyCheckAlt} /> 이용 비용
+        </p>
+        <div className="keeping-payment">
+          <h1 className="subtitle">보관 비용</h1>
+          <table className="container-detail-table">
+            <thead>
+              <tr>
+                <th>세부항목</th>
+                <th>단위</th>
+                <th>단가</th>
+                <th>비고(수량 또는 크기)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" placeholder="세부항목" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단위" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단가" />
+                </td>
+                <td>
+                  <input type="text" placeholder="비고" />
+                </td>
+                <td>
+                  <button id="keeping" onClick={addNewLine}>+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="working-payment">
+          <h1 className="subtitle">작업비</h1>
+          <table className="container-detail-table">
+            <thead>
+              <tr>
+                <th>세부항목</th>
+                <th>단위</th>
+                <th>단가</th>
+                <th>비고(수량 또는 크기)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" placeholder="세부항목" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단위" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단가" />
+                </td>
+                <td>
+                  <input type="text" placeholder="비고" />
+                </td>
+                <td>
+                  <button id="working" onClick={addNewLine}>+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="delivery-payment">
+          <h1 className="subtitle">배달비</h1>
+          <table className="container-detail-table">
+            <thead>
+              <tr>
+                <th>세부항목</th>
+                <th>단위</th>
+                <th>단가</th>
+                <th>비고(수량 또는 크기)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" placeholder="세부항목" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단위" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단가" />
+                </td>
+                <td>
+                  <input type="text" placeholder="비고" />
+                </td>
+                <td>
+                  <button id="delivery" onClick={addNewLine}>+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="other-payment">
+          <h1 className="subtitle">기타 비용</h1>
+          <table className="container-detail-table">
+            <thead>
+              <tr>
+                <th>세부항목</th>
+                <th>단위</th>
+                <th>단가</th>
+                <th>비고(수량 또는 크기)</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input type="text" placeholder="세부항목" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단위" />
+                </td>
+                <td>
+                  <input type="text" placeholder="단가" />
+                </td>
+                <td>
+                  <input type="text" placeholder="비고" />
+                </td>
+                <td>
+                  <button id="other" onClick={addNewLine}>+</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
