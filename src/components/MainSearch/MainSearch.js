@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { message } from 'antd';
 import './MainSearch.css';
 
@@ -6,6 +7,10 @@ function MainSearch() {
   const warningMessage = () => {
     message.warning('아직 준비중입니다.');
   };
+
+  const gotoTypeform = () => {
+    window.location.href = 'https://wherehouse2020.typeform.com/to/pBzRXCWE';
+  }
 
   return <div className="main-display">
     <h1>
@@ -18,10 +23,10 @@ function MainSearch() {
 
     <form>
       <input name="search" placeholder="주소를 입력해주세요." />
-      <button>검색</button>
+      <Link to="/site"><button>검색</button></Link>
     </form>
 
-    <button className="survey-btn" onClick={warningMessage}>바로 시작하기</button>
+    <button className="survey-btn" onClick={gotoTypeform}>바로 시작하기</button>
     <div className="bg"></div>
   </div>
 }

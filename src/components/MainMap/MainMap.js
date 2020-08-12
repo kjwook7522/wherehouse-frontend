@@ -10,13 +10,13 @@ function MainMap() {
 
   useEffect(() => {
     let map = new navermaps.Map('map', {
-      center: new navermaps.LatLng(37.3595704, 127.105399),
-      zoom: 10
+      center: new navermaps.LatLng(37.4566526, 126.705052),
+      zoom: 12
     });
 
     let marker1 = new navermaps.Marker({
-      title: 'Soongsil',
-      position: new navermaps.LatLng(37.49517411, 126.9541566),
+      title: 'Incheon',
+      position: new navermaps.LatLng(37.4539743, 126.6247733),
       map: map,
       icon: { content: [
         '<div class="container-marker">',
@@ -25,8 +25,8 @@ function MainMap() {
         size: navermaps.Size(30, 30) }
     });
     let marker2 = new navermaps.Marker({
-      title: 'Soongsil',
-      position: new navermaps.LatLng(37.49647708, 126.95684702),
+      title: 'Incheon',
+      position: new navermaps.LatLng(37.4484467, 126.655901),
       map: map,
       icon: { content: [
         '<div class="container-marker">',
@@ -35,8 +35,8 @@ function MainMap() {
         size: navermaps.Size(30, 30) }
     });
     let marker3 = new navermaps.Marker({
-      title: 'Soongsil',
-      position: new navermaps.LatLng(37.4975267, 126.97154758),
+      title: 'Incheon',
+      position: new navermaps.LatLng(37.4975267, 126.671185),
       map: map,
       icon: { content: [
         '<div class="container-marker">',
@@ -45,8 +45,8 @@ function MainMap() {
         size: navermaps.Size(30, 30) }
     });
     let marker4 = new navermaps.Marker({
-      title: 'Soongsil',
-      position: new navermaps.LatLng(37.48833503, 126.966259305),
+      title: 'Incheon',
+      position: new navermaps.LatLng(37.463935, 126.629335),
       map: map,
       icon: { content: [
         '<div class="container-marker">',
