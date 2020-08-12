@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { NaverMap, Marker } from 'react-naver-maps';
+// import { NaverMap, Marker } from 'react-naver-maps';
 import './MainMap.css';
 
 function MainMap() {
@@ -9,10 +9,15 @@ function MainMap() {
   let markerList = [];
 
   useEffect(() => {
+    let map = new navermaps.Map('map', {
+      center: new navermaps.LatLng(37.3595704, 127.105399),
+      zoom: 10
+    });
+
     let marker1 = new navermaps.Marker({
       title: 'Soongsil',
       position: new navermaps.LatLng(37.49517411, 126.9541566),
-      map: map.instance,
+      map: map,
       icon: { content: [
         '<div class="container-marker">',
         '</div>'
@@ -22,7 +27,7 @@ function MainMap() {
     let marker2 = new navermaps.Marker({
       title: 'Soongsil',
       position: new navermaps.LatLng(37.49647708, 126.95684702),
-      map: map.instance,
+      map: map,
       icon: { content: [
         '<div class="container-marker">',
         '</div>'
@@ -32,7 +37,7 @@ function MainMap() {
     let marker3 = new navermaps.Marker({
       title: 'Soongsil',
       position: new navermaps.LatLng(37.4975267, 126.97154758),
-      map: map.instance,
+      map: map,
       icon: { content: [
         '<div class="container-marker">',
         '</div>'
@@ -42,7 +47,7 @@ function MainMap() {
     let marker4 = new navermaps.Marker({
       title: 'Soongsil',
       position: new navermaps.LatLng(37.48833503, 126.966259305),
-      map: map.instance,
+      map: map,
       icon: { content: [
         '<div class="container-marker">',
         '</div>'
@@ -72,14 +77,37 @@ function MainMap() {
         if (infowindow.getMap()) {
           infowindow.close();
         } else {
-            infowindow.open(map.instance, marker);
+            infowindow.open(map, marker);
         }
       })
     })
+
+    let htmlMarker1 = {
+      content: '<div id="cluster"></div>',
+      size: window.N.Size(50, 50),
+      anchor: window.N.Point(25, 25)
+    };
+
+    let markerClustering = new window.MarkerClustering({
+      minClusterSize: 2,
+      maxZoom: 13,
+      map: map,
+      markers: markerList,
+      disableClickZoom: false,
+      gridSize: 120,
+      icons: [htmlMarker1],
+      indexGenerator: [10],
+      stylingFunction: function(clusterMarker, count) {
+        // $(clusterMarker.getElement()).find('div:first-child').text(count);
+        clusterMarker.getElement().firstChild.innerText = count;
+        // document.getElementById('map').firstChild
+    }
+    });
+
   }, [])
 
-  return <div className='map'>
-    <NaverMap
+  return <div id='map'>
+    {/* <NaverMap
       mapDivId={'maps-getting-started-uncontrolled'} // default: react-naver-map
       naverRef={ref => { map = ref }}
       style={{
@@ -88,7 +116,7 @@ function MainMap() {
       }}
       defaultCenter={{ lat: 37.49647708, lng: 126.95684702 }}
       defaultZoom={14}
-    />
+    /> */}
   </div>
 }
 
