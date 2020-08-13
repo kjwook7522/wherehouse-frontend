@@ -1,6 +1,31 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle, faPallet, faBoxOpen, faTruckLoading, faMoneyCheckAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faInfoCircle,
+  faPallet,
+  faBoxOpen,
+  faTruckLoading,
+  faMoneyCheckAlt,
+  faQuestionCircle,
+  faChalkboardTeacher,
+  faTv,
+  faBolt,
+  faLock,
+  faTruck,
+  faThermometerThreeQuarters,
+  faUsers,
+  faFileAlt,
+  faParking,
+  faBoxes,
+  faTshirt,
+  faUtensils,
+  faGem,
+  faMobileAlt,
+  faSoap,
+  faCogs,
+  faCouch,
+  faTree,
+} from "@fortawesome/free-solid-svg-icons";
 import { TimePicker } from "antd";
 import "./ContainerDetail.css";
 
@@ -55,17 +80,17 @@ function ContainerDetail() {
     button.onclick = addNewLine;
     td.appendChild(button);
     return td;
-  }
+  };
 
   const addNewLine = e => {
     const plusBtn = e.currentTarget;
-    const td = plusBtn.parentNode
+    const td = plusBtn.parentNode;
     const type = plusBtn.id;
     td.innerHTML = "";
     td.removeAttribute("class");
 
     let tbody;
-    switch(type) {
+    switch (type) {
       case "keeping":
         tbody = document.querySelector(".keeping-payment tbody");
         break;
@@ -78,10 +103,12 @@ function ContainerDetail() {
       case "other":
         tbody = document.querySelector(".other-payment tbody");
         break;
+      default:
+        break;
     }
 
     const tr = makeList();
-    tr.appendChild(makePlusBtn(type))
+    tr.appendChild(makePlusBtn(type));
     tbody.appendChild(tr);
   };
 
@@ -151,7 +178,7 @@ function ContainerDetail() {
         <p className="title">
           <FontAwesomeIcon icon={faMoneyCheckAlt} /> 이용 비용
         </p>
-        <div className="keeping-payment">
+        <div className="sub-section keeping-payment">
           <h1 className="subtitle">보관 비용</h1>
           <table className="container-detail-table">
             <thead>
@@ -178,13 +205,15 @@ function ContainerDetail() {
                   <input type="text" placeholder="비고" />
                 </td>
                 <td>
-                  <button id="keeping" onClick={addNewLine}>+</button>
+                  <button id="keeping" onClick={addNewLine}>
+                    +
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="working-payment">
+        <div className="sub-section working-payment">
           <h1 className="subtitle">작업비</h1>
           <table className="container-detail-table">
             <thead>
@@ -211,13 +240,15 @@ function ContainerDetail() {
                   <input type="text" placeholder="비고" />
                 </td>
                 <td>
-                  <button id="working" onClick={addNewLine}>+</button>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="delivery-payment">
+        <div className="sub-section delivery-payment">
           <h1 className="subtitle">배달비</h1>
           <table className="container-detail-table">
             <thead>
@@ -244,13 +275,15 @@ function ContainerDetail() {
                   <input type="text" placeholder="비고" />
                 </td>
                 <td>
-                  <button id="delivery" onClick={addNewLine}>+</button>
+                  <button id="delivery" onClick={addNewLine}>
+                    +
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div className="other-payment">
+        <div className="sub-section other-payment">
           <h1 className="subtitle">기타 비용</h1>
           <table className="container-detail-table">
             <thead>
@@ -277,11 +310,97 @@ function ContainerDetail() {
                   <input type="text" placeholder="비고" />
                 </td>
                 <td>
-                  <button id="other" onClick={addNewLine}>+</button>
+                  <button id="other" onClick={addNewLine}>
+                    +
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div className="container-detail-service">
+        <p className="title">
+          <FontAwesomeIcon icon={faQuestionCircle} /> 서비스
+        </p>
+        <div className="service-icons">
+          <div className="icon">
+            <FontAwesomeIcon icon={faTv} />
+            <p>cctv 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faBolt} />
+            <p>경비업체 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faLock} color="#5F99D7" />
+            <p>보안락 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faTruck} />
+            <p>픽업 서비스 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faThermometerThreeQuarters} />
+            <p>냉난방 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faUsers} color="#5F99D7" />
+            <p>관리인력 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faFileAlt} />
+            <p>보험가입 유무</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faParking} />
+            <p>주차기능 유무</p>
+          </div>
+        </div>
+      </div>
+      <div className="container-detail-explain">
+        <p className="title">
+          <FontAwesomeIcon icon={faChalkboardTeacher} /> 부가 설명
+        </p>
+        <textarea placeholder="내용을 입력해주세요" />
+      </div>
+      <div className="container-detail-mainstyle">
+        <p className="title">
+          <FontAwesomeIcon icon={faBoxes} /> 주요 담당 품목
+        </p>
+        <div className="mainstyle-icons">
+          <div className="icon">
+            <FontAwesomeIcon icon={faTshirt} />
+            <p>의료 물품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faUtensils} color="#5F99D7" />
+            <p>식료품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faGem} color="#5F99D7" />
+            <p>악세서리</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faMobileAlt} color="#5F99D7" />
+            <p>전자기기</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faSoap} />
+            <p>화장품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faCogs} color="#5F99D7" />
+            <p>부품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faCouch} />
+            <p>가구</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faTree} />
+            <p>원자재</p>
+          </div>
         </div>
       </div>
     </div>

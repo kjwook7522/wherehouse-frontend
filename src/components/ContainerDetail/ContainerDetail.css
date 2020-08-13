@@ -89,6 +89,14 @@
   margin: 0 10px;
 }
 
+.container-detail .container-detail-payment {
+  padding: 40px 0;
+}
+
+.container-detail .container-detail-payment .sub-section {
+  padding: 20px 0;
+}
+
 .container-detail .container-detail-payment .container-detail-table {
   width: 100%;
   margin: 20px 0;
@@ -134,4 +142,71 @@
 
 .container-detail .container-detail-payment .keeping-payment .container-detail-table td button:active {
   transform: translateZ(0) scale(0.98);
+}
+
+.container-detail .container-detail-service .service-icons {
+  width: 100%;
+  height: 400px;
+  padding: 20px 0;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.container-detail .container-detail-service .service-icons .icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-detail .container-detail-service .service-icons .icon p {
+  padding: 15px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container-detail .container-detail-service .service-icons .icon svg {
+  font-size: 120px;
+}
+
+.container-detail .container-detail-explain textarea {
+  width: 100%;
+  height: 200px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  resize: none;
+  color: #333;
+}
+
+.container-detail .container-detail-explain textarea:focus {
+  outline: none;
+}
+
+.container-detail .container-detail-mainstyle .mainstyle-icons {
+  width: 100%;
+  height: 400px;
+  padding: 20px 0;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.container-detail .container-detail-mainstyle .mainstyle-icons .icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-detail .container-detail-mainstyle .mainstyle-icons .icon p {
+  padding: 15px 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.container-detail .container-detail-mainstyle .mainstyle-icons .icon svg {
+  font-size: 120px;
 }

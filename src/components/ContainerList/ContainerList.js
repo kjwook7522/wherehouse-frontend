@@ -35,7 +35,7 @@ function ContainerList() {
 
   return <div className='container-list'>
     <ContainerFilter />
-    {itemList.map((item, index) => <Link to={'/container/' + item.id}><ContainerItem itemInfo={item} key={index} /></Link>)}
+    {itemList.map((item, index) => <Link to={'/container/' + item.id} key={index}><ContainerItem itemInfo={item} /></Link>)}
   </div>
 }
 
