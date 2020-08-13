@@ -1,0 +1,9 @@
+.container-rating {
+  width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07);
+}
