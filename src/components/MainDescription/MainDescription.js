@@ -45,7 +45,7 @@ function MainDescription() {
     <div className='detail'>
       <ul className='detail-name'>
         <li className='detail-item bg-navy'>
-          <img src="/images/description-image/main-des-1.jpg" alt="des-1"/>
+          <img src="/asset/images/description-image/main-des-1.jpg" alt="des-1"/>
           <div className='detail-content' data-aos="fade-up" data-aos-duration="800">
             <h1>3PL, 4PL 풀필먼트...</h1>
             <h1>창고 하나 찾는데 뭐가 이렇게 복잡한지...</h1>
@@ -55,7 +55,7 @@ function MainDescription() {
           </div>
         </li>
         <li className='detail-item reverse'>
-          <img src="/images/description-image/main-des-2.jpg" alt="des-2"/>
+          <img src="/asset/images/description-image/main-des-2.jpg" alt="des-2"/>
           <div className='detail-content' data-aos="fade-up" data-aos-duration="800">
             <h1>난 근처면 좋아! 직접 찾아보고 싶어!</h1>
             <h2><b>그렇다면, 검색하기를 통해 가장 가까운 창고를 찾아보세요.</b></h2>
@@ -64,7 +64,7 @@ function MainDescription() {
           </div>
         </li>
         <li className='detail-item bg-navy'>
-          <img src="/images/description-image/main-des-3.jpg" alt="des-1"/>
+          <img src="/asset/images/description-image/main-des-3.jpg" alt="des-1"/>
           <div className='detail-content' data-aos="fade-up" data-aos-duration="800">
             <h1>반창고와 함께할 물류 파트너를 찾습니다.</h1>
             <h2><b>창고 등록을 통해 반창고와 함께하세요.</b></h2>

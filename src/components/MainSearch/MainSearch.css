@@ -71,7 +71,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: url('/images/wherehouse-bg.jpg');
+  background-image: url('/asset/images/wherehouse-bg.jpg');
   background-size: cover;
   z-index: -1;
 }

@@ -6,7 +6,7 @@ import './ContainerItem.css';
 function ContainerItem({itemInfo}) {
   return <div className='container-item'>
     <div className='preview-image'>
-      <img src={'/images/preview-image/' + itemInfo.imgName} alt="preview"/>
+      <img src={'/asset/images/preview-image/' + itemInfo.imgName} alt="preview"/>
     </div>
     <div className='content'>
       <h1>
