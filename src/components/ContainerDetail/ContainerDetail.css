@@ -31,18 +31,18 @@
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg {
   margin: 0 20px;
   padding: 10px;
-  font-size: 150px;
+  font-size: 120px;
   transition: all 0.3 ease;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg:hover {
+/* .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg:hover {
   color: #5F99D7;
 }
 
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button svg:active {
   transform: translateZ(0) scale(0.97);
-}
+} */
 
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button .active {
   color: #5F99D7;
@@ -167,7 +167,7 @@
 }
 
 .container-detail .container-detail-service .service-icons .icon svg {
-  font-size: 120px;
+  font-size: 100px;
 }
 
 .container-detail .container-detail-explain textarea {
@@ -208,5 +208,5 @@
 }
 
 .container-detail .container-detail-mainstyle .mainstyle-icons .icon svg {
-  font-size: 120px;
+  font-size: 100px;
 }

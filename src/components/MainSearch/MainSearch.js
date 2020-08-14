@@ -14,9 +14,9 @@ function MainSearch() {
 
   return <div className="main-display">
     <h1>
-      <span>창고가 필요하신가요?</span>
-      <br />
-      <span>어려울것 하나 없습니다.</span>
+      <span style={{fontSize: 50}}>창고가 필요하신가요?</span>
+      {/* <br /> */}
+      {/* <span>어려울것 하나 없습니다.</span> */}
       <br />
       <span>반창고가 찾아드립니다.</span>
     </h1>

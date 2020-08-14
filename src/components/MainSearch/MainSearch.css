@@ -12,6 +12,7 @@
 
 
 .main-display h1 {
+  font-weight: bold;
   font-size: 35px;
   color: #eee;
 }
@@ -38,7 +39,7 @@
   margin: 0 50px;
   border: none;
   border-radius: 5px;
-  background-color: #5F99D7;
+  background-color: #eebb4d;
   font-size: 18px;
   color: #fff;
   transition: all 0.2s ease;
@@ -46,15 +47,15 @@
 }
 
 .main-display form button:hover {
-  background-color: #3282b8;
+  background-color: #ddac42;
 }
 
 .main-display .survey-btn {
   width: 250px;
   height: 50px;
-  border: none;
-  border-radius: 5px;
-  background-color: #15b7b9;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: transparent;
   font-size: 18px;
   color: #fff;
   transition: all 0.2s ease;
@@ -62,7 +63,9 @@
 }
 
 .main-display .survey-btn:hover {
-  transform: translateZ(0) scale(0.98);
+  border: none;
+  background-color: #ddac42;
+  transform: translateZ(0);
 }
 
 .main-display .bg {

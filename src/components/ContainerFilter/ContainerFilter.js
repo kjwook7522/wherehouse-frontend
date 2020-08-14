@@ -35,20 +35,19 @@ function ContainerFilter() {
 
   return <div className='container-filter'>
     <div className='form-wrap'>
-      <form>
+      {/* <form>
         <input type="text" placeholder='장소를 검색해주세요' />
         <FontAwesomeIcon icon={faSearch} />
-      </form>
+      </form> */}
     </div>
     <div className='fulfillment'>
       <button className='active' id='all-btn'>All</button>
-      <button id='others-btn'>Palet</button>
-      <button id='others-btn'>Carton</button>
-      <button id='others-btn'>Unit</button>
+      <button id='others-btn'>일반 창고</button>
+      <button id='others-btn'>물류 대행</button>
     </div>
-    <div style={{margin: 30}}>
+    {/* <div style={{margin: 30}}>
       <Slider range step={5} defaultValue={[20, 100]} marks={{0: '0m2', 100: '100m2'}} />
-    </div>
+    </div> */}
   </div>
 }
 

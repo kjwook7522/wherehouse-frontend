@@ -122,23 +122,26 @@ function ContainerDetail() {
           <h1 className="subtitle">보관 형태</h1>
           <div className="keeping-type-icons">
             <div className="icon-button">
-              <FontAwesomeIcon id="pallet-icon" icon={faPallet} onClick={activeIcon} />
+              {/* <FontAwesomeIcon id="pallet-icon" icon={faPallet} onClick={activeIcon} /> */}
+              <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#5F99D7" />
               <br />
               <p>팔레트</p>
             </div>
             <div className="icon-button">
-              <FontAwesomeIcon id="box-icon" icon={faBoxOpen} onClick={activeIcon} />
+              {/* <FontAwesomeIcon id="box-icon" icon={faBoxOpen} onClick={activeIcon} /> */}
+              <FontAwesomeIcon id="box-icon" icon={faBoxOpen} />
               <br />
               <p>박스</p>
             </div>
             <div className="icon-button">
-              <FontAwesomeIcon id="special-icon" icon={faTruckLoading} onClick={activeIcon} />
+              {/* <FontAwesomeIcon id="special-icon" icon={faTruckLoading} onClick={activeIcon} /> */}
+              <FontAwesomeIcon id="special-icon" icon={faTruckLoading} />
               <br />
               <p>특수물품</p>
             </div>
           </div>
         </div>
-        <div className="running-day">
+        {/* <div className="running-day">
           <h1 className="subtitle">운영 요일</h1>
           <div className="select-day">
             <span className="day" onClick={activeDay}>
@@ -171,7 +174,7 @@ function ContainerDetail() {
             ~
             <TimePicker className="time-picker" use12Hours format="hh:mm a" minuteStep={10} placeholder="종료 시간" />
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="container-detail-payment">
@@ -193,16 +196,35 @@ function ContainerDetail() {
             <tbody>
               <tr>
                 <td>
-                  <input type="text" placeholder="세부항목" />
+                  <p>창고비</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단위" />
+                  <p>Pallet/월</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단가" />
+                  <p>25,000</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="비고" />
+                  <p>1100x1100x1500</p>
+                </td>
+                {/* <td>
+                  <button id="keeping" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>창고비</p>
+                </td>
+                <td>
+                  <p>경량랙/월</p>
+                </td>
+                <td>
+                  <p>30,000</p>
+                </td>
+                <td>
+                  <p>1800x1200x4단</p>
                 </td>
                 {/* <td>
                   <button id="keeping" onClick={addNewLine}>
@@ -228,16 +250,130 @@ function ContainerDetail() {
             <tbody>
               <tr>
                 <td>
-                  <input type="text" placeholder="세부항목" />
+                  <p>입고</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단위" />
+                  <p>재고조사</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단가" />
+                  <p>20</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="비고" />
+                  <p>개당/코드미부착 50원</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>입고</p>
+                </td>
+                <td>
+                  <p>분류</p>
+                </td>
+                <td>
+                  <p>50</p>
+                </td>
+                <td>
+                  <p>개당</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>입고</p>
+                </td>
+                <td>
+                  <p>바코드</p>
+                </td>
+                <td>
+                  <p>50</p>
+                </td>
+                <td>
+                  <p>개당/입고 및 부착</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>가공</p>
+                </td>
+                <td>
+                  <p>스티커부착</p>
+                </td>
+                <td>
+                  <p>40</p>
+                </td>
+                <td>
+                  <p>개당</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>가공</p>
+                </td>
+                <td>
+                  <p>완충제</p>
+                </td>
+                <td>
+                  <p>100</p>
+                </td>
+                <td>
+                  <p>개당/건당</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>가공</p>
+                </td>
+                <td>
+                  <p>Tag작업</p>
+                </td>
+                <td>
+                  <p>100</p>
+                </td>
+                <td>
+                  <p>의류양품</p>
+                </td>
+                {/* <td>
+                  <button id="working" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>용차출고</p>
+                </td>
+                <td>
+                  <p>출고비</p>
+                </td>
+                <td>
+                  <p>100</p>
+                </td>
+                <td>
+                  <p>박스당</p>
                 </td>
                 {/* <td>
                   <button id="working" onClick={addNewLine}>
@@ -263,16 +399,92 @@ function ContainerDetail() {
             <tbody>
               <tr>
                 <td>
-                  <input type="text" placeholder="세부항목" />
+                  <p>택배비</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단위" />
+                  <p>극소</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단가" />
+                  <p>1,800</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="비고" />
+                  <p>~80cm/2kg</p>
+                </td>
+                {/* <td>
+                  <button id="delivery" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>택배비</p>
+                </td>
+                <td>
+                  <p>소</p>
+                </td>
+                <td>
+                  <p>2,200</p>
+                </td>
+                <td>
+                  <p>~100cm/5kg</p>
+                </td>
+                {/* <td>
+                  <button id="delivery" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>택배비</p>
+                </td>
+                <td>
+                  <p>중</p>
+                </td>
+                <td>
+                  <p>2,700</p>
+                </td>
+                <td>
+                  <p>~120cm/15kg</p>
+                </td>
+                {/* <td>
+                  <button id="delivery" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>택배비</p>
+                </td>
+                <td>
+                  <p>대</p>
+                </td>
+                <td>
+                  <p>3,700</p>
+                </td>
+                <td>
+                  <p>~160cm/25kg</p>
+                </td>
+                {/* <td>
+                  <button id="delivery" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>택배비</p>
+                </td>
+                <td>
+                  <p>특대</p>
+                </td>
+                <td>
+                  <p>8,000</p>
+                </td>
+                <td>
+                  <p>~190cm/25kg</p>
                 </td>
                 {/* <td>
                   <button id="delivery" onClick={addNewLine}>
@@ -298,16 +510,54 @@ function ContainerDetail() {
             <tbody>
               <tr>
                 <td>
-                  <input type="text" placeholder="세부항목" />
+                  <p>FBW 사용료</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단위" />
+                  <p>월</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="단가" />
+                  <p>무료</p>
                 </td>
                 <td>
-                  <input type="text" placeholder="비고" />
+                  <p></p>
+                </td>
+                {/* <td>
+                  <button id="other" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>박스</p>
+                </td>
+                <td>
+                  <p>1호</p>
+                </td>
+                <td>
+                  <p>200</p>
+                </td>
+                <td>
+                  <p>18x12x8</p>
+                </td>
+                {/* <td>
+                  <button id="other" onClick={addNewLine}>
+                    +
+                  </button>
+                </td> */}
+              </tr>
+              <tr>
+                <td>
+                  <p>에어캡</p>
+                </td>
+                <td>
+                  <p>Roll</p>
+                </td>
+                <td>
+                  <p>5,000</p>
+                </td>
+                <td>
+                  <p>50x50</p>
                 </td>
                 {/* <td>
                   <button id="other" onClick={addNewLine}>
@@ -362,7 +612,7 @@ function ContainerDetail() {
         <p className="title">
           <FontAwesomeIcon icon={faChalkboardTeacher} /> 부가 설명
         </p>
-        <textarea placeholder="내용을 입력해주세요" />
+        <textarea value="교통이 편리한 위치에 있어 입출고가 수월합니다." placeholder="내용을 입력해주세요" />
       </div>
       <div className="container-detail-mainstyle">
         <p className="title">

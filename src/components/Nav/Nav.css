@@ -23,8 +23,9 @@
 }
 
 .nav .nav-left p {
+  font-family: 'Jua', sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 22px;
   color: #eee;
 }
 
@@ -39,11 +40,11 @@
   margin: 0 10px;
   text-decoration: none;
   font-weight: bold;
-  color: #5F99D7;
+  color: #eebb4d;
 }
 
 .nav .nav-right a:hover {
-  color: #15b7b9;
+  color: #eebb4d;
 }
 
 .nav .nav-right .box {
@@ -52,14 +53,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #5F99D7;
+  border: 2px solid #eebb4d;
   border-radius: 5px;
   transition: all 0.2s ease;
 }
 
 .nav .nav-right .box:hover {
-  background-color: #15b7b9;
-  border-color: #15b7b9;
+  background-color: #eebb4d;
+  border-color: #eebb4d;
   color: #fff;
 }
 
