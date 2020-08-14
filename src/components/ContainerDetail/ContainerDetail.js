@@ -187,7 +187,7 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                <th></th>
+                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -204,11 +204,11 @@ function ContainerDetail() {
                 <td>
                   <input type="text" placeholder="비고" />
                 </td>
-                <td>
+                {/* <td>
                   <button id="keeping" onClick={addNewLine}>
                     +
                   </button>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
@@ -222,7 +222,7 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                <th></th>
+                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -239,11 +239,11 @@ function ContainerDetail() {
                 <td>
                   <input type="text" placeholder="비고" />
                 </td>
-                <td>
+                {/* <td>
                   <button id="working" onClick={addNewLine}>
                     +
                   </button>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
@@ -257,7 +257,7 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                <th></th>
+                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -274,11 +274,11 @@ function ContainerDetail() {
                 <td>
                   <input type="text" placeholder="비고" />
                 </td>
-                <td>
+                {/* <td>
                   <button id="delivery" onClick={addNewLine}>
                     +
                   </button>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
@@ -292,7 +292,7 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                <th></th>
+                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -309,11 +309,11 @@ function ContainerDetail() {
                 <td>
                   <input type="text" placeholder="비고" />
                 </td>
-                <td>
+                {/* <td>
                   <button id="other" onClick={addNewLine}>
                     +
                   </button>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
