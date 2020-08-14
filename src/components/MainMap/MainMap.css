@@ -1,8 +1,23 @@
-.map {
+#map {
   width: 60%;
   height: calc(100vh - 60px);
   position: relative;
   top: 60px;
+}
+
+#cluster {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fa163f;
+  opacity: 0.8;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
 .container-marker {

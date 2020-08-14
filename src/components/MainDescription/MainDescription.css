@@ -43,6 +43,16 @@
 }
 
 .description .item-name li p {
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: 18px;
+  color: #07689f;
+}
+
+.description .item-name li .content-list li {
+  padding: 6px 40px;
+  list-style-type: square;
+  list-style-position : inside;
   text-align: left;
   font-size: 18px;
 }
@@ -125,7 +135,7 @@
 
   .description .item-name li {
     width: 500px;
-    margin: 50px 0;
+    margin: 20px 0;
   }
 
   .description .detail .detail-name .detail-item .detail-content h1 {

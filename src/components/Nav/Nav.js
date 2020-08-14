@@ -28,7 +28,7 @@ function Nav({type}) {
   return <div className="nav">
     <div className="nav-left">
       {/* <img src={logo} alt="logo" /> */}
-      <p>Where House logo</p>
+      <p>반 창 고</p>
     </div>
     <div className="nav-right">
       <FontAwesomeIcon icon={faBars} color="#5F99D7" />

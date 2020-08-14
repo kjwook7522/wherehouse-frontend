@@ -1,0 +1,79 @@
+.container-info {
+  width: 1000px;
+  margin: 20px auto;
+  margin-top: 80px;
+  padding: 20px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.07);
+}
+
+.container-info .container-info-wrapper {
+  display: flex;
+}
+
+.container-info .container-info-wrapper .title {
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #444;
+}
+
+.container-info .container-info-wrapper .container-info-main {
+  flex: 5;
+  margin-right: 50px;
+}
+
+
+.container-info .container-info-wrapper .container-info-main img  {
+  width: 180px;
+  height: 130px;
+}
+
+.container-info .container-info-wrapper .container-info-main .container-description {
+  padding: 30px 0;
+}
+
+.container-info .container-info-wrapper .container-info-main .container-description h1 {
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  font-size: 20px;
+  color: #EFA34E;
+}
+
+.container-info .container-info-wrapper .container-info-main .container-description p {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+
+.container-info .container-info-wrapper .container-info-img {
+  flex: 3;
+}
+
+.container-info .container-info-wrapper .container-info-img img {
+  width: 100%;
+}
+
+.container-info .container-info-btn-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px 0;
+}
+
+.container-info .container-info-btn-wrapper button {
+  width: 250px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #EFA34E;
+  font-size: 18px;
+  color: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.container-info .container-info-btn-wrapper button:hover {
+  transform: translateZ(0) scale(0.98);
+}
