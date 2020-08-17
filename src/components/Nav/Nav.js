@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Nav.css';
+import { Link } from 'react-router-dom';
 // import logo from '../../images/logo_cut.png'
 
 function Nav({type}) {
@@ -34,7 +35,7 @@ function Nav({type}) {
       <FontAwesomeIcon icon={faBars} color="#5F99D7" />
       <a className="box" href="/">창고등록하기</a>
       <a href="/">ABOUT US</a>
-      <a href="/">회원가입</a>
+      <Link to="/join">회원가입</Link>
       <a href="/">로그인</a>
     </div>
   </div>

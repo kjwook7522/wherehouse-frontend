@@ -9,3 +9,4 @@ export { default as ContainerItem } from './ContainerItem/ContainerItem';
 export { default as ContainerInfo } from './ContainerInfo/ContainerInfo';
 export { default as ContainerDetail } from './ContainerDetail/ContainerDetail';
 export { default as ContainerRating } from './ContainerRating/ContainerRating';
+export { default as Banner} from './Banner/Banner';

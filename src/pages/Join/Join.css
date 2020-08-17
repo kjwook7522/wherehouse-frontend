@@ -1,0 +1,111 @@
+#join {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e3e3;
+}
+
+#join .header {
+  width: 600px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#join .header img {
+  width: 250px;
+  height: 110px;
+}
+
+#join .content {
+  width: 600px;
+  margin-bottom: 60px;
+}
+
+#join .content .join-type-selector {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#join .content .join-type-selector button {
+  width: 160px;
+  height: 70px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+}
+
+#join .content .join-input-wrapper {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+#join .content .join-input-wrapper h1 {
+  position: relative;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#join .content .join-input-wrapper h1::before {
+  content: '';
+  width: 80px;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 2px solid #91d18b;
+}
+
+#join .content .join-input-wrapper .join-form {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#join .content .join-input-wrapper .join-form input {
+  width: 350px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #444;
+}
+
+#join .content .join-input-wrapper .join-form input:focus {
+  outline: none;
+  border-color: #91d18b;
+}
+
+#join .content .join-input-wrapper button {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #91d18b;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#join .content .join-input-wrapper button:hover {
+  transform: translateZ(0) scale(0.98);
+}
