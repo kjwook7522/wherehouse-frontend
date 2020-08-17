@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Slider } from 'antd';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { Slider } from 'antd';
 import './ContainerFilter.css';
 
 function ContainerFilter() {

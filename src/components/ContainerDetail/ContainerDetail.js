@@ -26,32 +26,32 @@ import {
   faCouch,
   faTree,
 } from "@fortawesome/free-solid-svg-icons";
-import { TimePicker } from "antd";
+// import { TimePicker } from "antd";
 import "./ContainerDetail.css";
 
 function ContainerDetail() {
-  const activeIcon = e => {
-    const pallet = document.getElementById("pallet-icon");
-    const box = document.getElementById("box-icon");
-    const special = document.getElementById("special-icon");
-    const iconBtns = [pallet, box, special];
+  // const activeIcon = e => {
+  //   const pallet = document.getElementById("pallet-icon");
+  //   const box = document.getElementById("box-icon");
+  //   const special = document.getElementById("special-icon");
+  //   const iconBtns = [pallet, box, special];
 
-    iconBtns.forEach(btn => {
-      btn.classList.remove("active");
-    });
+  //   iconBtns.forEach(btn => {
+  //     btn.classList.remove("active");
+  //   });
 
-    e.currentTarget.classList.add("active");
-  };
+  //   e.currentTarget.classList.add("active");
+  // };
 
-  const activeDay = e => {
-    const dayBtn = e.currentTarget;
+  // const activeDay = e => {
+  //   const dayBtn = e.currentTarget;
 
-    if (dayBtn.classList.contains("active")) {
-      dayBtn.classList.remove("active");
-    } else {
-      dayBtn.classList.add("active");
-    }
-  };
+  //   if (dayBtn.classList.contains("active")) {
+  //     dayBtn.classList.remove("active");
+  //   } else {
+  //     dayBtn.classList.add("active");
+  //   }
+  // };
 
   const makeList = () => {
     const tr = document.createElement("tr");
