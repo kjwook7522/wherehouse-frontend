@@ -1,0 +1,10 @@
+#banner {
+  width: 100%;
+  background-color: rosybrown;
+}
+
+#banner img {
+  width: 100%;
+  height: 20vw;
+  cursor: pointer;
+}
