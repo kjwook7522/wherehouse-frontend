@@ -3,10 +3,15 @@ import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Nav.css';
+import { message } from 'antd';
 import { Link } from 'react-router-dom';
 // import logo from '../../images/logo_cut.png'
 
 function Nav({type}) {
+  const warningMessage = () => {
+    message.warning('아직 준비중입니다.');
+  };
+
   useEffect(() => {
     // change nav bg color by scroll
     const navBar = document.querySelector('.nav');
@@ -29,14 +34,14 @@ function Nav({type}) {
   return <div className="nav">
     <div className="nav-left">
       {/* <img src={logo} alt="logo" /> */}
-      <p>창고중개플랫폼 반창고</p>
+      <a href="/">창고중개플랫폼 반창고</a>
     </div>
     <div className="nav-right">
-      <FontAwesomeIcon icon={faBars} color="#5F99D7" />
-      <a className="box" href="/">창고등록하기</a>
-      <a href="/">ABOUT US</a>
+      <FontAwesomeIcon icon={faBars} color="#eebb4d" />
+      <a onClick={warningMessage} className="box">창고등록하기</a>
+      <a onClick={warningMessage}>ABOUT US</a>
       <Link to="/join">회원가입</Link>
-      <a href="/">로그인</a>
+      <a onClick={warningMessage}>로그인</a>
     </div>
   </div>
 }

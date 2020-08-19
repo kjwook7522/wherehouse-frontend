@@ -1,12 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { message } from 'antd';
 import './MainSearch.css';
 
 function MainSearch() {
-  const warningMessage = () => {
-    message.warning('아직 준비중입니다.');
-  };
 
   const gotoTypeform = () => {
     window.location.href = 'https://wherehouse2020.typeform.com/to/pBzRXCWE';
