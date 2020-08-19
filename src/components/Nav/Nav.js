@@ -41,7 +41,7 @@ function Nav({type}) {
       <a onClick={warningMessage} className="box">창고등록하기</a>
       <a onClick={warningMessage}>ABOUT US</a>
       <Link to="/join">회원가입</Link>
-      <a onClick={warningMessage}>로그인</a>
+      <Link to="/login">로그인</Link>
     </div>
   </div>
 }

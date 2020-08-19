@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { Main, Site, Container, Join } from 'pages';
+import { Main, Site, Container, Join, Login } from 'pages';
 import AOS from 'aos';
 import AXIOS from 'axios';
 import './App.css';
@@ -16,6 +16,7 @@ function App() {
         <Route path="/site" component={Site} />
         <Route path="/container/:id" component={Container} />
         <Route path="/join" component={Join} />
+        <Route path="/login" component={Login} />
         <Redirect path="*" to="/" />
       </Switch>
     </BrowserRouter>
