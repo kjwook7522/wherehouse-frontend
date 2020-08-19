@@ -94,7 +94,7 @@
   border-color: #91d18b;
 }
 
-#join .content .join-input-wrapper button {
+#join .content .join-input-wrapper .join-form button {
   width: 150px;
   height: 50px;
   border: none;
@@ -105,8 +105,13 @@
   transition: all 0.2s ease;
 }
 
-#join .content .join-input-wrapper button:hover {
+#join .content .join-input-wrapper .join-form button:hover {
   transform: translateZ(0) scale(0.98);
+}
+
+#join #confirm-section {
+  width: 350px;
+  height: 30px;
 }
 
 @media (max-width: 767px) {
@@ -123,6 +128,10 @@
   }
 
   #join .content .join-input-wrapper .join-form input {
+    width: 90%;
+  }
+
+  #join #confirm-section {
     width: 90%;
   }
 }
