@@ -13,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 #join .header img {
@@ -63,7 +62,7 @@
 }
 
 #join .content .join-input-wrapper h1::before {
-  content: '';
+  content: "";
   width: 80px;
   position: absolute;
   bottom: -5px;
@@ -108,4 +107,22 @@
 
 #join .content .join-input-wrapper button:hover {
   transform: translateZ(0) scale(0.98);
+}
+
+@media (max-width: 767px) {
+  #join .header {
+    width: 90%;
+  }
+
+  #join .content {
+    width: 90%;
+  }
+
+  #join .content .join-input-wrapper .join-form {
+    width: 100%;
+  }
+
+  #join .content .join-input-wrapper .join-form input {
+    width: 90%;
+  }
 }

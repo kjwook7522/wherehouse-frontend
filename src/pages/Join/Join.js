@@ -6,71 +6,67 @@ function Join() {
   //***** select type *****//
   const shipper = "shipper";
   const owner = "owner";
-  const [type, setType] = useState(shipper);
-  let shipperStyle, ownerStyle;
-
-  if (type === shipper) {
-    shipperStyle = {
-      backgroundColor: "#91d18b",
-      color: "#fff",
-    };
-    ownerStyle = {
-      backgroundColor: "#fff",
-      color: "#333",
-    };
-  } else if (type === owner) {
-    shipperStyle = {
-      backgroundColor: "#fff",
-      color: "#333",
-    };
-    ownerStyle = {
-      backgroundColor: "#91d18b",
-      color: "#fff",
-    };
-  } else {
-    shipperStyle = {
-      backgroundColor: "#fff",
-      color: "#333",
-    };
-    ownerStyle = {
-      backgroundColor: "#fff",
-      color: "#333",
-    };
-  }
+  const activeStyle = {
+    backgroundColor: "#91d18b",
+    color: "#fff",
+  };
+  const noneacticeStyle = {
+    backgroundColor: "#fff",
+    color: "#333",
+  };
+  const [type, setType] = useState({
+    name: shipper,
+    shipperStyle: activeStyle,
+    ownerStyle: noneacticeStyle,
+  });
 
   const changeOwnerType = () => {
-    setType(owner);
+    setType({
+      name: owner,
+      shipperStyle: noneacticeStyle,
+      ownerStyle: activeStyle,
+    });
   };
   const changeShipperType = () => {
-    setType(shipper);
+    setType({
+      name: shipper,
+      shipperStyle: activeStyle,
+      ownerStyle: noneacticeStyle,
+    });
   };
   //**************************//
 
   //********* input **********//
-  let name, email, password, passwordConfirm, telephone, phone, company;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [telephone, setTelephone] = useState("");
+  const [phone, setPhone] = useState("");
+  const [company, setCompany] = useState("");
 
   const handelInput = e => {
     switch (e.target.name) {
       case "name":
-        name = e.target.value;
+        setName(e.target.value);
         return;
       case "email":
-        email = e.target.value;
+        setEmail(e.target.value);
         return;
       case "password":
-        password = e.target.value;
+        setPassword(e.target.value);
         return;
       case "password-confirm":
-        passwordConfirm = e.target.value;
+        setPasswordConfirm(e.target.value);
         return;
       case "telephone":
-        telephone = e.target.value;
+        setTelephone(e.target.value);
         return;
       case "phone":
-        phone = e.target.value;
+        setPhone(e.target.value);
         return;
       case "company":
-        company = e.target.value;
+        setCompany(e.target.value);
         return;
       default:
         return;
@@ -78,7 +74,8 @@ function Join() {
   };
 
   const submitInput = () => {
-    console.log(name, email, password, passwordConfirm, telephone, phone, company, type);
+    console.log(name, email, password, passwordConfirm, telephone, phone, company, type.name);
+    // write api
   };
 
   return (
@@ -88,10 +85,10 @@ function Join() {
       </div>
       <div className="content">
         <div className="join-type-selector">
-          <button onClick={changeShipperType} style={shipperStyle}>
+          <button onClick={changeShipperType} style={type.shipperStyle}>
             화주
           </button>
-          <button onClick={changeOwnerType} style={ownerStyle}>
+          <button onClick={changeOwnerType} style={type.ownerStyle}>
             창고주
           </button>
         </div>
