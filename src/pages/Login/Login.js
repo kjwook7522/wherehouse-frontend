@@ -29,10 +29,19 @@ function Login() {
       password: hashCode,
     };
 
+    if (!checkEmail(email)) {
+      alert("이메일 형식이 올바르지 못합니다.");
+      return;
+    }
+
     axios
       .post("/auth/sign-in", body)
       .then(res => {
-        alert(`${res.data.user.name}님 환영합니다.`)
+        alert(`${res.data.user.name}님 환영합니다.`);
+        saveToken({
+          accessToken: res.data.accessToken,
+          refreshToken: res.data.refreshToken,
+        });
         window.location.replace("/");
       })
       .catch(error => {
@@ -45,12 +54,27 @@ function Login() {
       });
   };
 
+  const checkEmail = email => {
+    let form = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if (form.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const saveToken = tokenSet => {
+    localStorage.setItem("AccessToken", tokenSet.accessToken);
+    localStorage.setItem("RefreshToken", tokenSet.refreshToken);
+    localStorage.setItem("logined", true)
+  };
+
   return (
     <div id="login">
       <h1>임시 로그인 확인</h1>
       <form onSubmit={handleSubmit} className="login-form">
-        <input name="email" type="email" placeholder="이메일" onChange={handleInput} />
-        <input name="password" type="password" placeholder="비밀번호" onChange={handleInput} />
+        <input name="email" type="email" placeholder="이메일" onChange={handleInput} required />
+        <input name="password" type="password" placeholder="비밀번호" onChange={handleInput} required />
         <button>로그인</button>
       </form>
     </div>
