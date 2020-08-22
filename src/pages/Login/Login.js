@@ -66,17 +66,31 @@ function Login() {
   const saveToken = tokenSet => {
     localStorage.setItem("AccessToken", tokenSet.accessToken);
     localStorage.setItem("RefreshToken", tokenSet.refreshToken);
-    localStorage.setItem("logined", true)
+    localStorage.setItem("logined", true);
   };
 
   return (
     <div id="login">
-      <h1>임시 로그인 확인</h1>
+      <div className="header">
+        <img src="/join-logo.png" alt="logo" />
+      </div>
+      <div className="content">
+        <div className="login-input-wrapper">
+          <h1>로그인</h1>
+          <form onSubmit={handleSubmit} className="login-form">
+            <input name="email" type="email" placeholder="이메일" onChange={handleInput} required />
+            <input name="password" type="password" placeholder="비밀번호" onChange={handleInput} required />
+            <button>로그인</button>
+          </form>
+        </div>
+      </div>
+
+      {/* <h1>임시 로그인 확인</h1>
       <form onSubmit={handleSubmit} className="login-form">
         <input name="email" type="email" placeholder="이메일" onChange={handleInput} required />
         <input name="password" type="password" placeholder="비밀번호" onChange={handleInput} required />
         <button>로그인</button>
-      </form>
+      </form> */}
     </div>
   );
 }
