@@ -1,86 +1,63 @@
 import React from 'react';
-import { useEffect } from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 // import { NaverMap, Marker } from 'react-naver-maps';
 import './MainMap.css';
 
 function MainMap() {
   const navermaps = window.naver.maps;
-  let map = null;
-  let markerList = [];
+  const [map, setMap] = useState(null);
+  const [warehouses, setWarehouses] = useState([]);
 
   useEffect(() => {
-    let map = new navermaps.Map('map', {
+    const nmap = new navermaps.Map('map', {
       center: new navermaps.LatLng(37.4566526, 126.705052),
-      zoom: 12
+      zoom: 8
     });
+    setMap(nmap);
+  }, [])
 
-    let marker1 = new navermaps.Marker({
-      title: 'Incheon',
-      position: new navermaps.LatLng(37.4539743, 126.6247733),
-      map: map,
-      icon: { content: [
-        '<div class="container-marker">',
-        '</div>'
-        ].join(''),
-        size: navermaps.Size(30, 30) }
-    });
-    let marker2 = new navermaps.Marker({
-      title: 'Incheon',
-      position: new navermaps.LatLng(37.4484467, 126.655901),
-      map: map,
-      icon: { content: [
-        '<div class="container-marker">',
-        '</div>'
-        ].join(''),
-        size: navermaps.Size(30, 30) }
-    });
-    let marker3 = new navermaps.Marker({
-      title: 'Incheon',
-      position: new navermaps.LatLng(37.4975267, 126.671185),
-      map: map,
-      icon: { content: [
-        '<div class="container-marker">',
-        '</div>'
-        ].join(''),
-        size: navermaps.Size(30, 30) }
-    });
-    let marker4 = new navermaps.Marker({
-      title: 'Incheon',
-      position: new navermaps.LatLng(37.463935, 126.629335),
-      map: map,
-      icon: { content: [
-        '<div class="container-marker">',
-        '</div>'
-        ].join(''),
-        size: navermaps.Size(30, 30) }
-    });
-    markerList.push(marker1, marker2, marker3, marker4);
+  useEffect(() => {
+    let markerList = [];
+    warehouses.forEach(warehouse => {
+      console.log(warehouse);
+      const marker = new navermaps.Marker({
+        title: warehouse.name,
+        position: new navermaps.LatLng(warehouse.location.latitude, warehouse.location.longitude),
+        map: map,
+        icon: { content: [
+          '<div class="container-marker">',
+          '</div>'
+          ].join(''),
+          size: navermaps.Size(30, 30) }
+      });
 
-    const contentString = `
-      <div class='info-window'>
-        <h1>창고 제목</h1>
-        <p>주소: 서울특별시 동작구 상도로 369</p>
-      </div>
-    `
+      const contentString = `
+        <div class='info-window'>
+          <h1>${warehouse.name}</h1>
+          <p>주소: 서울특별시 동작구 상도로 369</p>
+        </div>
+      `;
 
-    let infowindow = new navermaps.InfoWindow({
-      content: contentString,
-      maxWidth: 300,
-      disableAnchor: true,
-      borderWidth: 0,
-      backgroundColor: 'transparent',
-      pixelOffset: new navermaps.Point(0, -20)
-    })
+      const infowindow = new navermaps.InfoWindow({
+        content: contentString,
+        maxWidth: 300,
+        disableAnchor: true,
+        borderWidth: 0,
+        backgroundColor: 'transparent',
+        pixelOffset: new navermaps.Point(0, -20)
+      });
 
-    markerList.forEach(marker => {
       navermaps.Event.addListener(marker, 'click', e => {
         if (infowindow.getMap()) {
           infowindow.close();
         } else {
-            infowindow.open(map, marker);
+          infowindow.open(map, marker);
         }
-      })
-    })
+      });
+
+      markerList.push(marker)
+    });
 
     let htmlMarker1 = {
       content: '<div id="cluster"></div>',
@@ -101,10 +78,24 @@ function MainMap() {
         // $(clusterMarker.getElement()).find('div:first-child').text(count);
         clusterMarker.getElement().firstChild.innerText = count;
         // document.getElementById('map').firstChild
-    }
+      }
     });
+  }, [warehouses, navermaps])
 
-  }, [])
+  useEffect(() => {
+    if (map === null) return;
+    // get warehouse list //
+    axios
+      .get('/warehouses')
+      .then(res => {
+        setWarehouses(res.data.warehouses);
+      })
+      .catch(error => {
+        throw error;
+      });
+
+    ////////////////////////
+  }, [map]);
 
   return <div id='map'>
     {/* <NaverMap
