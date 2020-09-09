@@ -18,9 +18,23 @@ function MainMap() {
   }, [])
 
   useEffect(() => {
+    if (map === null) return;
+    // get warehouse list //
+    axios
+      .get('/warehouses')
+      .then(res => {
+        setWarehouses(res.data.warehouses);
+      })
+      .catch(error => {
+        throw error;
+      });
+
+    ////////////////////////
+  }, [map]);
+
+  useEffect(() => {
     let markerList = [];
     warehouses.forEach(warehouse => {
-      console.log(warehouse);
       const marker = new navermaps.Marker({
         title: warehouse.name,
         position: new navermaps.LatLng(warehouse.location.latitude, warehouse.location.longitude),
@@ -35,7 +49,7 @@ function MainMap() {
       const contentString = `
         <div class='info-window'>
           <h1>${warehouse.name}</h1>
-          <p>주소: 서울특별시 동작구 상도로 369</p>
+          <p>주소: ${warehouse.address}</p>
         </div>
       `;
 
@@ -80,22 +94,7 @@ function MainMap() {
         // document.getElementById('map').firstChild
       }
     });
-  }, [warehouses, navermaps])
-
-  useEffect(() => {
-    if (map === null) return;
-    // get warehouse list //
-    axios
-      .get('/warehouses')
-      .then(res => {
-        setWarehouses(res.data.warehouses);
-      })
-      .catch(error => {
-        throw error;
-      });
-
-    ////////////////////////
-  }, [map]);
+  }, [warehouses])
 
   return <div id='map'>
     {/* <NaverMap
