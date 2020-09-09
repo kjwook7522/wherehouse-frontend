@@ -26,33 +26,9 @@ import {
   faCouch,
   faTree,
 } from "@fortawesome/free-solid-svg-icons";
-// import { TimePicker } from "antd";
 import "./ContainerDetail.css";
 
 function ContainerDetail() {
-  // const activeIcon = e => {
-  //   const pallet = document.getElementById("pallet-icon");
-  //   const box = document.getElementById("box-icon");
-  //   const special = document.getElementById("special-icon");
-  //   const iconBtns = [pallet, box, special];
-
-  //   iconBtns.forEach(btn => {
-  //     btn.classList.remove("active");
-  //   });
-
-  //   e.currentTarget.classList.add("active");
-  // };
-
-  // const activeDay = e => {
-  //   const dayBtn = e.currentTarget;
-
-  //   if (dayBtn.classList.contains("active")) {
-  //     dayBtn.classList.remove("active");
-  //   } else {
-  //     dayBtn.classList.add("active");
-  //   }
-  // };
-
   const makeList = () => {
     const tr = document.createElement("tr");
     const list = ["세부항목", "단위", "단가", "비고"];
@@ -122,59 +98,22 @@ function ContainerDetail() {
           <h1 className="subtitle">보관 형태</h1>
           <div className="keeping-type-icons">
             <div className="icon-button">
-              {/* <FontAwesomeIcon id="pallet-icon" icon={faPallet} onClick={activeIcon} /> */}
               <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#5F99D7" />
               <br />
               <p>팔레트</p>
             </div>
             <div className="icon-button">
-              {/* <FontAwesomeIcon id="box-icon" icon={faBoxOpen} onClick={activeIcon} /> */}
               <FontAwesomeIcon id="box-icon" icon={faBoxOpen} />
               <br />
               <p>박스</p>
             </div>
             <div className="icon-button">
-              {/* <FontAwesomeIcon id="special-icon" icon={faTruckLoading} onClick={activeIcon} /> */}
               <FontAwesomeIcon id="special-icon" icon={faTruckLoading} />
               <br />
               <p>특수물품</p>
             </div>
           </div>
         </div>
-        {/* <div className="running-day">
-          <h1 className="subtitle">운영 요일</h1>
-          <div className="select-day">
-            <span className="day" onClick={activeDay}>
-              월
-            </span>
-            <span className="day" onClick={activeDay}>
-              화
-            </span>
-            <span className="day" onClick={activeDay}>
-              수
-            </span>
-            <span className="day" onClick={activeDay}>
-              목
-            </span>
-            <span className="day" onClick={activeDay}>
-              금
-            </span>
-            <span className="day" onClick={activeDay}>
-              토
-            </span>
-            <span className="day" onClick={activeDay}>
-              일
-            </span>
-          </div>
-        </div>
-        <div className="running-time">
-          <h1 className="subtitle">운영 시간</h1>
-          <div className="select-time">
-            <TimePicker className="time-picker" use12Hours format="hh:mm a" minuteStep={10} placeholder="시작 시간" />
-            ~
-            <TimePicker className="time-picker" use12Hours format="hh:mm a" minuteStep={10} placeholder="종료 시간" />
-          </div>
-        </div> */}
       </div>
 
       <div className="container-detail-payment">
@@ -190,7 +129,6 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -207,11 +145,6 @@ function ContainerDetail() {
                 <td>
                   <p>1100x1100x1500</p>
                 </td>
-                {/* <td>
-                  <button id="keeping" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -226,11 +159,6 @@ function ContainerDetail() {
                 <td>
                   <p>1800x1200x4단</p>
                 </td>
-                {/* <td>
-                  <button id="keeping" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
             </tbody>
           </table>
@@ -244,7 +172,6 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -261,11 +188,6 @@ function ContainerDetail() {
                 <td>
                   <p>개당/코드미부착 50원</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -280,11 +202,6 @@ function ContainerDetail() {
                 <td>
                   <p>개당</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -299,11 +216,6 @@ function ContainerDetail() {
                 <td>
                   <p>개당/입고 및 부착</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -318,11 +230,6 @@ function ContainerDetail() {
                 <td>
                   <p>개당</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -337,11 +244,6 @@ function ContainerDetail() {
                 <td>
                   <p>개당/건당</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -356,11 +258,6 @@ function ContainerDetail() {
                 <td>
                   <p>의류양품</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -375,11 +272,6 @@ function ContainerDetail() {
                 <td>
                   <p>박스당</p>
                 </td>
-                {/* <td>
-                  <button id="working" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
             </tbody>
           </table>
@@ -393,7 +285,6 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -410,11 +301,6 @@ function ContainerDetail() {
                 <td>
                   <p>~80cm/2kg</p>
                 </td>
-                {/* <td>
-                  <button id="delivery" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -429,11 +315,6 @@ function ContainerDetail() {
                 <td>
                   <p>~100cm/5kg</p>
                 </td>
-                {/* <td>
-                  <button id="delivery" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -448,11 +329,6 @@ function ContainerDetail() {
                 <td>
                   <p>~120cm/15kg</p>
                 </td>
-                {/* <td>
-                  <button id="delivery" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -467,11 +343,6 @@ function ContainerDetail() {
                 <td>
                   <p>~160cm/25kg</p>
                 </td>
-                {/* <td>
-                  <button id="delivery" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -486,11 +357,6 @@ function ContainerDetail() {
                 <td>
                   <p>~190cm/25kg</p>
                 </td>
-                {/* <td>
-                  <button id="delivery" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
             </tbody>
           </table>
@@ -504,7 +370,6 @@ function ContainerDetail() {
                 <th>단위</th>
                 <th>단가</th>
                 <th>비고(수량 또는 크기)</th>
-                {/* <th></th> */}
               </tr>
             </thead>
             <tbody>
@@ -521,11 +386,6 @@ function ContainerDetail() {
                 <td>
                   <p></p>
                 </td>
-                {/* <td>
-                  <button id="other" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -540,11 +400,6 @@ function ContainerDetail() {
                 <td>
                   <p>18x12x8</p>
                 </td>
-                {/* <td>
-                  <button id="other" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
               <tr>
                 <td>
@@ -559,11 +414,6 @@ function ContainerDetail() {
                 <td>
                   <p>50x50</p>
                 </td>
-                {/* <td>
-                  <button id="other" onClick={addNewLine}>
-                    +
-                  </button>
-                </td> */}
               </tr>
             </tbody>
           </table>
@@ -612,7 +462,7 @@ function ContainerDetail() {
         <p className="title">
           <FontAwesomeIcon icon={faChalkboardTeacher} /> 부가 설명
         </p>
-        <textarea value="교통이 편리한 위치에 있어 입출고가 수월합니다." placeholder="내용을 입력해주세요" />
+        <textarea readOnly value="교통이 편리한 위치에 있어 입출고가 수월합니다." />
       </div>
       <div className="container-detail-mainstyle">
         <p className="title">

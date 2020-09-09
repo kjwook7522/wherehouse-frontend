@@ -4,14 +4,14 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
 import './ContainerInfo.css';
 
-function ContainerInfo({ containerid }) {
+function ContainerInfo({ info }) {
   let mapImage = {
     naverMapUrl: 'https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?',
     apiKey: 'f4fm9664il',
     width: 600,
     height: 600,
-    lat: 37.49647708,
-    lon: 126.95684702,
+    lat: info.location?.latitude,
+    lon: info.location?.longitude,
     level: 15,
     markerType: 'd',
     markerSize: 'small'
@@ -30,11 +30,11 @@ function ContainerInfo({ containerid }) {
         {imageList.map((img, index) => <img key={index} src={'/asset/images/preview-image/' + img} alt='imageList' />)}
         <div className='container-description'>
           <h1>창고명</h1>
-          <p>숭실대 창고</p>
+          <p>{info.title}</p>
           <h1>창고 주소</h1>
-          <p>서울특별시 동작구 상도로 369</p>
+          <p>{info.address}</p>
           <h1>창고 유형</h1>
-          <p>풀필먼트</p>
+          <p>{info.type}</p>
         </div>
       </div>
       <div className='container-info-img'>

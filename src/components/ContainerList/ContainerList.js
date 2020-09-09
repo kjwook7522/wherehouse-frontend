@@ -14,7 +14,7 @@ function ContainerList() {
     rate: 3.5,
   }
   let item2 = {
-    id: 2,
+    id: 4,
     title: '화물 선박 창고',
     location: '서울특별시 동작구 상도로 369',
     imgName: 'sample_preview2.jpg',
@@ -23,7 +23,7 @@ function ContainerList() {
     rate: 4.5,
   }
   let item3 = {
-    id: 3,
+    id: 5,
     title: '해상 거치 창고',
     location: '서울특별시 동작구 상도로 369',
     imgName: 'sample_preview3.jpg',
