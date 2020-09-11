@@ -90,32 +90,46 @@ function ContainerDetail() {
 
   return (
     <div className="container-detail">
-      <div className="container-detail-info">
+      <div className="container-detail-mainstyle">
         <p className="title">
-          <FontAwesomeIcon icon={faInfoCircle} /> 창고 상세정보
+          <FontAwesomeIcon icon={faBoxes} /> 주요 담당 품목
         </p>
-        <div className="keeping-type">
-          <h1 className="subtitle">보관 형태</h1>
-          <div className="keeping-type-icons">
-            <div className="icon-button">
-              <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#5F99D7" />
-              <br />
-              <p>팔레트</p>
-            </div>
-            <div className="icon-button">
-              <FontAwesomeIcon id="box-icon" icon={faBoxOpen} />
-              <br />
-              <p>박스</p>
-            </div>
-            <div className="icon-button">
-              <FontAwesomeIcon id="special-icon" icon={faTruckLoading} />
-              <br />
-              <p>특수물품</p>
-            </div>
+        <div className="mainstyle-icons">
+          <div className="icon">
+            <FontAwesomeIcon icon={faTshirt} />
+            <p>의료 물품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faUtensils} color="#5F99D7" />
+            <p>식료품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faGem} color="#5F99D7" />
+            <p>악세서리</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faMobileAlt} color="#5F99D7" />
+            <p>전자기기</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faSoap} />
+            <p>화장품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faCogs} color="#5F99D7" />
+            <p>부품</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faCouch} />
+            <p>가구</p>
+          </div>
+          <div className="icon">
+            <FontAwesomeIcon icon={faTree} />
+            <p>원자재</p>
           </div>
         </div>
       </div>
-
+      
       <div className="container-detail-payment">
         <p className="title">
           <FontAwesomeIcon icon={faMoneyCheckAlt} /> 이용 비용
@@ -464,42 +478,29 @@ function ContainerDetail() {
         </p>
         <textarea readOnly value="교통이 편리한 위치에 있어 입출고가 수월합니다." />
       </div>
-      <div className="container-detail-mainstyle">
+
+      <div className="container-detail-info">
         <p className="title">
-          <FontAwesomeIcon icon={faBoxes} /> 주요 담당 품목
+          <FontAwesomeIcon icon={faInfoCircle} /> 창고 상세정보
         </p>
-        <div className="mainstyle-icons">
-          <div className="icon">
-            <FontAwesomeIcon icon={faTshirt} />
-            <p>의료 물품</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faUtensils} color="#5F99D7" />
-            <p>식료품</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faGem} color="#5F99D7" />
-            <p>악세서리</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faMobileAlt} color="#5F99D7" />
-            <p>전자기기</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faSoap} />
-            <p>화장품</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faCogs} color="#5F99D7" />
-            <p>부품</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faCouch} />
-            <p>가구</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faTree} />
-            <p>원자재</p>
+        <div className="keeping-type">
+          <h1 className="subtitle">보관 형태</h1>
+          <div className="keeping-type-icons">
+            <div className="icon-button">
+              <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#5F99D7" />
+              <br />
+              <p>팔레트</p>
+            </div>
+            <div className="icon-button">
+              <FontAwesomeIcon id="box-icon" icon={faBoxOpen} />
+              <br />
+              <p>박스</p>
+            </div>
+            <div className="icon-button">
+              <FontAwesomeIcon id="special-icon" icon={faTruckLoading} />
+              <br />
+              <p>특수물품</p>
+            </div>
           </div>
         </div>
       </div>

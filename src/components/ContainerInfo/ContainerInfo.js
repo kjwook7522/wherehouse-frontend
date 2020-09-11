@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
+import { message } from "antd";
 import './ContainerInfo.css';
 
 function ContainerInfo({ info }) {
@@ -23,6 +24,10 @@ function ContainerInfo({ info }) {
                  mapImage.lon + ',' + mapImage.lat + '&level=' + mapImage.level + '&markers=type:' + mapImage.markerType + '|size:' +
                  mapImage.markerSize + '|pos:' + mapImage.lon + '%20' + mapImage.lat + '|viewSizeRatio:2.0&X-NCP-APIGW-API-KEY-ID=' + mapImage.apiKey;
 
+  const warningMessage = () => {
+    message.warning("아직 준비중입니다.");
+  };
+
   return <div className='container-info'>
     <div className='container-info-wrapper'>
       <div className='container-info-main'>
@@ -43,8 +48,8 @@ function ContainerInfo({ info }) {
       </div>
     </div>
     <div className='container-info-btn-wrapper'>
-      <button>견적 요청하기</button>
-      <button>미팅 요청하기</button>
+      <button onClick={warningMessage}>견적 요청하기</button>
+      <button onClick={warningMessage}>미팅 요청하기</button>
     </div>
   </div>
 }
