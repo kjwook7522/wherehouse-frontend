@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   AOS.init();
-  AXIOS.defaults.baseURL = "http://api.banchango.shop/v1";
+  AXIOS.defaults.baseURL = "https://api.banchango.shop/v1";
   
   return (
     <BrowserRouter>
