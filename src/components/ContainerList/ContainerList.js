@@ -31,11 +31,11 @@ function ContainerList() {
     size: 70,
     rate: 4.0,
   }
-  let itemList = [item1, item2, item3, item1, item2, item3];
+  let itemList = [item1, item2, item3];
 
   return <div className='container-list'>
     <ContainerFilter />
-    {itemList.map((item, index) => <Link to={'/container/' + item.id} key={index}><ContainerItem itemInfo={item} /></Link>)}
+    {itemList.map(item => <Link to={'/container/' + item.id} key={item.id}><ContainerItem itemInfo={item} /></Link>)}
   </div>
 }
 
