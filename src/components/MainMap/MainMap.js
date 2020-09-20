@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 // import { NaverMap, Marker } from 'react-naver-maps';
 import './MainMap.css';
 
-function MainMap() {
+function MainMap({ push }) {
   const navermaps = window.naver.maps;
   const [map, setMap] = useState(null);
   const [warehouses, setWarehouses] = useState([]);
@@ -47,11 +47,14 @@ function MainMap() {
       });
 
       const contentString = `
-        <div class='info-window'>
+        <div class='info-window'">
+          <img src="/asset/images/preview-image/sample_preview1.jpg" alt="preview" />
           <h1>${warehouse.name}</h1>
-          <p>주소: ${warehouse.address}</p>
+          <p>${warehouse.address}</p>
+          <button class="test">창고 보기</button>
         </div>
       `;
+      console.log(warehouse)
 
       const infowindow = new navermaps.InfoWindow({
         content: contentString,
@@ -67,8 +70,17 @@ function MainMap() {
           infowindow.close();
         } else {
           infowindow.open(map, marker);
+          document.querySelector(".test").addEventListener("click", () => {
+            push(`/container/${warehouse.id}`);
+          })
         }
       });
+
+      navermaps.Event.addListener(map, 'click', e => {
+        if (infowindow.getMap()) {
+          infowindow.close();
+        }
+      })
 
       markerList.push(marker)
     });

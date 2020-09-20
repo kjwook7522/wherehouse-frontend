@@ -31,14 +31,38 @@
 }
 
 .info-window {
-  width: 300px;
-  height: 70px;
+  width: 380px;
+  height: 140px;
   padding: 10px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
 }
 
+.info-window img {
+  width: 110px;
+  height: 80px;
+  margin-right: 20px;
+  float: left;
+}
+
 .info-window h1 {
   font-size: 20px;
+}
+
+.info-window button {
+  width: 360px;
+  height: 30px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #5F99D7;
+  clear: both;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-window button:hover {
+  transform: translateZ(0) scale(0.98);
 }
