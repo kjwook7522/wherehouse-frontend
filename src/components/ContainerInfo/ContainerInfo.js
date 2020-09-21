@@ -49,7 +49,7 @@ function ContainerInfo({ push, info }) {
       </div>
       <div className='container-info-img'>
         <p className='title'><FontAwesomeIcon icon={faMapMarkedAlt} /> 지도</p>
-        <img src={mapUrl} alt="창고 지도" />
+        <img src={info.id ? mapUrl : null} alt="창고 지도" />
       </div>
     </div>
     <div className='container-info-btn-wrapper'>
