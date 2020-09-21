@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 // import { NaverMap, Marker } from 'react-naver-maps';
 import './MainMap.css';
 
-function MainMap({ push }) {
+function MainMap({ push, searchValue }) {
   const navermaps = window.naver.maps;
   const [map, setMap] = useState(null);
   const [warehouses, setWarehouses] = useState([]);
@@ -12,7 +12,7 @@ function MainMap({ push }) {
   useEffect(() => {
     const nmap = new navermaps.Map('map', {
       center: new navermaps.LatLng(37.4566526, 126.705052),
-      zoom: 8
+      zoom: 12
     });
     setMap(nmap);
   }, [])
@@ -28,7 +28,8 @@ function MainMap({ push }) {
       .catch(error => {
         throw error;
       });
-
+    
+    searchAddress(searchValue);
     ////////////////////////
   }, [map]);
 
@@ -106,6 +107,41 @@ function MainMap({ push }) {
       }
     });
   }, [warehouses])
+
+  const searchAddress = address => {
+    navermaps.Service.geocode({
+      query: address
+    }, function(status, response) {
+      if (status === navermaps.Service.Status.ERROR) {
+        if (!address) {
+          return alert('Geocode Error, Please check address');
+        }
+        return alert('Geocode Error, address:' + address);
+      }
+  
+      if (response.v2.meta.totalCount === 0) {
+        return alert('찾으시는 주소가 없습니다');
+      }
+  
+      // let htmlAddresses = [];
+      let item = response.v2.addresses[0];
+      let point = new navermaps.Point(item.x, item.y);
+  
+      // if (item.roadAddress) {
+      //   htmlAddresses.push('[도로명 주소] ' + item.roadAddress);
+      // }
+  
+      // if (item.jibunAddress) {
+      //   htmlAddresses.push('[지번 주소] ' + item.jibunAddress);
+      // }
+  
+      // if (item.englishAddress) {
+      //   htmlAddresses.push('[영문명 주소] ' + item.englishAddress);
+      // }
+  
+      map.setCenter(point);
+    });
+  }
 
   return <div id='map'>
     {/* <NaverMap
