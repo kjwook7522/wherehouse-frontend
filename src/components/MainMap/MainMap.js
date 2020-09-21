@@ -54,7 +54,6 @@ function MainMap({ push }) {
           <button class="test">창고 보기</button>
         </div>
       `;
-      console.log(warehouse)
 
       const infowindow = new navermaps.InfoWindow({
         content: contentString,

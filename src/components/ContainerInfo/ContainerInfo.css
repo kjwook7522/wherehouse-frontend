@@ -9,6 +9,16 @@
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.07);
 }
 
+.container-info .back-wrapper {
+  text-align: right;
+}
+
+.container-info .back-wrapper svg {
+  font-size: 20px;
+  color: #444;
+  cursor: pointer;
+}
+
 .container-info .container-info-wrapper {
   display: flex;
 }

@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Nav, Footer, ContainerInfo, ContainerDetail, ContainerRating } from 'components';
 import './Container.css';
 
-function Container({ match }) {
+function Container({ history, match }) {
   let containerDetail;
   const [containerInfo, setContainerInfo] = useState({});
 
@@ -31,7 +31,7 @@ function Container({ match }) {
 
   return <div>
     <Nav type={'fixed'} />
-    <ContainerInfo info={containerInfo} />
+    <ContainerInfo push={history.push} info={containerInfo} />
     {/* <ContainerDetail /> */}
     {/* <ContainerRating /> */}
     <Footer />

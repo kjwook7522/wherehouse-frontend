@@ -1,11 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkedAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faImages } from '@fortawesome/free-regular-svg-icons';
 import { message } from "antd";
 import './ContainerInfo.css';
 
-function ContainerInfo({ info }) {
+function ContainerInfo({ push, info }) {
   let mapImage = {
     naverMapUrl: 'https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?',
     apiKey: 'f4fm9664il',
@@ -24,11 +24,16 @@ function ContainerInfo({ info }) {
                  mapImage.lon + ',' + mapImage.lat + '&level=' + mapImage.level + '&markers=type:' + mapImage.markerType + '|size:' +
                  mapImage.markerSize + '|pos:' + mapImage.lon + '%20' + mapImage.lat + '|viewSizeRatio:2.0&X-NCP-APIGW-API-KEY-ID=' + mapImage.apiKey;
 
+  const back = () => {
+    push("/site");
+  }
+
   const warningMessage = () => {
     message.warning("아직 준비중입니다.");
   };
 
   return <div className='container-info'>
+    <div className="back-wrapper"><FontAwesomeIcon icon={faTimes} onClick={back} /></div>
     <div className='container-info-wrapper'>
       <div className='container-info-main'>
         <p className='title'><FontAwesomeIcon icon={faImages} /> 사진</p>
