@@ -1,11 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import "./Nav.css";
 import { message } from "antd";
-import { Link } from "react-router-dom";
-// import logo from '../../images/logo_cut.png'
 
 function Nav({ type }) {
   const warningMessage = () => {
@@ -42,8 +41,7 @@ function Nav({ type }) {
   return (
     <div className="nav">
       <div className="nav-left">
-        {/* <img src={logo} alt="logo" /> */}
-        <a href="/">창고중개플랫폼 반창고</a>
+        <Link to="/">창고중개플랫폼 반창고</Link>
       </div>
       <div className="nav-right">
         <FontAwesomeIcon icon={faBars} color="#eebb4d" />

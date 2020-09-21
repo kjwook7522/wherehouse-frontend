@@ -18,10 +18,6 @@
   flex: 1;
 }
 
-.nav .nav-left img {
-  width: 50px;
-}
-
 .nav .nav-left a {
   font-family: 'Jua', sans-serif;
   font-weight: bold;
