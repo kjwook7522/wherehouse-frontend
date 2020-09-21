@@ -64,5 +64,5 @@
 }
 
 .info-window button:hover {
-  transform: translateZ(0) scale(0.98);
+  background-color: #4fa1ee;
 }

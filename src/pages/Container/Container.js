@@ -32,8 +32,8 @@ function Container({ match }) {
   return <div>
     <Nav type={'fixed'} />
     <ContainerInfo info={containerInfo} />
-    <ContainerDetail />
-    <ContainerRating />
+    {/* <ContainerDetail /> */}
+    {/* <ContainerRating /> */}
     <Footer />
   </div>
 }
