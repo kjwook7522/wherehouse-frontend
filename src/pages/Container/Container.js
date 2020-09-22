@@ -31,7 +31,7 @@ function Container({ history, match }) {
 
   return <div>
     <Nav type={'fixed'} />
-    <ContainerInfo push={history.push} info={containerInfo} />
+    <ContainerInfo goBack={history.goBack} info={containerInfo} />
     {/* <ContainerDetail /> */}
     {/* <ContainerRating /> */}
     <Footer />

@@ -5,7 +5,7 @@ import { faImages } from '@fortawesome/free-regular-svg-icons';
 import { message } from "antd";
 import './ContainerInfo.css';
 
-function ContainerInfo({ push, info }) {
+function ContainerInfo({ goBack, info }) {
   let mapImage = {
     naverMapUrl: 'https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?',
     apiKey: 'f4fm9664il',
@@ -25,7 +25,7 @@ function ContainerInfo({ push, info }) {
                  mapImage.markerSize + '|pos:' + mapImage.lon + '%20' + mapImage.lat + '|viewSizeRatio:2.0&X-NCP-APIGW-API-KEY-ID=' + mapImage.apiKey;
 
   const back = () => {
-    push("/site");
+    goBack();
   }
 
   const warningMessage = () => {
