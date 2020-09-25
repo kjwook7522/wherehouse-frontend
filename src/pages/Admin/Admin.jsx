@@ -1,9 +1,9 @@
-import React from "react";
-import "./Admin.css";
-
-function Admin() {
-  return (
-    <div id="admin">
+import React, { PureComponent } from 'react';
+import "./Admin.css"
+class Admin extends PureComponent {
+    render() {
+        return (
+            <div className="Admin">
       <form>
         <label>창고 이름</label>
         <input type="text" required />
@@ -28,7 +28,7 @@ function Admin() {
         <label>서비스 타입</label>
         <select name="service-type">
           <option value="GENERAL">일반</option>
-          <option value="AGENCY">에이전시</option>
+          //<option value="AGENCY">에이전시</option>
         </select>
         <br />
         <p>
@@ -101,6 +101,7 @@ function Admin() {
       </form>
     </div>
   );
+    }
 }
 
 export default Admin;
