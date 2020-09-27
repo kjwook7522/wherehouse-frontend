@@ -5,12 +5,14 @@ class Admin extends PureComponent {
   constructor(){
     super();
     this.state={
-
+      header:{
+      headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYwMTE5NzM5NSwiZXhwIjoxNjAxNTQyOTk1fQ.Xb0b48DPqqlqwOsqH4fX7pCthAedp8bqUdzJIpWWf-8'}
     }
+  }
     this.submission=this.submission.bind(this);
   }
   submission(){
-    axios.post("https://api.banchango.shop/v1/warehouses",
+    axios.post("/warehouses",
     {
       "name" : "API 테스트2(한경직 기념관)",
       "address" : "경기도",
@@ -22,10 +24,10 @@ class Admin extends PureComponent {
       "types":["CONTAINER"],
       "attachmentIds":[]
   }
-, {'Authorization' :'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYwMTE4NjIzOCwiZXhwIjoxNjAxMTk3MDM4fQ.QKuMuf-66btb6UIyMFXjiuj87PzELSLpdTYHr3epNyI'})
+, this.state.header)
 .then(console.log("success"));
 }
-    render() {
+    render() { 
         return (
             <div className="Admin">
               <h1>[  관리자 페이지  ]</h1>
