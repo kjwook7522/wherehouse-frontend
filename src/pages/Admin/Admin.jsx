@@ -25,7 +25,13 @@ class Admin extends PureComponent {
       "attachmentIds":[]
   }
 , this.state.header)
-.then(console.log("success"));
+}
+componentDidUpdate(){
+  // 1. id로 접근하여 가져온 값 찍기
+  // 2. 가져온 값을 이용하여 setState후 잘됐는지 찍어보기
+  // 3. 바꾼 state값으로 axios 바꿔치기
+  // 4. 위도 37.495651008024836  경도 126.95852396044054  이름 미래관으로 설정하여 다시보내기
+  // 5. 반영됐는지 확인
 }
     render() { 
         return (
@@ -213,8 +219,3 @@ class Admin extends PureComponent {
 }
 
 export default Admin;
-/*
-componentDidUpdate(){
-  값이 변할때마다 state값 업데이트 하는 부분
-}
-*/
