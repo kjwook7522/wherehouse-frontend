@@ -1,3 +1,4 @@
+//todo : 체크박스들과 라디오박스들 그룹묶어서 폼에 보내기 
 import React, { PureComponent } from 'react';
 import "./Admin.css"
 import axios from "axios"
@@ -46,7 +47,7 @@ class Admin extends PureComponent {
       "addressDetail" : this.state.addressDetail,
       "description" : this.state.description,
       "attachmentIds":[],
-      "types" : this.state.types,
+      "types" : this.state.types,  //이떄 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
       "serviceType" : this.state.serviceType,
   }
 , this.state.header)
@@ -85,22 +86,30 @@ inputAll(e){
               <input id="name" name="name" type="text" onChange={this.inputAll} required autoFocus/>
             </td>
             <td>
-              <label>창고종류</label>
-               <select id="types" name="types" onChange={this.inputAll}>
-                <option value="ROOM_TEMPERATURE">상온창고</option>
-                <option value="LOW_TEMPERATURE">저온창고</option>
-                <option value="BONDED">보세창고</option>
-                <option value="SAVAGE">야외창고</option>
-                <option value="HAZARDOUS">위험물창고</option>
-                <option value="SELF_STORAGE">셀프창고</option>
-                <option value="CONTAINER">컨테이너</option>
-              </select>
-              
               <label>서비스 타입</label>
                 <select id="serviceType" name="serviceType" onChange={this.inputAll}>
                   <option value="GENERAL">일반</option>
                   <option value="AGENCY">에이전시</option>
                 </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label>창고종류</label></td>
+              <td id="types" name="types" onChange={this.inputAll}>
+                <label>상온창고</label>
+                <input type="checkbox" value="ROOM_TEMPERATURE"></input>
+                <label>저온창고</label>
+                 <input type="checkbox" value="LOW_TEMPERATURE"></input>
+                <label>보세창고</label>
+                <input type="checkbox" value="BONDED"></input>
+                <label>야외창고</label><br/>
+                 <input type="checkbox" value="SAVAGE"></input>
+                <label>위험물창고</label>
+                <input type="checkbox" value="HAZARDOUS"></input>
+                <label>셀프창고</label>
+                <input type="checkbox" value="SELF_STORAGE"></input>
+                <label>컨테이너</label>
+                <input type="checkbox" value="CONTAINER"></input>
             </td>
           </tr>
           <tr>
