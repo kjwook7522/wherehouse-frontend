@@ -5,50 +5,88 @@ class Admin extends PureComponent {
   constructor(){
     super();
     this.state={
-      header:{
-      headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYwMTE5NzM5NSwiZXhwIjoxNjAxNTQyOTk1fQ.Xb0b48DPqqlqwOsqH4fX7pCthAedp8bqUdzJIpWWf-8'}
-    }
+      header:{//이건 이름 바꿔도됨 아래는 안됨
+         headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYwMTI3OTg5NiwiZXhwIjoxNjAxNjI1NDk2fQ.CNL2-KWSOu2-i1XCrVKadFpXHQljl4107dtosPFieKY'}
+      },
+    "name":" ",
+    "types" : ["ROOM_TEMPERATURE"],
+    "serviceType" : "GENERAL",
+    "landArea" : " ",
+    "totalArea" : " ",
+    "openAt" : " ",
+    "closeAt" : " ",
+    "availableDays" : " ",
+    "availableTimeDetail" : " ",
+    "latitude" : " ",
+    "longitude" : " ",
+    "address" : " ",
+    "addressDetail" : " ",
+    "description" : " ",
   }
     this.submission=this.submission.bind(this);
+    this.inputAll=this.inputAll.bind(this);
   }
-  submission(){
+  submission(e){
+    e.preventDefault();
+    console.log(this.state);
     axios.post("/warehouses",
     {
-      "name" : "API 테스트2(한경직 기념관)",
-      "address" : "경기도",
-      "serviceType" : "GENERAL",
+      "name" : this.state.name,
+      "landArea" : this.state.landArea,
+      "totalArea" : this.state.totalArea,
+      "openAt" : this.state.openAt,
+      "closeAt" : this.state.closeAt,
+     // availableDays : this.state.availableDays,
+      "availableTimeDetail" : this.state.availableTimeDetail,
       "location" : {
-          "latitude" :  37.49559661438112,
-          "longitude" : 126.95758540184373
+          "latitude" :  this.state.latitude,
+          "longitude" : this.state.longitude
       },
-      "types":["CONTAINER"],
-      "attachmentIds":[]
+      "address" : this.state.address,
+      "addressDetail" : this.state.addressDetail,
+      "description" : this.state.description,
+      "attachmentIds":[],
+      "types" : this.state.types,
+      "serviceType" : this.state.serviceType,
   }
 , this.state.header)
 }
-componentDidUpdate(){
-  // 1. id로 접근하여 가져온 값 찍기
-  // 2. 가져온 값을 이용하여 setState후 잘됐는지 찍어보기
-  // 3. 바꾼 state값으로 axios 바꿔치기
-  // 4. 위도 37.495651008024836  경도 126.95852396044054  이름 미래관으로 설정하여 다시보내기
-  // 5. 반영됐는지 확인
+
+inputAll(e){
+  switch(e.target.id) {
+    case "name": this.setState({name:e.target.value});break;
+    case "types" : this.setState({types:[e.target.value]});break; //여기 배열표시 해서 넣어줬어햐했음
+    case "serviceType" : this.setState({serviceType:e.target.value});break;
+    case "landArea" :this.setState({landArea:e.target.value});break;
+    case "totalArea" : this.setState({totalArea:e.target.value});break;
+    case "openAt" : this.setState({openAt:e.target.value});break;
+    case "closeAt" : this.setState({closeAt:e.target.value});break;
+    case "availableDays" :  this.setState({availableDays:e.target.value});break;
+    case "availableTimeDetail" : this.setState({availableTimeDetail:e.target.value});break;
+    case "latitude" : this.setState({latitude:e.target.value});break;
+    case "longitude" :this.setState({longitude:e.target.value});break;
+    case "address" : this.setState({address:e.target.value});break;
+    case "addressDetail" : this.setState({addressDetail:e.target.value});break;
+    case "description" :this.setState({description:e.target.value});break;
+  }
 }
+
     render() { 
         return (
             <div className="Admin">
               <h1>[  관리자 페이지  ]</h1>
               <h5>*는 필수항목입니다</h5><br/>
-      <form>
+      <form onSubmit={this.submission}>
         <table border="1px solid gray">
         <tbody>
           <tr>
             <td>
               <label>창고 이름*</label>
-              <input id="name" name="name" type="text" required autoFocus/>
+              <input id="name" name="name" type="text" onChange={this.inputAll} required autoFocus/>
             </td>
             <td>
               <label>창고종류</label>
-               <select id="serviceType" name="serviceType" >
+               <select id="types" name="types" onChange={this.inputAll}>
                 <option value="ROOM_TEMPERATURE">상온창고</option>
                 <option value="LOW_TEMPERATURE">저온창고</option>
                 <option value="BONDED">보세창고</option>
@@ -59,35 +97,35 @@ componentDidUpdate(){
               </select>
               
               <label>서비스 타입</label>
-                <select name="service-type">
+                <select id="serviceType" name="serviceType" onChange={this.inputAll}>
                   <option value="GENERAL">일반</option>
-                  {/* <option value="AGENCY">에이전시</option> */}
+                  <option value="AGENCY">에이전시</option>
                 </select>
             </td>
           </tr>
           <tr>
             <td>
               <label>창고 평수</label>
-              <input type="number" id="landArea" name="landArea"/>
+              <input type="number" id="landArea" name="landArea" onChange={this.inputAll}/>
             </td>
             <td>
              <label>전체 평수</label>
-             <input type="number" id="totalArea" name="totalArea"/>
+             <input type="number" id="totalArea" name="totalArea" onChange={this.inputAll}/>
             </td>
           </tr>
           <tr>
             <td>
               <label>여는시간</label>
-              <input id="openAt" name="openAt" type="text" placeholder="00:00:00" />
+              <input id="openAt" name="openAt" type="text" placeholder="00:00:00" onChange={this.inputAll} />
             </td>
             <td>
               <label>닫는시간</label>
-              <input id="closeAt" name="closeAt" type="text" placeholder="00:00:00" />
+              <input id="closeAt" name="closeAt" type="text" placeholder="00:00:00" onChange={this.inputAll}/>
             </td>
           </tr>
           <tr>
             <td><label>사용 가능한 요일</label></td>
-            <td>
+            <td id="availableDays" onChange={this.inputAll}>
                 <label>일</label>
                 <input type="checkbox" value="1"></input>
                 <label>월</label>
@@ -101,14 +139,15 @@ componentDidUpdate(){
                 <label>금</label>
                 <input type="checkbox" value="32"></input>
                 <label>토</label>
-                <input type="checkbox" value="64"></input></td>
+                <input type="checkbox" value="64"></input>
+            </td>
           </tr>
           <tr>
             <td>
               <label>창고 운영시간 추가 정보</label>
             </td>
             <td>
-             <input id="availableTimeDetail" name="availableTimeDetail" type="text"/>
+             <input id="availableTimeDetail" name="availableTimeDetail" type="text" onChange={this.inputAll}/>
             </td>
           </tr>
         </tbody>
@@ -122,18 +161,18 @@ componentDidUpdate(){
           </a>
         </p>
         <label>위도*</label>
-        <input type="text" id="latitude" name="latitude" required />
+        <input type="text" id="latitude" name="latitude" required onChange={this.inputAll}/>
         <label>경도*</label>
-        <input type="text" id="longitude" name="longitude" required />
+        <input type="text" id="longitude" name="longitude" required onChange={this.inputAll}/>
         <br />
         <label>창고 주소*</label>
-        <input id="address" name="address" type="text" required />
+        <input id="address" name="address" type="text" required onChange={this.inputAll}/>
         <br />
         <label>상세 주소</label>
-        <input id="addressDetail" name="addressDetail" type="text" />
+        <input id="addressDetail" name="addressDetail" type="text" onChange={this.inputAll}/>
         <br />
         <label>창고 설명</label>
-        <input id="description" name="description" type="text" />
+        <input id="description" name="description" type="text" onChange={this.inputAll}/>
         </div>
         <br />
 
@@ -211,7 +250,7 @@ componentDidUpdate(){
         <label>창고 이미지 url 목록</label>
         //
         <br/>
-        <button onClick={this.submission}type="submit">제출</button>
+        <button type="submit">제출</button>
       </form>
     </div>
   );
