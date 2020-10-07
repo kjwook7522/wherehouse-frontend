@@ -32,7 +32,7 @@ function Container({ history, match }) {
   return <div>
     <Nav type={'fixed'} />
     <ContainerInfo goBack={history.goBack} info={containerInfo} />
-    {/* <ContainerDetail /> */}
+    <ContainerDetail />
     {/* <ContainerRating /> */}
     <Footer />
   </div>
