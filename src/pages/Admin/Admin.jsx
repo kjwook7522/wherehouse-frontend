@@ -16,16 +16,23 @@ class Admin extends PureComponent {
     "totalArea" : " ",
     "openAt" : " ",
     "closeAt" : " ",
-    "availableDays" : " ",
+   // "availableDays" : " ",
     "availableTimeDetail" : " ",
     "latitude" : " ",
     "longitude" : " ",
     "address" : " ",
     "addressDetail" : " ",
     "description" : " ",
+    "cctvExist" : " ",
+    "doorLockExist" : " ",
+    "securityExist" : " ",
     "securityCompanyName" :" ",
+    "insuranceExist" : " ",
     "insuranceName" : " ",
+    "parkExist" : " ",
     "parkingScale" : " ",
+    "workerExist" : " ",
+    "pickupExist" : " ",
     "airConditioningType" :"NONE",
   }
     this.submission=this.submission.bind(this);
@@ -43,7 +50,7 @@ class Admin extends PureComponent {
       "totalArea" : this.state.totalArea,
       "openAt" : this.state.openAt,
       "closeAt" : this.state.closeAt,
-      "availableDays" : this.state.availableDays,
+      //"availableDays" : this.state.availableDays,
       "availableTimeDetail" : this.state.availableTimeDetail,
       "location" : {
           "latitude" :  this.state.latitude,
@@ -52,10 +59,16 @@ class Admin extends PureComponent {
       "address" : this.state.address,
       "addressDetail" : this.state.addressDetail,
       "description" : this.state.description,
-      
-      "securityCompanyName" :this.state.securityCompanyName,
+      "cctvExist" : this.state.cctv,
+      "lockExist" : this.state.lock,
+      "securityExist" : this.state.security,
+      "securityCompanyName" : this.state.securityCompanyName,
+      "insuranceExist" : this.state.insurance,
       "insuranceName" : this.state.insuranceName,
+      "parkExist" : this.state.park,
       "parkingScale" : this.state.parkingScale,
+      "workerExist" : this.state.worker,
+      "pickupExist" : this.state.pickup,
       "airConditioningType" : this.state.airConditioningType,
       "attachmentIds":[], //이떄 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
   }
@@ -71,16 +84,23 @@ inputAll(e){
     case "totalArea" : this.setState({totalArea:e.target.value});break;
     case "openAt" : this.setState({openAt:e.target.value});break;
     case "closeAt" : this.setState({closeAt:e.target.value});break;
-    case "availableDays" :  this.setState({availableDays:e.target.value});break;
+    //case "availableDays" :  this.setState({availableDays:e.target.value});break;
     case "availableTimeDetail" : this.setState({availableTimeDetail:e.target.value});break;
     case "latitude" : this.setState({latitude:e.target.value});break;
     case "longitude" :this.setState({longitude:e.target.value});break;
     case "address" : this.setState({address:e.target.value});break;
     case "addressDetail" : this.setState({addressDetail:e.target.value});break;
     case "description" :this.setState({description:e.target.value});break;
+    case "cctvExist" : this.setState({cctv:e.target.value});break;
+    case "lockExist" : this.setState({lock:e.target.value});break;
+    case "securityExist" : this.setState({security:e.target.value});break;
     case "securityCompanyName" : this.setState({securityCompanyName:e.target.value});break;
+    case "insuranceExist" : this.setState({insurance:e.target.value});break;
     case "insuranceName" : this.setState({insuranceName:e.target.value});break;
+    case "parkExist" : this.setState({park:e.target.value});break;
     case "parkingScale" : this.setState({parkingScale:e.target.value});break;
+    case "workerExist" : this.setState({worker:e.target.value});break;
+    case "pickupExist" : this.setState({pickup:e.target.value});break;
     case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
   }
 }
