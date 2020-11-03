@@ -43,7 +43,7 @@ class Admin extends PureComponent {
     console.log(this.state);
     console.log(localStorage.getItem("AccessToken"))
     axios.post("/warehouses",
-    {
+    { 
       "name" : this.state.name,
       "types" : this.state.types,
       "serviceType" : this.state.serviceType,

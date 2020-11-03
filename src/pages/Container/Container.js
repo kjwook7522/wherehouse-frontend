@@ -24,7 +24,7 @@ function Container({ history, match }) {
           title: containerDetail.name,
           address: containerDetail.address,
           location: containerDetail.location,
-          type: containerDetail.additionalInfo.type,
+          type: containerDetail.additionalInfo.types,
         });
       });
   }, []);
@@ -32,7 +32,7 @@ function Container({ history, match }) {
   return <div>
     <Nav type={'fixed'} />
     <ContainerInfo goBack={history.goBack} info={containerInfo} />
-    <ContainerDetail />
+    <ContainerDetail info={containerInfo}/>
     {/* <ContainerRating /> */}
     <Footer />
   </div>

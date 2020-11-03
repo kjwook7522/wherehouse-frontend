@@ -28,7 +28,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./ContainerDetail.css";
 
-function ContainerDetail() {
+function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라오기에 {info}로
+            //객체 안의 info를 택하거나 props를 넘겨받아서 props.info로 해야한다
+            //이떄 호출하는 Container측에서 전달인자로 info={containerInfo}넘겨줬다
+ console.log(props.info);
   const makeList = () => {
     const tr = document.createElement("tr");
     const list = ["세부항목", "단위", "단가", "비고"];
@@ -90,7 +93,7 @@ function ContainerDetail() {
 
   return (
     <div className="container-detail">
-      <div className="container-detail-mainstyle">
+        {/* <div className="container-detail-mainstyle">
         <p className="title">
           <FontAwesomeIcon icon={faBoxes} /> 주요 담당 품목
         </p>
@@ -100,15 +103,15 @@ function ContainerDetail() {
             <p>의료 물품</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faUtensils} color="#5F99D7" />
+            <FontAwesomeIcon icon={faUtensils} color="#f7a74a" />
             <p>식료품</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faGem} color="#5F99D7" />
+            <FontAwesomeIcon icon={faGem} color="#f7a74a" />
             <p>악세서리</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faMobileAlt} color="#5F99D7" />
+            <FontAwesomeIcon icon={faMobileAlt} color="#f7a74a" />
             <p>전자기기</p>
           </div>
           <div className="icon">
@@ -116,7 +119,7 @@ function ContainerDetail() {
             <p>화장품</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faCogs} color="#5F99D7" />
+            <FontAwesomeIcon icon={faCogs} color="#f7a74a" />
             <p>부품</p>
           </div>
           <div className="icon">
@@ -432,7 +435,7 @@ function ContainerDetail() {
             </tbody>
           </table>
         </div>
-      </div>
+      </div>*/}
       <div className="container-detail-service">
         <p className="title">
           <FontAwesomeIcon icon={faQuestionCircle} /> 서비스
@@ -447,7 +450,7 @@ function ContainerDetail() {
             <p>경비업체 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faLock} color="#5F99D7" />
+            <FontAwesomeIcon icon={faLock} color="#f7a74a" />
             <p>보안락 유무</p>
           </div>
           <div className="icon">
@@ -459,7 +462,7 @@ function ContainerDetail() {
             <p>냉난방 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faUsers} color="#5F99D7" />
+            <FontAwesomeIcon icon={faUsers} color="#f7a74a" />
             <p>관리인력 유무</p>
           </div>
           <div className="icon">
@@ -477,9 +480,9 @@ function ContainerDetail() {
           <FontAwesomeIcon icon={faChalkboardTeacher} /> 부가 설명
         </p>
         <textarea readOnly value="교통이 편리한 위치에 있어 입출고가 수월합니다." />
-      </div>
+      </div> 
 
-      <div className="container-detail-info">
+      {/* <div className="container-detail-info">
         <p className="title">
           <FontAwesomeIcon icon={faInfoCircle} /> 창고 상세정보
         </p>
@@ -487,7 +490,7 @@ function ContainerDetail() {
           <h1 className="subtitle">보관 형태</h1>
           <div className="keeping-type-icons">
             <div className="icon-button">
-              <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#5F99D7" />
+              <FontAwesomeIcon id="pallet-icon" icon={faPallet} color="#f7a74a" />
               <br />
               <p>팔레트</p>
             </div>
@@ -503,7 +506,7 @@ function ContainerDetail() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
