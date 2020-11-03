@@ -117,7 +117,7 @@ inputAll(e){
           <tr>
             <td>
               <label>창고 이름*</label>
-              <input id="name" name="name" type="text" onChange={this.inputAll} value={"미래관 창고"} required autoFocus/>
+              <input id="name" name="name" type="text" onChange={this.inputAll} required autoFocus/>
             </td>
             <td>
               <label>서비스 타입</label>
@@ -209,7 +209,7 @@ inputAll(e){
         <input type="text" id="longitude" name="longitude" required onChange={this.inputAll}/>
         <br />
         <label>창고 주소*</label>
-        <input id="address" name="address" type="text" value="숭실대학교 미래관" required onChange={this.inputAll}/>
+        <input id="address" name="address" type="text" required onChange={this.inputAll}/>
         <br />
         <label>상세 주소</label>
         <input id="addressDetail" name="addressDetail" type="text" onChange={this.inputAll}/>
