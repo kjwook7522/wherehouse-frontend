@@ -1,3 +1,4 @@
+//todo : 체크박스들과 라디오박스들 그룹묶어서 폼에 보내기 
 import React, { PureComponent } from 'react';
 import "./Admin.css"
 import axios from "axios"
@@ -6,102 +7,103 @@ class Admin extends PureComponent {
     super();
     this.state={
       header:{//이건 이름 바꿔도됨 아래는 안됨
-         headers:{Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjUsImlhdCI6MTYwMjA1Njg4MCwiZXhwIjoxNjAyNDAyNDgwfQ.paLSmGhw8vDSuKXAH-BPAGzpXcpV7bwjUVH4hCq2XBM '}
-      }
-    }
-    let name;
-    let types = ["ROOM_TEMPERATURE"];
-    let serviceType = "GENERAL";
-    let landArea;
-    let totalArea;
-    let openAt;
-    let closeAt;
-   // "availableDays;
-   let availableTimeDetail;
-   let latitude;
-   let longitude;
-   let address;
-   let addressDetail;
-   let description;
-   let cctvExist;
-   let doorLockExist;
-   let securityExist;
-   let securityCompanyName=" ";
-   let insuranceExist;
-   let insuranceName=" ";
-   let parkExist;
-   let parkingScale;
-   let workerExist;
-   let pickupExist;
-   let airConditioningType="NONE";
+         headers:{Authorization:'Bearer '+localStorage.getItem("AccessToken")}
+      },
+    "name":" ",
+    "types" : ["ROOM_TEMPERATURE"],
+    "serviceType" : "GENERAL",
+    "landArea" : " ",
+    "totalArea" : " ",
+    "openAt" : " ",
+    "closeAt" : " ",
+   // "availableDays" : " ",
+    "availableTimeDetail" : " ",
+    "latitude" : " ",
+    "longitude" : " ",
+    "address" : " ",
+    "addressDetail" : " ",
+    "description" : " ",
+    "cctvExist" : " ",
+    "doorLockExist" : " ",
+    "securityExist" : " ",
+    "securityCompanyName" :" ",
+    "insuranceExist" : " ",
+    "insuranceName" : " ",
+    "parkExist" : " ",
+    "parkingScale" : " ",
+    "workerExist" : " ",
+    "pickupExist" : " ",
+    "airConditioningType" :"NONE",
+  }
     this.submission=this.submission.bind(this);
     this.inputAll=this.inputAll.bind(this);
   }
   submission(e){
     e.preventDefault();
     console.log(this.state);
+    console.log(localStorage.getItem("AccessToken"))
     axios.post("/warehouses",
     {
-      "name" : this.name,
-      "types" : this.types,
-      "serviceType" : this.serviceType,
-      "landArea" : this.landArea,
-      "totalArea" : this.totalArea,
-      "openAt" : this.openAt,
-      "closeAt" : this.closeAt,
-      //"availableDays" : this.availableDays,
-      "availableTimeDetail" : this.availableTimeDetail,
+      "name" : this.state.name,
+      "types" : this.state.types,
+      "serviceType" : this.state.serviceType,
+      "landArea" : this.state.landArea,
+      "totalArea" : this.state.totalArea,
+      "openAt" : this.state.openAt,
+      "closeAt" : this.state.closeAt,
+      //"availableDays" : this.state.availableDays,
+      "availableTimeDetail" : this.state.availableTimeDetail,
       "location" : {
-          "latitude" :  this.latitude,
-          "longitude" : this.longitude
+          "latitude" :  this.state.latitude,
+          "longitude" : this.state.longitude
       },
-      "address" : this.address,
-      "addressDetail" : this.addressDetail,
-      "description" : this.description,
-      "cctvExist" : this.cctvExist,
-      "lockExist" : this.lockExist,
-      "securityExist" : this.securityExist,
-      "securityCompanyName" : this.securityCompanyName,
-      "insuranceExist" : this.insuranceExist,
-      "insuranceName" : this.insuranceName,
-      "parkExist" : this.parkExist,
-      "parkingScale" : this.parkingScale,
-      "workerExist" : this.workerExist,
-      "pickupExist" : this.pickupExist,
-      "airConditioningType" : this.airConditioningType,
+      "address" : this.state.address,
+      "addressDetail" : this.state.addressDetail,
+      "description" : this.state.description,
+      "cctvExist" : this.state.cctv,
+      "lockExist" : this.state.lock,
+      "securityExist" : this.state.security,
+      "securityCompanyName" : this.state.securityCompanyName,
+      "insuranceExist" : this.state.insurance,
+      "insuranceName" : this.state.insuranceName,
+      "parkExist" : this.state.park,
+      "parkingScale" : this.state.parkingScale,
+      "workerExist" : this.state.worker,
+      "pickupExist" : this.state.pickup,
+      "airConditioningType" : this.state.airConditioningType,
       "attachmentIds":[], //이떄 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
   }
 , this.state.header)
 }
 
 inputAll(e){
-    switch(e.target.id){
-    case "name": this.name=e.target.value;break;
-    case "types": this.types=[e.target.value];break;
-    case "serviceType": this.serviceType=e.target.value;break;
-    case "landArea": this.landArea=e.target.value;break;
-    case "totalArea": this.totalArea=e.target.value;break;
-    case "openAt": this.openAt=e.target.value;break;
-    case "closeAt": this.closeAt=e.target.value;break;
-    case "availableDays": this.availableDays=e.target.value;break;
-    case "availableTimeDetail": this.availableTimeDetail=e.target.value;break;
-    case "latitude": this.latitude=e.target.value;break;
-    case "longitude": this.longitude=e.target.value;break;
-    case "address": this.address=e.target.value;break;
-    case "addressDetail": this.addressDetail=e.target.value;break;
-    case "description": this.description=e.target.value;break;
-    case "cctvExist": this.cctvExist=e.target.value;break;
-    case "lockExist": this.lockExist=e.target.value;break;
-    case "securityExist": this.securityExist=e.target.value;break;
-    case "securityCompanyName": this.securityCompanyName=e.target.value;break;
-    case "insuranceExist": this.insuranceExist=e.target.value;break;
-    case "insuranceName": this.insuranceName=e.target.value;break;
-    case "parkExist": this.parkExist=e.target.value;break;
-    case "parkingScale": this.parkingScale=e.target.value;break;
-    case "workerExist": this.workerExist=e.target.value;break;
-    case "pickupExist": this.pickupExist=e.target.value;break;
-    case "airConditioningType": this.airConditioningType=e.target.value;break;
-    }
+  switch(e.target.id) {
+    case "name": this.setState({name:e.target.value});break;
+    case "types" : this.setState({types:[e.target.value]});break; //여기 배열표시 해서 넣어줬어햐했음
+    case "serviceType" : this.setState({serviceType:e.target.value});break;
+    case "landArea" :this.setState({landArea:e.target.value});break;
+    case "totalArea" : this.setState({totalArea:e.target.value});break;
+    case "openAt" : this.setState({openAt:e.target.value});break;
+    case "closeAt" : this.setState({closeAt:e.target.value});break;
+    //case "availableDays" :  this.setState({availableDays:e.target.value});break;
+    case "availableTimeDetail" : this.setState({availableTimeDetail:e.target.value});break;
+    case "latitude" : this.setState({latitude:e.target.value});break;
+    case "longitude" :this.setState({longitude:e.target.value});break;
+    case "address" : this.setState({address:e.target.value});break;
+    case "addressDetail" : this.setState({addressDetail:e.target.value});break;
+    case "description" :this.setState({description:e.target.value});break;
+    case "cctvExist" : this.setState({cctv:e.target.value});break;
+    case "lockExist" : this.setState({lock:e.target.value});break;
+    case "securityExist" : this.setState({security:e.target.value});break;
+    case "securityCompanyName" : this.setState({securityCompanyName:e.target.value});break;
+    case "insuranceExist" : this.setState({insurance:e.target.value});break;
+    case "insuranceName" : this.setState({insuranceName:e.target.value});break;
+    case "parkExist" : this.setState({park:e.target.value});break;
+    case "parkingScale" : this.setState({parkingScale:e.target.value});break;
+    case "workerExist" : this.setState({worker:e.target.value});break;
+    case "pickupExist" : this.setState({pickup:e.target.value});break;
+    case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
+  }
 }
 
     render() { 
@@ -115,7 +117,7 @@ inputAll(e){
           <tr>
             <td>
               <label>창고 이름*</label>
-              <input id="name" name="name" type="text" onChange={this.inputAll} required autoFocus/>
+              <input id="name" name="name" type="text" onChange={this.inputAll} value={"미래관 창고"} required autoFocus/>
             </td>
             <td>
               <label>서비스 타입</label>
@@ -146,21 +148,21 @@ inputAll(e){
           </tr>
           <tr>
             <td>
-              <label>창고 평수</label>
+              <label>창고 평수*</label>
               <input type="number" id="landArea" name="landArea" onChange={this.inputAll}/>
             </td>
             <td>
-             <label>전체 평수</label>
+             <label>전체 평수*</label>
              <input type="number" id="totalArea" name="totalArea" onChange={this.inputAll}/>
             </td>
           </tr>
           <tr>
             <td>
-              <label>여는시간</label>
+              <label>여는시간*</label>
               <input id="openAt" name="openAt" type="text" placeholder="00:00:00" onChange={this.inputAll} />
             </td>
             <td>
-              <label>닫는시간</label>
+              <label>닫는시간*</label>
               <input id="closeAt" name="closeAt" type="text" placeholder="00:00:00" onChange={this.inputAll}/>
             </td>
           </tr>
@@ -207,7 +209,7 @@ inputAll(e){
         <input type="text" id="longitude" name="longitude" required onChange={this.inputAll}/>
         <br />
         <label>창고 주소*</label>
-        <input id="address" name="address" type="text" required onChange={this.inputAll}/>
+        <input id="address" name="address" type="text" value="숭실대학교 미래관" required onChange={this.inputAll}/>
         <br />
         <label>상세 주소</label>
         <input id="addressDetail" name="addressDetail" type="text" onChange={this.inputAll}/>
@@ -261,7 +263,7 @@ inputAll(e){
         <input type="radio" name="park" value="false"/>없음
           </td>
         <td>
-        <label>주차장 규모</label>
+        <label>주차장 규모*</label>
         <input type="number" id="parkingScale" name="parkingScale" onChange={this.inputAll}/>
         </td>
           </tr>
