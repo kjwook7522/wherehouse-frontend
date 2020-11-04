@@ -23,16 +23,16 @@ class Admin extends PureComponent {
     "address" : " ",
     "addressDetail" : " ",
     "description" : " ",
-    "cctvExist" : " ",
-    "doorLockExist" : " ",
-    "securityExist" : " ",
+    "cctvExist" : "false",
+    "doorLockExist" : "false",
+    "securityCompanyExist" : "false",
     "securityCompanyName" :" ",
-    "insuranceExist" : " ",
+    "insuranceExist" : "false",
     "insuranceName" : " ",
-    "parkExist" : " ",
+    "parkExist" : "false",
     "parkingScale" : " ",
-    "workerExist" : " ",
-    "pickupExist" : " ",
+    "workerExist" : "false",
+    "pickupExist" : "false",
     "airConditioningType" :"NONE",
   }
     this.submission=this.submission.bind(this);
@@ -41,7 +41,7 @@ class Admin extends PureComponent {
   submission(e){
     e.preventDefault();
     console.log(this.state);
-    console.log(localStorage.getItem("AccessToken"))
+    // console.log(localStorage.getItem("AccessToken"))
     axios.post("/warehouses",
     { 
       "name" : this.state.name,
@@ -60,16 +60,16 @@ class Admin extends PureComponent {
       "address" : this.state.address,
       "addressDetail" : this.state.addressDetail,
       "description" : this.state.description,
-      "cctvExist" : this.state.cctv,
-      "lockExist" : this.state.lock,
-      "securityExist" : this.state.security,
+      "cctvExist" : this.state.cctvExist,
+      "doorLockExist" : this.state.doorLockExist,
+      "securityCompanyExist" : this.state.securityExist,
       "securityCompanyName" : this.state.securityCompanyName,
-      "insuranceExist" : this.state.insurance,
+      "insuranceExist" : this.state.insuranceExist,
       "insuranceName" : this.state.insuranceName,
-      "parkExist" : this.state.park,
+      "canPark" : this.state.canPark,
       "parkingScale" : this.state.parkingScale,
-      "workerExist" : this.state.worker,
-      "pickupExist" : this.state.pickup,
+      "workerExist" : this.state.workerExist,
+      "canPickup" : this.state.canPickup,
       "airConditioningType" : this.state.airConditioningType,
       "attachmentIds":[], //이떄 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
   }
@@ -77,7 +77,7 @@ class Admin extends PureComponent {
 }
 
 inputAll(e){
-  switch(e.target.id) {
+  switch(e.target.name) {
     case "name": this.setState({name:e.target.value});break;
     case "types" : this.setState({types:[e.target.value]});break; //여기 배열표시 해서 넣어줬어햐했음
     case "serviceType" : this.setState({serviceType:e.target.value});break;
@@ -92,18 +92,22 @@ inputAll(e){
     case "address" : this.setState({address:e.target.value});break;
     case "addressDetail" : this.setState({addressDetail:e.target.value});break;
     case "description" :this.setState({description:e.target.value});break;
-    case "cctvExist" : this.setState({cctv:e.target.value});break;
-    case "lockExist" : this.setState({lock:e.target.value});break;
-    case "securityExist" : this.setState({security:e.target.value});break;
+    case "cctvExist" : this.setState({cctvExist:e.target.value});break;
+    case "doorLockExist" : this.setState({doorLockExist:e.target.value});break;
+    case "securityCompanyExist" : this.setState({securityCompanyExist:e.target.value});break;
     case "securityCompanyName" : this.setState({securityCompanyName:e.target.value});break;
-    case "insuranceExist" : this.setState({insurance:e.target.value});break;
+    case "insuranceExist" : this.setState({insuranceExist:e.target.value});break;
     case "insuranceName" : this.setState({insuranceName:e.target.value});break;
-    case "parkExist" : this.setState({park:e.target.value});break;
+    case "canPark" : this.setState({canPark:e.target.value});break;
     case "parkingScale" : this.setState({parkingScale:e.target.value});break;
-    case "workerExist" : this.setState({worker:e.target.value});break;
-    case "pickupExist" : this.setState({pickup:e.target.value});break;
+    case "workerExist" : this.setState({workerExist:e.target.value});break;
+    case "canPickup" : this.setState({canPickup:e.target.value});break;
     case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
   }
+  //  console.log(e.target.name);
+  //  console.log(e.target.value);
+  //  console.log(e.target);
+   console.log(this.state.cctvExist);
 }
 
     render() { 
@@ -224,20 +228,20 @@ inputAll(e){
           <tr>
            <td>
              <label>CCTV존재유무</label>
-            <input type="radio" name="cctv" value="true"/>있음
-            <input type="radio" name="cctv" value="false"/>없음
+            <input type="radio" name="cctvExist" className="cctvExist" value="true"  onChange={this.inputAll}/>있음
+            <input type="radio" name="cctvExist" className="cctvExist" value="false" onChange={this.inputAll}/>없음
           </td>
         <td>
           <label>잠금장치 존재유무</label>
-          <input type="radio" name="lock" value="true"/>있음
-          <input type="radio" name="lock" value="false"/>없음
+          <input type="radio" name="doorLockExist" className="doorLockExist" value="true" onChange={this.inputAll}/>있음
+          <input type="radio" name="doorLockExist" className="doorLockExist" value="false"onChange={this.inputAll}/>없음
         </td>
           </tr>
           <tr>
            <td>
            <label>경비업체 존재유무</label>
-          <input type="radio" name="security" value="true"/>있음
-         <input type="radio" name="security" value="false"/>없음
+          <input type="radio" name="securityCompanyExist" className="securityCompanyExist" value="true" onChange={this.inputAll}/>있음
+         <input type="radio" name="securityCompanyExist" className="securityCompanyExist" value="false"onChange={this.inputAll}/>없음
           </td>
         <td>
         <label>경비업체 이름</label>
@@ -247,8 +251,8 @@ inputAll(e){
           <tr>
            <td>           
           <label>보험 가입유무</label>
-          <input type="radio" name="insurance" value="true"/>있음
-          <input type="radio" name="insurance" value="false"/>없음
+          <input type="radio" name="insuranceExist" className="insuranceExist" value="true" onChange={this.inputAll}/>있음
+          <input type="radio" name="insuranceExist" className="insuranceExist" value="false" onChange={this.inputAll}/>없음
           </td>
         <td>
         <label>보험사 이름</label>
@@ -259,8 +263,8 @@ inputAll(e){
            <td>
              
         <label>방문시 주차가능유무</label>
-        <input type="radio" name="park" value="true"/>있음
-        <input type="radio" name="park" value="false"/>없음
+        <input type="radio" name="canPark" className="canPark" value="true" onChange={this.inputAll}/>있음
+        <input type="radio" name="canPark" className="canPark" value="false" onChange={this.inputAll}/>없음
           </td>
         <td>
         <label>주차장 규모*</label>
@@ -270,22 +274,22 @@ inputAll(e){
           <tr>
            <td>
            <label>관리인력 존재유무</label>
-          <input type="radio" name="worker" value="true"/>있음
-           <input type="radio" name="worker" value="false"/>없음
+          <input type="radio" name="workerExist" className="workerExist" value="true" onChange={this.inputAll}/>있음
+           <input type="radio" name="workerExist" className="workerExist" value="false" onChange={this.inputAll}/>없음
           </td>
         <td>
         <label>픽업 서비스유무</label>
-        <input type="radio" name="pickup" value="true"/>있음
-        <input type="radio" name="pickup" value="false"/>없음
+        <input type="radio" name="canPickup" className="canPickup" value="true" onChange={this.inputAll}/>있음
+        <input type="radio" name="canPickup" className="canPickup" value="false"  onChange={this.inputAll}/>없음
         </td>
           </tr>
           <tr>
            <td>
            <label>냉난방 정보</label>
            </td>
-           <td id="airConditioningType" name="airConditioningType" onChange={this.inputAll}>
-                <label>없음</label>
-                <input type="checkbox" value="NONE"></input>
+           <td id="airConditioningType" name="airConditioningType" className="airConditioningtype" onChange={this.inputAll}>
+                <label >없음</label>
+                <input type="checkbox" value="NONE" ></input>
                 <label>난방</label>
                  <input type="checkbox" value="HEATING"></input>
                 <label>냉방</label>
