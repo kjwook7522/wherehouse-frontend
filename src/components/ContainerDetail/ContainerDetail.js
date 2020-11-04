@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import{faEye}from "@fortawesome/free-regular-svg-icons"
 import {
   faInfoCircle,
   faShieldAlt,
@@ -34,6 +35,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
             //객체 안의 info를 택하거나 props를 넘겨받아서 props.info로 해야한다
             //이떄 호출하는 Container측에서 전달인자로 info={containerInfo}넘겨줬다
             console.log(props.info);
+            console.log(String(props.info.cctvExist)==="true");
   const makeList = () => {
     const tr = document.createElement("tr");
     const list = ["세부항목", "단위", "단가", "비고"];
@@ -465,16 +467,18 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
         </p>
         <div className="service-icons">
           <div className="icon">
-            {
-            props.info.cctvExist=="true"
-            ? (<FontAwesomeIcon icon={faTv} color="#f7a74a"/>)
-            : (<FontAwesomeIcon icon={faTv} />)
+            <div>
+            { 
+            String(props.info.cctvExist)=="true"
+            ? (<FontAwesomeIcon icon={faEye} color="#f7a74a"/>)
+            : (<FontAwesomeIcon icon={faEye} />)
             }
+            </div>
             <p>cctv 유무</p>
           </div>
           <div className="icon">
           {
-            props.info.doorLockExist=="true"
+             String(props.info.doorLockExist)=="true"
             ? (<FontAwesomeIcon icon={faLock} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faLock} />)
           }
@@ -482,7 +486,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
           {
-            props.info.securityExist=="true"
+             String(props.info.securityCompanyExist)=="true"
             ? (<FontAwesomeIcon icon={faShieldAlt} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faShieldAlt} />)
           }
@@ -490,7 +494,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
           {
-            props.info.insuranceExist=="true"
+             String(props.info.insuranceExist)=="true"
             ? (<FontAwesomeIcon icon={faFileAlt} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faFileAlt} />)
           }
@@ -498,7 +502,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
           {
-            props.info.canPark=="true"
+             String(props.info.canPark)=="true"
             ? (<FontAwesomeIcon icon={faParking} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faParking} />)
           }
@@ -506,7 +510,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
           {
-            props.info.workerExist=="true"
+             String(props.info.workerExist)=="true"
             ? (<FontAwesomeIcon icon={faUsers} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faUsers} />)
           }
@@ -514,7 +518,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
           {
-            props.info.canPickup=="true"
+            String(props.info.canPickup)=="true"
             ? (<FontAwesomeIcon icon={faTruck} color="#f7a74a" />)
             : (<FontAwesomeIcon icon={faTruck} />)
           }
@@ -522,7 +526,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="icon">
             {
-              props.info.airConditioningType!="NONE"
+              String(props.info.airConditioningType)!="NONE"
               ? (<FontAwesomeIcon icon={faThermometerThreeQuarters} color="#f7a74a" />)
               : (<FontAwesomeIcon icon={faThermometerThreeQuarters} />)
             }
