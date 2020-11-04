@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInfoCircle,
+  faShieldAlt,
+  faClock,
   faPallet,
   faBoxOpen,
   faTruckLoading,
@@ -31,7 +33,7 @@ import "./ContainerDetail.css";
 function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라오기에 {info}로
             //객체 안의 info를 택하거나 props를 넘겨받아서 props.info로 해야한다
             //이떄 호출하는 Container측에서 전달인자로 info={containerInfo}넘겨줬다
- console.log(props.info);
+            console.log(props.info);
   const makeList = () => {
     const tr = document.createElement("tr");
     const list = ["세부항목", "단위", "단가", "비고"];
@@ -93,7 +95,9 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
 
   return (
     <div className="container-detail">
-        {/* <div className="container-detail-mainstyle">
+
+     <div className="container-detail-mainstyle">
+          {/* 
         <p className="title">
           <FontAwesomeIcon icon={faBoxes} /> 주요 담당 품목
         </p>
@@ -434,47 +438,99 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
               </tr>
             </tbody>
           </table>
+        </div>*/}
+        
+      </div>
+      <div className="container-detail-time">
+        <p className="title">
+          <FontAwesomeIcon icon={faClock} /> 이용 시간
+        </p>
+        <div className="sub-section keeping-time">
+          <h1 className="subtitle">운영시간</h1>
+          <p>여는시간:{props.info.openAt}<br/>
+             닫는시간:{props.info.closeAt}</p>
+          </div>
+          <div className="sub-section keeping-time">
+          <h1 className="subtitle">사용 가능 요일</h1>
+          <p>{props.info.availableWeekdays}</p>
+          </div>
+          <div className="sub-section keeping-time">
+          <h1 className="subtitle">이용시간 추가 정보</h1>
+          <p>{props.info.TimeDetail}</p>
+          </div>
         </div>
-      </div>*/}
       <div className="container-detail-service">
         <p className="title">
           <FontAwesomeIcon icon={faQuestionCircle} /> 서비스
         </p>
         <div className="service-icons">
           <div className="icon">
-            <FontAwesomeIcon icon={faTv} />
+            {
+            props.info.cctvExist=="true"
+            ? (<FontAwesomeIcon icon={faTv} color="#f7a74a"/>)
+            : (<FontAwesomeIcon icon={faTv} />)
+            }
             <p>cctv 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faBolt} />
-            <p>경비업체 유무</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faLock} color="#f7a74a" />
+          {
+            props.info.doorLockExist=="true"
+            ? (<FontAwesomeIcon icon={faLock} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faLock} />)
+          }
             <p>보안락 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faTruck} />
-            <p>픽업 서비스 유무</p>
+          {
+            props.info.securityExist=="true"
+            ? (<FontAwesomeIcon icon={faShieldAlt} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faShieldAlt} />)
+          }
+            <p>경비업체 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faThermometerThreeQuarters} />
-            <p>냉난방 유무</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faUsers} color="#f7a74a" />
-            <p>관리인력 유무</p>
-          </div>
-          <div className="icon">
-            <FontAwesomeIcon icon={faFileAlt} />
+          {
+            props.info.insuranceExist=="true"
+            ? (<FontAwesomeIcon icon={faFileAlt} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faFileAlt} />)
+          }
             <p>보험가입 유무</p>
           </div>
           <div className="icon">
-            <FontAwesomeIcon icon={faParking} />
+          {
+            props.info.canPark=="true"
+            ? (<FontAwesomeIcon icon={faParking} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faParking} />)
+          }
             <p>주차기능 유무</p>
+          </div>
+          <div className="icon">
+          {
+            props.info.workerExist=="true"
+            ? (<FontAwesomeIcon icon={faUsers} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faUsers} />)
+          }
+            <p>관리인력 유무</p>
+          </div>
+          <div className="icon">
+          {
+            props.info.canPickup=="true"
+            ? (<FontAwesomeIcon icon={faTruck} color="#f7a74a" />)
+            : (<FontAwesomeIcon icon={faTruck} />)
+          }
+            <p>픽업 서비스 유무</p>
+          </div>
+          <div className="icon">
+            {
+              props.info.airConditioningType!="NONE"
+              ? (<FontAwesomeIcon icon={faThermometerThreeQuarters} color="#f7a74a" />)
+              : (<FontAwesomeIcon icon={faThermometerThreeQuarters} />)
+            }
+            <p>냉난방 유무</p>
           </div>
         </div>
       </div>
+       {/* 
       <div className="container-detail-explain">
         <p className="title">
           <FontAwesomeIcon icon={faChalkboardTeacher} /> 부가 설명
@@ -482,7 +538,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
         <textarea readOnly value="교통이 편리한 위치에 있어 입출고가 수월합니다." />
       </div> 
 
-      {/* <div className="container-detail-info">
+     <div className="container-detail-info">
         <p className="title">
           <FontAwesomeIcon icon={faInfoCircle} /> 창고 상세정보
         </p>

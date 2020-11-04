@@ -144,6 +144,62 @@
   transform: translateZ(0) scale(0.98);
 }
 
+.container-detail .container-detail-time {
+  padding: 40px 0;
+}
+
+.container-detail .container-detail-time .sub-section {
+  padding: 20px 0;
+}
+
+.container-detail .container-detail-time .container-detail-table {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.container-detail .container-detail-time .container-detail-table th {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.container-detail .container-detail-time .container-detail-table td {
+  padding: 5px 10px;
+}
+
+.container-detail .container-detail-time .container-detail-table td input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+}
+
+.container-detail .container-detail-time .container-detail-table td input:focus {
+  outline: none;
+  border: 1px solid #5F99D7;
+}
+
+.container-detail .container-detail-time .container-detail-table td button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07);
+  color: #444;
+  cursor: pointer;
+}
+
+.container-detail .container-detail-time .keeping-time .container-detail-table td button:hover {
+  border-color: #5F99D7;
+}
+
+.container-detail .container-detail-time .keeping-time .container-detail-table td button:active {
+  transform: translateZ(0) scale(0.98);
+}
+
+
 .container-detail .container-detail-service .service-icons {
   width: 100%;
   height: 400px;

@@ -40,12 +40,24 @@ function ContainerInfo({ goBack, info }) {
         {imageList.map((img, index) => <img key={index} src={'/asset/images/preview-image/' + img} alt='imageList' />)}
         <div className='container-description'>
           <h1>창고명</h1>
-          <p>{info.title}</p>
+          <p>{info.name}</p>
           <h1>창고 주소</h1>
-          <p>{info.address}</p>
+          <p>{info.address}<br/>
+          {info.addressDetail}</p>
           <h1>창고 유형</h1>
-          <p>{info.type}</p>
+          {/* 삼행연산자를 사용해서 if문을 대체 */}
+          <div> 
+          {
+          info.serviceType==="GENERAL" 
+            ? (<p>일반</p>)
+            : (<p>에이전시</p>)
+          }
+          </div>
+          <h1>평수</h1>
+          <p>창고평수: {info.landArea}<br/>
+             전체평수: {info.totalArea}</p>
         </div>
+        
       </div>
       <div className='container-info-img'>
         <p className='title'><FontAwesomeIcon icon={faMapMarkedAlt} /> 지도</p>
