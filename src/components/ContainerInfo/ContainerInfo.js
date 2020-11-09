@@ -31,9 +31,6 @@ function ContainerInfo({ goBack, info }) {
   const warningMessage = () => {
     message.warning("아직 준비중입니다.");
   };
-  if (!info) {
-    console.log("types:adsdfsdfsdf"+info.types.slice(0,1));
-  }
 
   return <div className='container-info'>
     <div className="back-wrapper"><FontAwesomeIcon icon={faTimes} onClick={back} /></div>
@@ -55,7 +52,41 @@ function ContainerInfo({ goBack, info }) {
             ? (<p>일반</p>)
             : (<p>에이전시</p>)
           }
-          <p>{info.types}</p>
+          {
+            info.typeFlag1==="true"
+            ?(<span>상온창고 / </span>)
+            :(<span></span>)
+          }
+          {
+            info.typeFlag2==="true"
+            ?(<span>저온창고 / </span>)
+            :(<span></span>)
+          }
+                   {
+            info.typeFlag3==="true"
+            ?(<span>보세창고 / </span>)
+            :(<span></span>)
+          }
+                   {
+            info.typeFlag4==="true"
+            ?(<span>야외창고 / </span>)
+            :(<span></span>)
+          }
+                   {
+            info.typeFlag5==="true"
+            ?(<span>위험물창고 / </span>)
+            :(<span></span>)
+          }
+                   {
+            info.typeFlag6==="true"
+            ?(<span>셀프창고 / </span>)
+            :(<span></span>)
+          }
+                   {
+            info.typeFlag7==="true"
+            ?(<span>컨테이너</span>)
+            :(<span></span>)
+          }
           </div>
           <h1>평수</h1>
           <p>창고평수: {info.landArea}<br/>

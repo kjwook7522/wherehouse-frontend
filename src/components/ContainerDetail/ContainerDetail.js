@@ -41,6 +41,27 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
 
     // if((props.info.availableWeekdays/1)==1)
     //       ;
+    var typev=props.info.type;
+    if(typev=="FULLFILMENT")
+      typev="풀필먼트"
+    else
+      typev="3PL"
+    var storageTypev=props.info.storageType;
+    if(storageTypev==="PALLET")
+      storageTypev="파레트"
+    else if(storageTypev==="BOX")
+      storageTypev="박스"
+    else if(storageTypev==="SPECIAL")
+      storageTypev="특수"
+    var paymentTypev=props.info.paymentType;
+    if(paymentTypev==="STORE")
+      paymentTypev="저장"
+    else if(paymentTypev==="WORK")
+      paymentTypev="작업"
+    else if(paymentTypev==="DELIVER")
+      paymentTypev="배송"
+    else if(paymentTypev==="OTHER")
+      paymentTypev="기타"
     var availNum=Number(props.info.availableWeekdays);
     var satFlag="false";
     var friFlag="false";
@@ -143,6 +164,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
     const tr = makeList();
     tr.appendChild(makePlusBtn(type));
     tbody.appendChild(tr);
+
   };
 
   return (
@@ -641,12 +663,12 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
            {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>월세 : {props.info.monthlyFee}</p>)
-            : (<p>종류 : {props.info.type}</p>)
+            : (<p>종류 : {typev}</p>)
           }
          {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>보증금 : {props.info.depositFee}</p>)
-            : (<p>창고타입 {props.info.storageType}</p>)
+            : (<p>창고타입 : {storageTypev}</p>)
           }
         {
              String(props.info.serviceType)==="GENERAL"
@@ -666,7 +688,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           {
              String(props.info.serviceType)==="GENERAL"
             ? (<p></p>)
-            : (<p>요금종류 : {props.info.paymentType}</p>)
+            : (<p>요금종류 : {paymentTypev}</p>)
           }
   
           </div>
