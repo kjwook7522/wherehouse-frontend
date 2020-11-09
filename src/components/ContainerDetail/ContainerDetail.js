@@ -541,7 +541,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="sub-section keeping-time">
           <h1 className="subtitle">이용시간 추가 정보</h1>
-          <p>{props.info.TimeDetail}</p>
+          <p>{props.info.availableTimeDetail}</p>
           </div>
         </div>
       <div className="container-detail-service">
