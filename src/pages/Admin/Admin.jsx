@@ -65,6 +65,19 @@ class Admin extends PureComponent {
     "paymentDescription":" ",
     "paymentType":" ",
     "deliveryCompanies":[],
+    "itemFlag1":"false",
+    "itemFlag2":"false",
+    "itemFlag3":"false",
+    "itemFlag4":"false",
+    "itemFlag5":"false",
+    "itemFlag6":"false",
+    "itemFlag7":"false",
+    "itemFlag8":"false",
+    "deliveryFlag1":"false",
+    "deliveryFlag2":"false",
+    "deliveryFlag3":"false",
+    "deliveryFlag4":"false",
+    "payments":[],
   }
     this.submission=this.submission.bind(this);
     this.inputAll=this.inputAll.bind(this);
@@ -148,21 +161,19 @@ axios.post("/warehouses",
     "type":this.state.type,
     "mainItemTypes":this.state.mainItemTypes,
     "storageType":this.state.storageType,
-    "payments":{
-      "unit":this.state.unit,
-      "cost":this.state.cost,
-      "description":this.state.paymentDescription,
-      "type":this.state.paymentType,
-    },
+    "payments":this.state.payments,
     "deliveryCompanies":this.state.deliveryCompanies,
-  }
+  },
 }
 , this.state.header)}
+console.log("sdf"+this.state.payments);
 }
-componentDidUpdate(){    
-
+componentDidUpdate(){
+  console.log("payments:"+this.state.payments)
+console.log(this.state.deliveryCompanies)
   //console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
   console.log("types: "+this.state.types);
+  console.log("mainItemTypes: "+this.state.mainItemTypes);
 //  console.log("deliveryCompanies: "+this.state.deliveryCompanies);
   //console.log("cur(didUpdate): "+this.state.cur)
   // console.log("availableNum:"+this.state.availNum)
@@ -173,7 +184,9 @@ componentDidUpdate(){
 }
 inputAll(e){
   var typesTemp=this.state.types.slice();
- // var deliveryTemp=this.state.deliveryCompanies.slice();
+  var deliveryTemp=this.state.deliveryCompanies.slice();
+  var itemsTemp=this.state.mainItemTypes.slice();
+  var payTemp=this.state.payments.slice();
   switch(e.target.name) {
     case "name": this.setState({name:e.target.value});break;
   {/*}  case "types" : var typesTemp = this.state.types.slice();
@@ -367,17 +380,180 @@ inputAll(e){
     case "maintenanceFee":this.setState({maintenanceFee:e.target.value});break;
     case "minUseTerm":this.setState({minUseTerm:e.target.value});break;
     case "type" : this.setState({type:e.target.value});break;
-  //  case "mainItemTypes":this.setState({mainItemTypes:e.target.value});break;
+    case "CLOTH":    if(this.state.itemFlag1=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag1:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag1:"false"})  
+     }
+     break;
+    case "FOOD":    if(this.state.itemFlag2=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag2:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag2:"false"})  
+     }
+     break;
+    case "ACCESSORY": if(this.state.itemFlag3=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag3:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag3:"false"})  
+     }
+     break;
+    case "ELECTRONIC":    if(this.state.itemFlag4=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag4:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag4:"false"})  
+     }
+     break;
+    case "COSMETIC":    if(this.state.itemFlag5=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag5:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag5:"false"})  
+     }
+     break;
+    case "COMPONENT":    if(this.state.itemFlag6=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag6:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag6:"false"})  
+     }
+     break;
+    case "FURNITURE":    if(this.state.itemFlag7=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag7:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag7:"false"})  
+     }
+     break;
+    case "RAW_MATERIAL":    if(this.state.itemFlag8=="false")
+    {
+      itemsTemp.push(e.target.value);
+       this.setState({mainItemTypes:itemsTemp});
+       this.setState({itemFlag8:"true"})
+      }
+     else
+      {
+       itemsTemp=itemsTemp.filter(item=>item!==e.target.value);
+      this.setState({mainItemTypes:itemsTemp});
+      this.setState({itemFlag8:"false"})  
+     }
+     break;
     case "storageType":this.setState({storageType:e.target.value});break;
-    case "unit":this.setState({unit:e.target.value});break;
-    case "cost":this.setState({cost:e.target.value});break;
-    case "paymentDescription":this.setState({paymentDescription:e.target.value});break;
-    case "paymentType":this.setState({paymentType:e.target.value});break;
-  // case "deliveryCompanies":this.setState({del})
-  //  case "cj":  deliveryTemp.push("cj");this.setState({deliveryCompanies:deliveryTemp});break;
-  //  case "postOffice":  deliveryTemp.push("postOffice");this.setState({deliveryCompanies:deliveryTemp});break;
-  // case "hanjin":  deliveryTemp.push("hanjin");this.setState({deliveryCompanies:deliveryTemp});break;
-  // case "coopang":  deliveryTemp.push("coopang");this.setState({deliveryCompanies:deliveryTemp});break;
+    case "unit":this.setState({unit:e.target.value});
+                payTemp=payTemp.filter(pay=>pay=="asdas");
+                payTemp.push({"unit":e.target.value, "cost":this.state.cost, "description":this.state.paymentDescription, "type":this.state.paymentType});
+                this.setState({payments:payTemp});break;
+    case "cost":this.setState({cost:e.target.value});
+                 payTemp=payTemp.filter(pay=>pay=="asdas");
+                payTemp.push({"unit":this.state.unit, "cost":e.target.value, "description":this.state.paymentDescription, "type":this.state.paymentType});
+                this.setState({payments:payTemp});break;
+    case "paymentDescription":this.setState({paymentDescription:e.target.value});
+               payTemp=payTemp.filter(pay=>pay=="asdas");
+                payTemp.push({"unit":this.state.unit, "cost":this.state.cost, "description":e.target.value, "type":this.state.paymentType});
+                this.setState({payments:payTemp});break;
+    case "paymentType":this.setState({paymentType:e.target.value});
+                payTemp=payTemp.filter(pay=>pay=="asdas");
+                payTemp.push({"unit":this.state.unit, "cost":this.state.cost, "description":this.state.paymentDescription, "type":e.target.value});
+                this.setState({payments:payTemp});break;
+    case "cj":     if(this.state.deliveryFlag1=="false")
+    {
+      deliveryTemp.push(e.target.value);
+       this.setState({deliveryCompanies:deliveryTemp});
+       this.setState({deliveryFlag1:"true"})
+      }
+     else
+      {
+       deliveryTemp=deliveryTemp.filter(company=>company!==e.target.value);
+      this.setState({deliveryCompanies:deliveryTemp});
+      this.setState({deliveryFlag1:"false"})  
+     }
+     break;
+
+    case "postOffice":     if(this.state.deliveryFlag2=="false")
+    {
+      deliveryTemp.push(e.target.value);
+       this.setState({deliveryCompanies:deliveryTemp});
+       this.setState({deliveryFlag2:"true"})
+      }
+     else
+      {
+       deliveryTemp=deliveryTemp.filter(company=>company!==e.target.value);
+      this.setState({deliveryCompanies:deliveryTemp});
+      this.setState({deliveryFlag2:"false"})  
+     }
+     break;
+   case "hanjin":     if(this.state.deliveryFlag3=="false")
+   {
+     deliveryTemp.push(e.target.value);
+      this.setState({deliveryCompanies:deliveryTemp});
+      this.setState({deliveryFlag3:"true"})
+     }
+    else
+     {
+      deliveryTemp=deliveryTemp.filter(company=>company!==e.target.value);
+     this.setState({deliveryCompanies:deliveryTemp});
+     this.setState({deliveryFlag3:"false"})  
+    }
+    break;
+   case "coopang":     if(this.state.deliveryFlag4=="false")
+   {
+     deliveryTemp.push(e.target.value);
+      this.setState({deliveryCompanies:deliveryTemp});
+      this.setState({deliveryFlag4:"true"})
+     }
+    else
+     {
+      deliveryTemp=deliveryTemp.filter(company=>company!==e.target.value);
+     this.setState({deliveryCompanies:deliveryTemp});
+     this.setState({deliveryFlag4:"false"})  
+    }
+    break;
   }
   console.log("e.target.name: "+e.target.name);
     console.log("e.target.value: "+e.target.value);
@@ -558,19 +734,6 @@ inputAll(e){
            </td>
           </tr>
           <tr>
-        {/*    <td><label>제휴택배사*</label></td>
-              <td id="deliveryCompanies" name="deliveryCompanies" onChange={this.inputAll}>
-                <label>cj</label>
-                <input type="checkbox" name="cj" value="cj"></input>
-                <label>우체국</label>
-                 <input type="checkbox" name="postOffice" value="postOffice"></input>
-                <label>한진</label>
-                <input type="checkbox" name="hanjin" value="hanjin"></input>
-                <label>쿠팡</label><br/>
-                 <input type="checkbox" name="coopang" value="coopang"></input>
-        </td>*/}
-          </tr>
-          <tr>
           <td>
          <label>픽업 서비스유무</label>
           <input type="radio" name="canPickup" className="canPickup" value="true" onChange={this.inputAll}/>있음
@@ -581,8 +744,7 @@ inputAll(e){
           </tbody>
         </table>
           <br/>
-        <label>창고 이미지 url 목록</label>
-        //
+        //<label>창고 이미지 url 목록</label>
         <br/>
         <h1>*************일반 버전*********************</h1><br/>
         <label>월세</label>
@@ -594,21 +756,54 @@ inputAll(e){
         <label>최소사용기간</label>
         <input type="number" id="minUseTerm" name="minUseTerm"onChange={this.inputAll}/><br/>
         <h1>*************에이전시 버전******************</h1><br/>
-        <label>3PL vs 풀필먼트 업체</label>
-        <input type="text" id="type" name="type" onChange={this.inputAll}/><br/>
-        {/* <label>주요취급품목</label>
-        <input type=""></input> */}
-        <label>창고타입</label>
-        <input type="text" id="storageType" name="storageType"  onChange={this.inputAll}/><br/>
-        <label>요금단위</label>
+        <label>3PL vs 풀필먼트 업체* : </label>
+        <input type="radio" name="type" className="type" value="3PL"  onChange={this.inputAll}/>3PL
+        <input type="radio" name="type" className="type" value="FULLFILMENT" onChange={this.inputAll}/>풀필먼트
+        <div id="itemTypes" name="itemTypes" onChange={this.inputAll}>
+        <label>주요취급품목* : </label>
+        <label> 옷</label>
+        <input type="checkbox" name="CLOTH" value="CLOTH"></input>
+        <label>음식</label>
+        <input type="checkbox" name="FOOD" value="FOOD"></input>
+        <label>악세사리</label>
+        <input type="checkbox" name="ACCESSORY" value="ACCESSORY"></input>
+        <label>전자기기</label>
+        <input type="checkbox" name="ELECTRONIC" value="ELECTRONIC"></input>
+        <label>화장품</label>
+        <input type="checkbox" name="COSMETIC" value="COSMETIC"></input>
+        <label>부품</label>
+        <input type="checkbox" name="COMPONENT" value="COMPONENT"></input>
+        <label>가구</label>
+        <input type="checkbox" name="FURNITURE" value="FURNITURE"></input>
+        <label>원재료</label>
+        <input type="checkbox" name="RAW_MATERIAL" value="RAW_MATERIAL"></input>
+        </div>
+        <label>창고타입 : </label>
+        <input type="radio" name="storageType" value="PALLET"  onChange={this.inputAll}/>파레트
+        <input type="radio" name="storageType" value="BOX" onChange={this.inputAll}/>박스
+        <input type="radio" name="storageType" value="SPECIAL" onChange={this.inputAll}/>특수 <br/>
+        <label>요금단위*</label>
         <input type="text" id="unit" name="unit"  onChange={this.inputAll}/><br/>
-        <label>요금비용</label>
+        <label>요금비용*</label>
         <input type="number" id="cost" name="cost"  onChange={this.inputAll}/><br/>
-        <label>요금설명</label>
+        <label>요금설명*</label>
         <input type="text" id="paymentDescription" name="paymentDescription"  onChange={this.inputAll}/><br/>
-        <label>요금종류</label>
-        <input type="text" id="paymentType" name="paymentType"  onChange={this.inputAll}/><br/>
-        {/* <label>제휴택배사</label> */}
+        <label>요금종류*</label>
+        <input type="radio" name="paymentType" value="STORE"  onChange={this.inputAll}/>저장
+        <input type="radio" name="paymentType" value="WORK"  onChange={this.inputAll}/>작업
+        <input type="radio" name="paymentType" value="DELIVER"  onChange={this.inputAll}/>배송
+        <input type="radio" name="paymentType" value="OTHER"  onChange={this.inputAll}/>기타<br/>
+        <div id="deliveryCompanies" name="deliveryCompanies" onChange={this.inputAll}>
+        <label>제휴택배사* : </label>
+        <label> cj</label>
+        <input type="checkbox" name="cj" value="cj"></input>
+        <label>우체국</label>
+        <input type="checkbox" name="postOffice" value="postOffice"></input>
+        <label>한진</label>
+        <input type="checkbox" name="hanjin" value="hanjin"></input>
+        <label>쿠팡</label>
+        <input type="checkbox" name="coopang" value="coopang"></input>
+        </div>
         <button type="submit">제출</button>
       </form>
     </div>

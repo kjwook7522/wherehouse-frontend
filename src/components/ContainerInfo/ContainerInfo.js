@@ -31,8 +31,9 @@ function ContainerInfo({ goBack, info }) {
   const warningMessage = () => {
     message.warning("아직 준비중입니다.");
   };
-
-
+  if (!info) {
+    console.log("types:adsdfsdfsdf"+info.types.slice(0,1));
+  }
 
   return <div className='container-info'>
     <div className="back-wrapper"><FontAwesomeIcon icon={faTimes} onClick={back} /></div>
