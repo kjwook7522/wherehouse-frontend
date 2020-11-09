@@ -53,6 +53,10 @@ class Admin extends PureComponent {
     "postOfficeFlag":"false",
     "hanjinFlag":"false",
     "coopangFlag":"false",
+    "monthlyFee":0,
+    "depositFee":0,
+    "maintenanceFee":0,
+    "minUseTerm":0,
     //"deliveryCompanies":[],
   }
     this.submission=this.submission.bind(this);
@@ -61,7 +65,8 @@ class Admin extends PureComponent {
   submission(e){
     e.preventDefault();
     // console.log(localStorage.getItem("AccessToken"))
-
+    if(this.state.serviceType==="GENERAL")
+    {
     axios.post("/warehouses",
     { 
       "name" : this.state.name,
@@ -92,8 +97,48 @@ class Admin extends PureComponent {
       "canPickup" : this.state.canPickup,
       "airConditioningType" : this.state.airConditioningType,
       "attachmentIds":[], //이때 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
+      "additionalInfo":{
+      "monthlyFee":this.state.monthlyFee,
+      "depositFee":this.state.depositFee,
+      "maintenanceFee":this.state.maintenanceFee,
+      "minUseTerm":this.state.minUseTerm,
+      }
   }
-, this.state.header)
+, this.state.header)}
+else
+{
+axios.post("/warehouses",
+{ 
+  "name" : this.state.name,
+  "types" : this.state.types,
+  "serviceType" : this.state.serviceType,
+  "landArea" : this.state.landArea,
+  "totalArea" : this.state.totalArea,
+  "openAt" : this.state.openAt,
+  "closeAt" : this.state.closeAt, 
+  "availableWeekdays" : this.state.availableWeekdays, 
+  "availableTimeDetail" : this.state.availableTimeDetail,
+  "location" : {
+      "latitude" :  this.state.latitude,  
+      "longitude" : this.state.longitude
+  },
+  "address" : this.state.address, 
+  "addressDetail" : this.state.addressDetail, 
+  "description" : this.state.description,
+  "cctvExist" : this.state.cctvExist,
+  "doorLockExist" : this.state.doorLockExist,
+  "securityCompanyExist" : this.state.securityExist,
+  "securityCompanyName" : this.state.securityCompanyName,
+  "insuranceExist" : this.state.insuranceExist,
+  "insuranceName" : this.state.insuranceName,
+  "canPark" : this.state.canPark,
+  "parkingScale" : this.state.parkingScale,
+  "workerExist" : this.state.workerExist,
+  "canPickup" : this.state.canPickup,
+  "airConditioningType" : this.state.airConditioningType,
+  "attachmentIds":[], //이때 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
+}
+, this.state.header)}
 }
 componentDidUpdate(){    
 
@@ -298,6 +343,10 @@ inputAll(e){
     case "workerExist" : this.setState({workerExist:e.target.value});break;
     case "canPickup" : this.setState({canPickup:e.target.value});break;
     case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
+    case "monthlyFee":this.setState({monthlyFee:e.target.value});break;
+    case "depositFee":this.setState({depositFee:e.target.value});break;
+    case "maintenanceFee":this.setState({maintenanceFee:e.target.value});break;
+    case "minUseTerm":this.setState({minUseTerm:e.target.value});break;
   //  case "cj":  deliveryTemp.push("cj");this.setState({deliveryCompanies:deliveryTemp});break;
   //  case "postOffice":  deliveryTemp.push("postOffice");this.setState({deliveryCompanies:deliveryTemp});break;
    // case "hanjin":  deliveryTemp.push("hanjin");this.setState({deliveryCompanies:deliveryTemp});break;
@@ -509,6 +558,16 @@ inputAll(e){
         <label>창고 이미지 url 목록</label>
         //
         <br/>
+        <h1>*************일반 버전*********************</h1><br/>
+        <label>월세</label>
+        <input type="number" id="monthlyFee" name="monthlyFee" onChange={this.inputAll}/><br/>
+        <label>보증금</label>
+        <input type="number" id="depositFee" name="depositFee"onChange={this.inputAll}/><br/>
+        <label>관리비</label>
+        <input type="number" id="maintenanceFee" name="maintenanceFee"onChange={this.inputAll}/><br/>
+        <label>최소사용기간</label>
+        <input type="number" id="minUseTerm" name="minUseTerm"onChange={this.inputAll}/><br/>
+        <h1>*************에이전시 버전******************</h1><br/>
         <button type="submit">제출</button>
       </form>
     </div>
