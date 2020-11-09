@@ -57,7 +57,14 @@ class Admin extends PureComponent {
     "depositFee":0,
     "maintenanceFee":0,
     "minUseTerm":0,
-    //"deliveryCompanies":[],
+    "type":" ",
+    "mainItemTypes":[],
+    "storageType":" ",
+    "unit":" ",
+    "cost":0,
+    "paymentDescription":" ",
+    "paymentType":" ",
+    "deliveryCompanies":[],
   }
     this.submission=this.submission.bind(this);
     this.inputAll=this.inputAll.bind(this);
@@ -137,6 +144,18 @@ axios.post("/warehouses",
   "canPickup" : this.state.canPickup,
   "airConditioningType" : this.state.airConditioningType,
   "attachmentIds":[], //이때 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
+  "additionalInfo":{
+    "type":this.state.type,
+    "mainItemTypes":this.state.mainItemTypes,
+    "storageType":this.state.storageType,
+    "payments":{
+      "unit":this.state.unit,
+      "cost":this.state.cost,
+      "description":this.state.paymentDescription,
+      "type":this.state.paymentType,
+    },
+    "deliveryCompanies":this.state.deliveryCompanies,
+  }
 }
 , this.state.header)}
 }
@@ -347,10 +366,18 @@ inputAll(e){
     case "depositFee":this.setState({depositFee:e.target.value});break;
     case "maintenanceFee":this.setState({maintenanceFee:e.target.value});break;
     case "minUseTerm":this.setState({minUseTerm:e.target.value});break;
+    case "type" : this.setState({type:e.target.value});break;
+  //  case "mainItemTypes":this.setState({mainItemTypes:e.target.value});break;
+    case "storageType":this.setState({storageType:e.target.value});break;
+    case "unit":this.setState({unit:e.target.value});break;
+    case "cost":this.setState({cost:e.target.value});break;
+    case "paymentDescription":this.setState({paymentDescription:e.target.value});break;
+    case "paymentType":this.setState({paymentType:e.target.value});break;
+  // case "deliveryCompanies":this.setState({del})
   //  case "cj":  deliveryTemp.push("cj");this.setState({deliveryCompanies:deliveryTemp});break;
   //  case "postOffice":  deliveryTemp.push("postOffice");this.setState({deliveryCompanies:deliveryTemp});break;
-   // case "hanjin":  deliveryTemp.push("hanjin");this.setState({deliveryCompanies:deliveryTemp});break;
-    //case "coopang":  deliveryTemp.push("coopang");this.setState({deliveryCompanies:deliveryTemp});break;
+  // case "hanjin":  deliveryTemp.push("hanjin");this.setState({deliveryCompanies:deliveryTemp});break;
+  // case "coopang":  deliveryTemp.push("coopang");this.setState({deliveryCompanies:deliveryTemp});break;
   }
   console.log("e.target.name: "+e.target.name);
     console.log("e.target.value: "+e.target.value);
@@ -507,7 +534,6 @@ inputAll(e){
           </tr>
           <tr>
            <td>
-             
         <label>방문시 주차가능유무</label>
         <input type="radio" name="canPark" className="canPark" value="true" onChange={this.inputAll}/>있음
         <input type="radio" name="canPark" className="canPark" value="false" onChange={this.inputAll}/>없음
@@ -568,6 +594,21 @@ inputAll(e){
         <label>최소사용기간</label>
         <input type="number" id="minUseTerm" name="minUseTerm"onChange={this.inputAll}/><br/>
         <h1>*************에이전시 버전******************</h1><br/>
+        <label>3PL vs 풀필먼트 업체</label>
+        <input type="text" id="type" name="type" onChange={this.inputAll}/><br/>
+        {/* <label>주요취급품목</label>
+        <input type=""></input> */}
+        <label>창고타입</label>
+        <input type="text" id="storageType" name="storageType"  onChange={this.inputAll}/><br/>
+        <label>요금단위</label>
+        <input type="text" id="unit" name="unit"  onChange={this.inputAll}/><br/>
+        <label>요금비용</label>
+        <input type="number" id="cost" name="cost"  onChange={this.inputAll}/><br/>
+        <label>요금설명</label>
+        <input type="text" id="paymentDescription" name="paymentDescription"  onChange={this.inputAll}/><br/>
+        <label>요금종류</label>
+        <input type="text" id="paymentType" name="paymentType"  onChange={this.inputAll}/><br/>
+        {/* <label>제휴택배사</label> */}
         <button type="submit">제출</button>
       </form>
     </div>

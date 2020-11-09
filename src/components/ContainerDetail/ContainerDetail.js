@@ -632,6 +632,44 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           <h1 className="subtitle">주차장 규모</h1>
           <p>{props.info.parkingScale}</p>
         </div>
+        <div className="sub-section-select">
+          {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<h1 className="subtitle">일반 요금정보</h1>)
+            : (<h1 className="subtitle">에이전시 요금정보</h1>)
+          }
+           {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p>월세 : {props.info.monthlyFee}</p>)
+            : (<p>종류</p>)
+          }
+         {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p>보증금 : {props.info.depositFee}</p>)
+            : (<p>창고타입</p>)
+          }
+        {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p>관리비 : {props.info.maintenanceFee}</p>)
+            : (<p>요금단위</p>)
+          }
+          {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p>최소사용기간 : {props.info.minUseTerm}</p>)
+            : (<p>요금비용</p>)
+          }
+          {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p></p>)
+            : (<p>요금설명</p>)
+          }
+          {
+             String(props.info.serviceType)==="GENERAL"
+            ? (<p></p>)
+            : (<p>요금종류</p>)
+          }
+  
+          </div>
       </div>
        {/* 
       <div className="container-detail-explain">

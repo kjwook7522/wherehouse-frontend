@@ -50,6 +50,10 @@ function Container({ history, match }) {
           airConditioningType:containerDetail.airConditioningType,//냉난방정보
           attachments:containerDetail.attachments,//창고이미지url목록
           owner:containerDetail.owner,//창고주 정보
+          monthlyFee:containerDetail.additionalInfo.monthlyFee,
+          depositFee:containerDetail.additionalInfo.depositFee,
+          maintenanceFee:containerDetail.additionalInfo.maintenanceFee,
+          minUseTerm:containerDetail.additionalInfo.minUseTerm,
         });
       });
   }, []);
