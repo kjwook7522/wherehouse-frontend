@@ -4,6 +4,7 @@ import{faEye}from "@fortawesome/free-regular-svg-icons"
 import {
   faInfoCircle,
   faShieldAlt,
+  faBook,
   faClock,
   faPallet,
   faBoxOpen,
@@ -549,7 +550,7 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           <FontAwesomeIcon icon={faQuestionCircle} /> 서비스
         </p>
         <div className="service-icons">
-          <div className="icon">
+          <div className="icon" id="cctvExistIcon">
             <div>
             { 
             String(props.info.cctvExist)=="true"
@@ -615,6 +616,21 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
             }
             <p>냉난방 유무</p>
           </div>
+        </div>
+      </div>
+      <div className="container-detail-service-extra">
+        <p className="title">
+          <FontAwesomeIcon icon={faBook} /> 서비스 추가정보
+        </p>
+        <div className="sub-section-companies">
+          <h1 className="subtitle">제휴회사 종류</h1>
+          <p>경비업체:{props.info.securityCompanyName}</p>
+          <p>보험사:{props.info.insuranceName}</p>
+          {/* <p>제휴택배사:{props.info.deliveryCompanies}</p> */}
+        </div>
+        <div className="sub-section-parking-scale">
+          <h1 className="subtitle">주차장 규모</h1>
+          <p>{props.info.parkingScale}</p>
         </div>
       </div>
        {/* 

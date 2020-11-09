@@ -10,9 +10,14 @@ class Admin extends PureComponent {
          headers:{Authorization:'Bearer '+localStorage.getItem("AccessToken")}
       },
     "name":" ",
-    "typesTemp" : [],
     "types" : [],
-    "cur" :0,
+    "typeFlag1":"false",
+    "typeFlag2":"false",
+    "typeFlag3":"false",
+    "typeFlag4":"false",
+    "typeFlag5":"false",
+    "typeFlag6":"false",
+    "typeFlag7":"false",
     "serviceType" : "GENERAL",
     "landArea" : " ",
     "totalArea" : " ",
@@ -44,14 +49,19 @@ class Admin extends PureComponent {
     "workerExist" : "false",
     "pickupExist" : "false",
     "airConditioningType" :"NONE",
+    "cjFlag" : "false",
+    "postOfficeFlag":"false",
+    "hanjinFlag":"false",
+    "coopangFlag":"false",
+    //"deliveryCompanies":[],
   }
     this.submission=this.submission.bind(this);
     this.inputAll=this.inputAll.bind(this);
   }
   submission(e){
     e.preventDefault();
-    console.log(this.state);
     // console.log(localStorage.getItem("AccessToken"))
+
     axios.post("/warehouses",
     { 
       "name" : this.state.name,
@@ -60,15 +70,15 @@ class Admin extends PureComponent {
       "landArea" : this.state.landArea,
       "totalArea" : this.state.totalArea,
       "openAt" : this.state.openAt,
-      "closeAt" : this.state.closeAt,
-      "availableWeekdays" : this.state.availableWeekdays,
+      "closeAt" : this.state.closeAt, 
+      "availableWeekdays" : this.state.availableWeekdays, 
       "availableTimeDetail" : this.state.availableTimeDetail,
       "location" : {
-          "latitude" :  this.state.latitude,
+          "latitude" :  this.state.latitude,  
           "longitude" : this.state.longitude
       },
-      "address" : this.state.address,
-      "addressDetail" : this.state.addressDetail,
+      "address" : this.state.address, 
+      "addressDetail" : this.state.addressDetail, 
       "description" : this.state.description,
       "cctvExist" : this.state.cctvExist,
       "doorLockExist" : this.state.doorLockExist,
@@ -86,22 +96,116 @@ class Admin extends PureComponent {
 , this.state.header)
 }
 componentDidUpdate(){    
-  {/*console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
-  console.log("types(didUpdate): "+this.state.types) 
-  console.log("cur(didUpdate): "+this.state.cur)*/}
-  console.log("availableNum:"+this.state.availNum)
-  console.log("availableWeekDays:"+this.state.availableWeekdays)
+
+  //console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
+  console.log("types: "+this.state.types);
+//  console.log("deliveryCompanies: "+this.state.deliveryCompanies);
+  //console.log("cur(didUpdate): "+this.state.cur)
+  // console.log("availableNum:"+this.state.availNum)
+  //console.log("availableWeekDays:"+this.state.availableWeekdays)
   //console.log("type"+typeof(this.state.availableDays))
+  //console.log(this.state.cjFlag);
+  
 }
 inputAll(e){
+  var typesTemp=this.state.types.slice();
+ // var deliveryTemp=this.state.deliveryCompanies.slice();
   switch(e.target.name) {
     case "name": this.setState({name:e.target.value});break;
-    {/*case "types" :this.state.typesTemp.push({cur:e.target.value});
-                  this.setState({cur:this.state.cur+1});
-                  this.setState({types:this.state.typesTemp.slice()});break; */}//여기 배열표시 해서 넣어줬어햐했음
-   {/* case "ROOM_TEMPERATURE": this.setState.typesTemp.push({cur:e.target.value});
-                             this.setState({cur:this.state.cur+1});
-                this.setState({types:this.state});*/}
+  {/*}  case "types" : var typesTemp = this.state.types.slice();
+                  typesTemp.push(e.target.value);
+  this.setState({types:typesTemp});break;*/}
+    case "ROOM_TEMPERATURE" :if(this.state.typeFlag1==="false")
+                             {
+                              typesTemp.push("ROOM_TEMPERATURE");
+                              this.setState({types:typesTemp});
+                              this.setState({typeFlag1:"true"})
+                            }
+                            else
+                            {
+                             typesTemp=typesTemp.filter(type=>type!=="ROOM_TEMPERATURE");
+                             this.setState({types:typesTemp});
+                             this.setState({typeFlag1:"false"})
+                            }
+                             break;
+    case "LOW_TEMPERATURE" : if(this.state.typeFlag2==="false")
+                              {
+                              typesTemp.push("LOW_TEMPERATURE");
+                              this.setState({types:typesTemp});
+                              this.setState({typeFlag2:"true"})
+                             }
+                              else
+                              {
+                               typesTemp=typesTemp.filter(type=>type!=="LOW_TEMPERATURE");
+                               this.setState({types:typesTemp});
+                               this.setState({typeFlag2:"false"})
+                              }
+                               break;
+    case "BONDED" : if(this.state.typeFlag3==="false")
+                    {
+                      typesTemp.push("BONDED");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag3:"true"})
+                     }
+                     else
+                     {
+                      typesTemp=typesTemp.filter(type=>type!=="BONDED");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag3:"false"})  
+                     }
+                     break;
+    case "SAVAGE" :if(this.state.typeFlag4==="false")
+                   {
+                     typesTemp.push("SAVAGE");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag4:"true"})
+                     }
+                    else
+                     {
+                      typesTemp=typesTemp.filter(type=>type!=="SAVAGE");
+                     this.setState({types:typesTemp});
+                     this.setState({typeFlag4:"false"})  
+                    }
+                    break;
+    case "HAZARDOUS" : if(this.state.typeFlag5==="false")
+                    {
+                     typesTemp.push("HAZARDOUS");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag5:"true"})
+                     }
+                    else
+                     {
+                     typesTemp=typesTemp.filter(type=>type!=="HAZARDOUS");
+                     this.setState({types:typesTemp});
+                     this.setState({typeFlag5:"false"})  
+                    }
+                    break;
+    case "SELF_STORAGE" : if(this.state.typeFlag6==="false")
+                    {
+                     typesTemp.push("SELF_STORAGE");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag6:"true"})
+                     }
+                    else
+                     {
+                      typesTemp=typesTemp.filter(type=>type!=="SELF_STORAGE");
+                     this.setState({types:typesTemp});
+                     this.setState({typeFlag6:"false"})  
+                    }
+                    break;
+    case "CONTAINER" : if(this.state.typeFlag7==="false")
+                    {
+                     typesTemp.push("CONTAINER");
+                      this.setState({types:typesTemp});
+                      this.setState({typeFlag7:"true"})
+                     }
+                    else
+                     {
+                      typesTemp=typesTemp.filter(type=>type!=="CONTAINER");
+                     this.setState({types:typesTemp});
+                     this.setState({typeFlag7:"false"})  
+                    }
+                    break;
     case "serviceType" : this.setState({serviceType:e.target.value});break;
     case "landArea" :this.setState({landArea:e.target.value});break;
     case "totalArea" : this.setState({totalArea:e.target.value});break;
@@ -194,10 +298,13 @@ inputAll(e){
     case "workerExist" : this.setState({workerExist:e.target.value});break;
     case "canPickup" : this.setState({canPickup:e.target.value});break;
     case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
+  //  case "cj":  deliveryTemp.push("cj");this.setState({deliveryCompanies:deliveryTemp});break;
+  //  case "postOffice":  deliveryTemp.push("postOffice");this.setState({deliveryCompanies:deliveryTemp});break;
+   // case "hanjin":  deliveryTemp.push("hanjin");this.setState({deliveryCompanies:deliveryTemp});break;
+    //case "coopang":  deliveryTemp.push("coopang");this.setState({deliveryCompanies:deliveryTemp});break;
   }
   console.log("e.target.name: "+e.target.name);
     console.log("e.target.value: "+e.target.value);
-      console.log("horollo"+Number(e.target.value))
     }
 
     render() { 
@@ -367,22 +474,34 @@ inputAll(e){
           <input type="radio" name="workerExist" className="workerExist" value="true" onChange={this.inputAll}/>있음
            <input type="radio" name="workerExist" className="workerExist" value="false" onChange={this.inputAll}/>없음
           </td>
-        <td>
-        <label>픽업 서비스유무</label>
-        <input type="radio" name="canPickup" className="canPickup" value="true" onChange={this.inputAll}/>있음
-        <input type="radio" name="canPickup" className="canPickup" value="false"  onChange={this.inputAll}/>없음
-        </td>
-          </tr>
-          <tr>
            <td>
            <label>냉난방 정보</label>
-           </td>
-           <td>
                 <input type="radio" name="airConditioningType" className="airConditioningtype" value="NONE"  onChange={this.inputAll}/>없음
                 <input type="radio" name="airConditioningType" className="airConditioningtype" value="HEATING" onChange={this.inputAll}/>난방
                 <input type="radio" name="airConditioningType" className="airConditioningtype" value="COOLING" onChange={this.inputAll}/>냉방
                 <input type="radio" name="airConditioningType" className="airConditioningtype" value="BOTH" onChange={this.inputAll}/>둘다
            </td>
+          </tr>
+          <tr>
+        {/*    <td><label>제휴택배사*</label></td>
+              <td id="deliveryCompanies" name="deliveryCompanies" onChange={this.inputAll}>
+                <label>cj</label>
+                <input type="checkbox" name="cj" value="cj"></input>
+                <label>우체국</label>
+                 <input type="checkbox" name="postOffice" value="postOffice"></input>
+                <label>한진</label>
+                <input type="checkbox" name="hanjin" value="hanjin"></input>
+                <label>쿠팡</label><br/>
+                 <input type="checkbox" name="coopang" value="coopang"></input>
+        </td>*/}
+          </tr>
+          <tr>
+          <td>
+         <label>픽업 서비스유무</label>
+          <input type="radio" name="canPickup" className="canPickup" value="true" onChange={this.inputAll}/>있음
+          <input type="radio" name="canPickup" className="canPickup" value="false"  onChange={this.inputAll}/>없음
+         </td>
+
           </tr>
           </tbody>
         </table>

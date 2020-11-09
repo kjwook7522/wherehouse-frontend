@@ -24,7 +24,7 @@ function Container({ history, match }) {
           id: match.params.id,
           name: containerDetail.name,//창고이름
           serviceType:containerDetail.serviceType,//서비스타입
-          types: containerDetail.additionalInfo.types,//창고종류들(체크박스)
+          types: containerDetail.types,//창고종류들(체크박스)
           landArea:containerDetail.landArea,//창고평수
           totalArea:containerDetail.totalArea,//전체평수
           openAt:containerDetail.openAt,//여는시간
@@ -35,6 +35,7 @@ function Container({ history, match }) {
           location: containerDetail.location,//위도경도
           address: containerDetail.address,//창고주소
           addressDetail : containerDetail.addressDetail,//창고상세주소
+          description:containerDetail.description,//창고설명 
 
           cctvExist:containerDetail.cctvExist,//cctv 존재유무
           doorLockExist:containerDetail.doorLockExist,//잠금장치 존재유무

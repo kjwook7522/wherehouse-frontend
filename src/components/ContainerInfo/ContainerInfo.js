@@ -32,6 +32,8 @@ function ContainerInfo({ goBack, info }) {
     message.warning("아직 준비중입니다.");
   };
 
+
+
   return <div className='container-info'>
     <div className="back-wrapper"><FontAwesomeIcon icon={faTimes} onClick={back} /></div>
     <div className='container-info-wrapper'>
@@ -52,12 +54,14 @@ function ContainerInfo({ goBack, info }) {
             ? (<p>일반</p>)
             : (<p>에이전시</p>)
           }
+          <p>{info.types}</p>
           </div>
           <h1>평수</h1>
           <p>창고평수: {info.landArea}<br/>
              전체평수: {info.totalArea}</p>
+          <h1>창고 설명</h1>
+          <p>{info.description}</p>
         </div>
-        
       </div>
       <div className='container-info-img'>
         <p className='title'><FontAwesomeIcon icon={faMapMarkedAlt} /> 지도</p>

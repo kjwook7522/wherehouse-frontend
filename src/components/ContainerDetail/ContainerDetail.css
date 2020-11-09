@@ -226,6 +226,18 @@
   font-size: 100px;
 }
 
+.container-detail .container-detail-service-extra{
+  padding: 40px 0;
+}
+
+.container-detail .container-detail-service-extra .sub-section-companies {
+  padding: 20px 0;
+}
+.container-detail .container-detail-service-extra .sub-section-parkingScale {
+  padding: 20px 0;
+}
+
+
 .container-detail .container-detail-explain textarea {
   width: 100%;
   height: 200px;
