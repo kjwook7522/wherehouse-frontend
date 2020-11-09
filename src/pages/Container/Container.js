@@ -54,6 +54,12 @@ function Container({ history, match }) {
           depositFee:containerDetail.additionalInfo.depositFee,
           maintenanceFee:containerDetail.additionalInfo.maintenanceFee,
           minUseTerm:containerDetail.additionalInfo.minUseTerm,
+          type:containerDetail.additionalInfo.type,
+          storageType:containerDetail.additionalInfo.storageType,
+          unit:containerDetail.additionalInfo.unit,
+          cost:containerDetail.additionalInfo.cost,
+          paymentDescription:containerDetail.additionalInfo.description,
+          paymentType:containerDetail.additionalInfo.type,
         });
       });
   }, []);

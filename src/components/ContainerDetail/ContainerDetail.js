@@ -641,32 +641,32 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
            {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>월세 : {props.info.monthlyFee}</p>)
-            : (<p>종류</p>)
+            : (<p>종류 : {props.info.type}</p>)
           }
          {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>보증금 : {props.info.depositFee}</p>)
-            : (<p>창고타입</p>)
+            : (<p>창고타입 {props.info.storageType}</p>)
           }
         {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>관리비 : {props.info.maintenanceFee}</p>)
-            : (<p>요금단위</p>)
+            : (<p>요금단위: {props.info.unit}</p>)
           }
           {
              String(props.info.serviceType)==="GENERAL"
             ? (<p>최소사용기간 : {props.info.minUseTerm}</p>)
-            : (<p>요금비용</p>)
+            : (<p>요금비용 : {props.info.cost}</p>)
           }
           {
              String(props.info.serviceType)==="GENERAL"
             ? (<p></p>)
-            : (<p>요금설명</p>)
+            : (<p>요금설명 : {props.info.paymentDescription}</p>)
           }
           {
              String(props.info.serviceType)==="GENERAL"
             ? (<p></p>)
-            : (<p>요금종류</p>)
+            : (<p>요금종류 : {props.info.paymentType}</p>)
           }
   
           </div>
