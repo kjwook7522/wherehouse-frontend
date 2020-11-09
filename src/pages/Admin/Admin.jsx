@@ -10,13 +10,23 @@ class Admin extends PureComponent {
          headers:{Authorization:'Bearer '+localStorage.getItem("AccessToken")}
       },
     "name":" ",
-    "types" : ["ROOM_TEMPERATURE"],
+    "typesTemp" : [],
+    "types" : [],
+    "cur" :0,
     "serviceType" : "GENERAL",
     "landArea" : " ",
     "totalArea" : " ",
     "openAt" : " ",
     "closeAt" : " ",
-   // "availableDays" : " ",
+    "availableWeekdays" : 0,
+    "availNum":0,
+    "sunFlag":"false",
+    "monFlag":"false",
+    "tueFlag":"false",
+    "wedFlag":"false",
+    "thuFlag":"false",
+    "friFlag":"false",
+    "satFlag":"false",
     "availableTimeDetail" : " ",
     "latitude" : " ",
     "longitude" : " ",
@@ -51,7 +61,7 @@ class Admin extends PureComponent {
       "totalArea" : this.state.totalArea,
       "openAt" : this.state.openAt,
       "closeAt" : this.state.closeAt,
-      //"availableDays" : this.state.availableDays,
+      "availableWeekdays" : this.state.availableWeekdays,
       "availableTimeDetail" : this.state.availableTimeDetail,
       "location" : {
           "latitude" :  this.state.latitude,
@@ -71,21 +81,115 @@ class Admin extends PureComponent {
       "workerExist" : this.state.workerExist,
       "canPickup" : this.state.canPickup,
       "airConditioningType" : this.state.airConditioningType,
-      "attachmentIds":[], //이떄 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
+      "attachmentIds":[], //이때 types 초기값이랑 그런거에 다 배열로 주었기 때문에 보낼떄는 다시[]로 감싸면 안되는거였음 그래서 계속 에러났던것
   }
 , this.state.header)
 }
-
+componentDidUpdate(){    
+  {/*console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
+  console.log("types(didUpdate): "+this.state.types) 
+  console.log("cur(didUpdate): "+this.state.cur)*/}
+  console.log("availableDays:"+this.state.availableDays)
+  //console.log("type"+typeof(this.state.availableDays))
+}
 inputAll(e){
   switch(e.target.name) {
     case "name": this.setState({name:e.target.value});break;
-    case "types" : this.setState({types:[e.target.value]});break; //여기 배열표시 해서 넣어줬어햐했음
+    {/*case "types" :this.state.typesTemp.push({cur:e.target.value});
+                  this.setState({cur:this.state.cur+1});
+                  this.setState({types:this.state.typesTemp.slice()});break; */}//여기 배열표시 해서 넣어줬어햐했음
+   {/* case "ROOM_TEMPERATURE": this.setState.typesTemp.push({cur:e.target.value});
+                             this.setState({cur:this.state.cur+1});
+                this.setState({types:this.state});*/}
     case "serviceType" : this.setState({serviceType:e.target.value});break;
     case "landArea" :this.setState({landArea:e.target.value});break;
     case "totalArea" : this.setState({totalArea:e.target.value});break;
     case "openAt" : this.setState({openAt:e.target.value});break;
     case "closeAt" : this.setState({closeAt:e.target.value});break;
-    //case "availableDays" :  this.setState({availableDays:e.target.value});break;
+    case "sunday":{if(this.state.sunFlag=="false")
+                  {
+                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                    this.setState({sunFlag:"true"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                  }
+                  else
+                  {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({sunFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                  }};break;
+    case "monday": {if(this.state.monFlag=="false")
+                  {
+                   this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                    this.setState({monFlag:"true"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                 }
+                 else
+                 {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({monFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                 }};break;
+    case "tuesday": {if(this.state.tueFlag=="false")
+                  {
+                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                   this.setState({tueFlag:"true"});
+                   this.setState({availableWeekdays:this.state.availNum});
+                 }
+                 else
+                  {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({tueFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                  }};break;
+    case "wednesday": {if(this.state.wedFlag=="false")
+                  {
+                   this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                   this.setState({wedFlag:"true"});
+                   this.setState({availableWeekdays:this.state.availNum});
+                  }
+                 else
+                 {
+                   this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({wedFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                  }};break;
+    case "thursday": {if(this.state.thuFlag=="false")
+                  {
+                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                    this.setState({thuFlag:"true"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                 }
+                  else
+                  {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                   this.setState({thuFlag:"false"});
+                   this.setState({availableWeekdays:this.state.availNum});
+                 }};break;
+    case "friday":{if(this.state.friFlag=="false")
+                  {
+                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                    this.setState({friFlag:"true"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                  }
+                  else
+                {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({friFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                 }};break;
+    case "saturday": {if(this.state.satFlag=="false")
+                  {
+                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
+                    this.setState({satFlag:"true"});
+                   this.setState({availableWeekdays:this.state.availNum});
+                 }
+                 else
+                 {
+                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
+                    this.setState({satFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availNum});
+                 }};break;
     case "availableTimeDetail" : this.setState({availableTimeDetail:e.target.value});break;
     case "latitude" : this.setState({latitude:e.target.value});break;
     case "longitude" :this.setState({longitude:e.target.value});break;
@@ -104,11 +208,10 @@ inputAll(e){
     case "canPickup" : this.setState({canPickup:e.target.value});break;
     case "airConditioningType" : this.setState({airConditioningType:e.target.value});break;
   }
-  //  console.log(e.target.name);
-  //  console.log(e.target.value);
-  //  console.log(e.target);
-   console.log(this.state.cctvExist);
-}
+  console.log("e.target.name: "+e.target.name);
+    console.log("e.target.value: "+e.target.value);
+      console.log("horollo"+Number(e.target.value))
+    }
 
     render() { 
         return (
@@ -132,22 +235,22 @@ inputAll(e){
             </td>
           </tr>
           <tr>
-            <td><label>창고종류</label></td>
+            <td><label>창고종류*</label></td>
               <td id="types" name="types" onChange={this.inputAll}>
                 <label>상온창고</label>
-                <input type="checkbox" value="ROOM_TEMPERATURE"></input>
+                <input type="checkbox" name="ROOM_TEMPERATURE" value="ROOM_TEMPERATURE"></input>
                 <label>저온창고</label>
-                 <input type="checkbox" value="LOW_TEMPERATURE"></input>
+                 <input type="checkbox" name="LOW_TEMPERATURE" value="LOW_TEMPERATURE"></input>
                 <label>보세창고</label>
-                <input type="checkbox" value="BONDED"></input>
+                <input type="checkbox" name="BONDED" value="BONDED"></input>
                 <label>야외창고</label><br/>
-                 <input type="checkbox" value="SAVAGE"></input>
+                 <input type="checkbox" name="SAVAGE" value="SAVAGE"></input>
                 <label>위험물창고</label>
-                <input type="checkbox" value="HAZARDOUS"></input>
+                <input type="checkbox" name="HAZARDOUS" value="HAZARDOUS"></input>
                 <label>셀프창고</label>
-                <input type="checkbox" value="SELF_STORAGE"></input>
+                <input type="checkbox" name="SELF_STORAGE" value="SELF_STORAGE"></input>
                 <label>컨테이너</label>
-                <input type="checkbox" value="CONTAINER"></input>
+                <input type="checkbox" name="CONTAINER" value="CONTAINER"></input>
             </td>
           </tr>
           <tr>
@@ -174,19 +277,19 @@ inputAll(e){
             <td><label>사용 가능한 요일</label></td>
             <td id="availableDays" name="availableDays" onChange={this.inputAll}>
                 <label>일</label>
-                <input type="checkbox" value="1"></input>
+                <input type="checkbox" id="sunday" name="sunday" value="1" flag="false"></input>
                 <label>월</label>
-                 <input type="checkbox" value="2"></input>
+                 <input type="checkbox" id="monday" name="monday" value="2" flag="false"></input>
                 <label>화</label>
-                <input type="checkbox" value="4"></input>
+                <input type="checkbox" id="tuesday" name="tuesday" value="4" flag="false"></input>
                 <label>수</label>
-                 <input type="checkbox" value="8"></input>
+                 <input type="checkbox" id="wednesday" name="wednesday" value="8" flag="false"></input>
                 <label>목</label>
-                <input type="checkbox" value="16"></input>
+                <input type="checkbox" id="thursday" name="thursday" value="16" flag="false"></input>
                 <label>금</label>
-                <input type="checkbox" value="32"></input>
+                <input type="checkbox" id="friday" name="friday" value="32" flag="false"></input>
                 <label>토</label>
-                <input type="checkbox" value="64"></input>
+                <input type="checkbox" id="saturday" name="saturday" value="64" flag="false"></input>
             </td>
           </tr>
           <tr>
@@ -287,13 +390,11 @@ inputAll(e){
            <td>
            <label>냉난방 정보</label>
            </td>
-           <td id="airConditioningType" name="airConditioningType" className="airConditioningtype" onChange={this.inputAll}>
-                <label >없음</label>
-                <input type="checkbox" value="NONE" ></input>
-                <label>난방</label>
-                 <input type="checkbox" value="HEATING"></input>
-                <label>냉방</label>
-                <input type="checkbox" value="COOLING"></input>
+           <td>
+                <input type="radio" name="airConditioningType" className="airConditioningtype" value="NONE"  onChange={this.inputAll}/>없음
+                <input type="radio" name="airConditioningType" className="airConditioningtype" value="HEATING" onChange={this.inputAll}/>난방
+                <input type="radio" name="airConditioningType" className="airConditioningtype" value="COOLING" onChange={this.inputAll}/>냉방
+                <input type="radio" name="airConditioningType" className="airConditioningtype" value="BOTH" onChange={this.inputAll}/>둘다
            </td>
           </tr>
           </tbody>
