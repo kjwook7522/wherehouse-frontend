@@ -553,8 +553,8 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
             <div>
             { 
             String(props.info.cctvExist)=="true"
-            ? (<FontAwesomeIcon icon={faEye} color="#f7a74a"/>)
-            : (<FontAwesomeIcon icon={faEye} />)
+            ? (<FontAwesomeIcon icon={faEye} color="#f7a74a" id="cctvExist"/>)
+            : (<FontAwesomeIcon icon={faEye} id="cctvExist"/>)
             }
             </div>
             <p>cctv 유무</p>
@@ -562,15 +562,15 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           <div className="icon">
           {
              String(props.info.doorLockExist)=="true"
-            ? (<FontAwesomeIcon icon={faLock} color="#f7a74a" />)
-            : (<FontAwesomeIcon icon={faLock} />)
+            ? (<FontAwesomeIcon icon={faLock} color="#f7a74a" id="doorLockExist"/>)
+            : (<FontAwesomeIcon icon={faLock} id="doorLockExist"/>)
           }
             <p>보안락 유무</p>
           </div>
           <div className="icon">
           {
              String(props.info.securityCompanyExist)=="true"
-            ? (<FontAwesomeIcon icon={faShieldAlt} color="#f7a74a" />)
+            ? (<FontAwesomeIcon icon={faShieldAlt} color="#f7a74a" id="Exist"/>)
             : (<FontAwesomeIcon icon={faShieldAlt} />)
           }
             <p>경비업체 유무</p>

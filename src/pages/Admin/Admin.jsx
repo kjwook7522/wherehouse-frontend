@@ -89,7 +89,8 @@ componentDidUpdate(){
   {/*console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
   console.log("types(didUpdate): "+this.state.types) 
   console.log("cur(didUpdate): "+this.state.cur)*/}
-  console.log("availableDays:"+this.state.availableDays)
+  console.log("availableNum:"+this.state.availNum)
+  console.log("availableWeekDays:"+this.state.availableWeekdays)
   //console.log("type"+typeof(this.state.availableDays))
 }
 inputAll(e){
@@ -108,87 +109,73 @@ inputAll(e){
     case "closeAt" : this.setState({closeAt:e.target.value});break;
     case "sunday":{if(this.state.sunFlag=="false")
                   {
-                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
                     this.setState({sunFlag:"true"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }
                   else
                   {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
                     this.setState({sunFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }};break;
     case "monday": {if(this.state.monFlag=="false")
                   {
-                   this.setState({availNum:this.state.availNum+Number(e.target.value)});
                     this.setState({monFlag:"true"});
-                    this.setState({availableWeekdays:this.state.availNum});
-                 }
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
+                  }
                  else
-                 {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
-                    this.setState({monFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                 {                    
+                   this.setState({monFlag:"false"});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }};break;
     case "tuesday": {if(this.state.tueFlag=="false")
                   {
-                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
                    this.setState({tueFlag:"true"});
-                   this.setState({availableWeekdays:this.state.availNum});
+                   this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }
                  else
                   {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
                     this.setState({tueFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }};break;
     case "wednesday": {if(this.state.wedFlag=="false")
                   {
-                   this.setState({availNum:this.state.availNum+Number(e.target.value)});
                    this.setState({wedFlag:"true"});
-                   this.setState({availableWeekdays:this.state.availNum});
+                   this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }
                  else
                  {
-                   this.setState({availNum:this.state.availNum-Number(e.target.value)});
                     this.setState({wedFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }};break;
     case "thursday": {if(this.state.thuFlag=="false")
                   {
-                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
                     this.setState({thuFlag:"true"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }
                   else
                   {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
                    this.setState({thuFlag:"false"});
-                   this.setState({availableWeekdays:this.state.availNum});
+                   this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }};break;
     case "friday":{if(this.state.friFlag=="false")
                   {
-                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
                     this.setState({friFlag:"true"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                   }
                   else
                 {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
                     this.setState({friFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }};break;
     case "saturday": {if(this.state.satFlag=="false")
                   {
-                    this.setState({availNum:this.state.availNum+Number(e.target.value)});
                     this.setState({satFlag:"true"});
-                   this.setState({availableWeekdays:this.state.availNum});
+                   this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }
                  else
                  {
-                    this.setState({availNum:this.state.availNum-Number(e.target.value)});
                     this.setState({satFlag:"false"});
-                    this.setState({availableWeekdays:this.state.availNum});
+                    this.setState({availableWeekdays:this.state.availableWeekdays+Number(e.target.value)});
                  }};break;
     case "availableTimeDetail" : this.setState({availableTimeDetail:e.target.value});break;
     case "latitude" : this.setState({latitude:e.target.value});break;
