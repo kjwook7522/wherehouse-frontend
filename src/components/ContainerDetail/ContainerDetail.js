@@ -36,7 +36,56 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
             //이떄 호출하는 Container측에서 전달인자로 info={containerInfo}넘겨줬다
             console.log(props.info);
             console.log(String(props.info.cctvExist)==="true");
-  const makeList = () => {
+            // console.log(props.info.availableWeekdays);
+
+    // if((props.info.availableWeekdays/1)==1)
+    //       ;
+    var availNum=Number(props.info.availableWeekdays);
+    var satFlag="false";
+    var friFlag="false";
+    var thuFlag="false";
+    var wedFlag="false";
+    var tueFlag="false";
+    var monFlag="false";
+    var sunFlag="false";
+    if((availNum/64)>=1)
+    {
+      satFlag="true";
+      availNum=(availNum-64);
+    }
+    if((availNum/32)>=1)
+    {
+      friFlag="true";
+      availNum=(availNum-32);
+    }
+    if((availNum/16)>=1)
+    {
+      thuFlag="true";
+      availNum=(availNum-16);
+      console.log(availNum);
+
+    }
+    if((availNum/8)>=1)
+    {
+      wedFlag="true";
+      availNum=(availNum-8);
+    }
+    if((availNum/4)>=1)
+    {
+      tueFlag="true";
+      availNum=(availNum-4);
+    }
+    if((availNum/2)>=1)
+    {
+      monFlag="true";
+      availNum=availNum-2;
+    }
+    if((availNum/1)>=1)
+    {
+      sunFlag="true";
+      availNum=availNum-1;
+    }
+    const makeList = () => {
     const tr = document.createElement("tr");
     const list = ["세부항목", "단위", "단가", "비고"];
 
@@ -454,7 +503,41 @@ function ContainerDetail(props) {//그냥 info만하면 안됨 객체가 날라�
           </div>
           <div className="sub-section keeping-time">
           <h1 className="subtitle">사용 가능 요일</h1>
-          <p>{props.info.availableWeekdays}</p>
+          {
+            sunFlag=="true"
+            ?(<span>일 </span>)
+            :(<span></span>)
+          }
+          {
+            monFlag=="true"
+            ?(<span>월 </span>)
+            :(<span></span>)
+          }
+          {
+            tueFlag=="true"
+            ?(<span>화 </span>)
+            :(<span></span>)
+          }
+          {
+            wedFlag=="true"
+            ?(<span>수 </span>)
+            :(<span></span>)
+          }
+                    {
+            thuFlag=="true"
+            ?(<span>목 </span>)
+            :(<span></span>)
+          }
+                    {
+            friFlag=="true"
+            ?(<span>금 </span>)
+            :(<span></span>)
+          }
+            {
+            satFlag=="true"
+            ?(<span>토 </span>)
+            :(<span></span>)
+          }
           </div>
           <div className="sub-section keeping-time">
           <h1 className="subtitle">이용시간 추가 정보</h1>
