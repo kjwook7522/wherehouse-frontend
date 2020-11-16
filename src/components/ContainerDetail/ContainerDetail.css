@@ -3,7 +3,7 @@
   margin: 20px auto;
   padding: 20px;
   position: relative;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(221, 221, 221);
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07);
 }
@@ -45,7 +45,7 @@
 } */
 
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button .active {
-  color: #5F99D7;
+  color: #5f99d7;
 }
 
 .container-detail .container-detail-info .keeping-type .keeping-type-icons .icon-button p {
@@ -64,18 +64,18 @@
   width: 30px;
   height: 30px;
   margin: 0 10px;
-  border: 2px solid #5F99D7;
+  border: 2px solid #5f99d7;
   border-radius: 5px;
   font-weight: bold;
   font-size: 15px;
   text-align: center;
-  color: #5F99D7;
+  color: #5f99d7;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .container-detail .container-detail-info .running-day .select-day .active {
-  background-color: #5F99D7;
+  background-color: #5f99d7;
   color: #fff;
 }
 
@@ -122,7 +122,7 @@
 
 .container-detail .container-detail-payment .container-detail-table td input:focus {
   outline: none;
-  border: 1px solid #5F99D7;
+  border: 1px solid #5f99d7;
 }
 
 .container-detail .container-detail-payment .container-detail-table td button {
@@ -137,10 +137,65 @@
 }
 
 .container-detail .container-detail-payment .keeping-payment .container-detail-table td button:hover {
-  border-color: #5F99D7;
+  border-color: #5f99d7;
 }
 
 .container-detail .container-detail-payment .keeping-payment .container-detail-table td button:active {
+  transform: translateZ(0) scale(0.98);
+}
+
+.container-detail .container-detail-time {
+  padding: 40px 0;
+}
+
+.container-detail .container-detail-time .sub-section {
+  padding: 20px 0;
+}
+
+.container-detail .container-detail-time .container-detail-table {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.container-detail .container-detail-time .container-detail-table th {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.container-detail .container-detail-time .container-detail-table td {
+  padding: 5px 10px;
+}
+
+.container-detail .container-detail-time .container-detail-table td input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #333;
+}
+
+.container-detail .container-detail-time .container-detail-table td input:focus {
+  outline: none;
+  border: 1px solid #5f99d7;
+}
+
+.container-detail .container-detail-time .container-detail-table td button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07);
+  color: #444;
+  cursor: pointer;
+}
+
+.container-detail .container-detail-time .keeping-time .container-detail-table td button:hover {
+  border-color: #5f99d7;
+}
+
+.container-detail .container-detail-time .keeping-time .container-detail-table td button:active {
   transform: translateZ(0) scale(0.98);
 }
 
@@ -168,6 +223,20 @@
 
 .container-detail .container-detail-service .service-icons .icon svg {
   font-size: 100px;
+}
+
+.container-detail .container-detail-service-extra {
+  padding: 40px 0;
+}
+
+.container-detail .container-detail-service-extra .sub-section-companies {
+  padding: 20px 0;
+}
+.container-detail .container-detail-service-extra .sub-section-parkingScale {
+  padding: 20px 0;
+}
+.container-detail .container-detail-service-extra .sub-section-select {
+  padding: 20px 0;
 }
 
 .container-detail .container-detail-explain textarea {
