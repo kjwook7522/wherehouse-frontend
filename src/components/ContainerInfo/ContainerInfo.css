@@ -6,7 +6,7 @@
   position: relative;
   border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.07);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.07);
 }
 
 .container-info .back-wrapper {
@@ -35,8 +35,7 @@
   margin-right: 50px;
 }
 
-
-.container-info .container-info-wrapper .container-info-main img  {
+.container-info .container-info-wrapper .container-info-main img {
   width: 180px;
   height: 130px;
 }
@@ -49,14 +48,13 @@
   border-bottom: 1px solid #ddd;
   font-weight: bold;
   font-size: 20px;
-  color: #EFA34E;
+  color: #efa34e;
 }
 
 .container-info .container-info-wrapper .container-info-main .container-description p {
   font-size: 15px;
   margin-bottom: 20px;
 }
-
 
 .container-info .container-info-wrapper .container-info-img {
   flex: 3;
@@ -77,7 +75,7 @@
   height: 50px;
   border: none;
   border-radius: 5px;
-  background-color: #EFA34E;
+  background-color: #efa34e;
   font-size: 18px;
   color: #fff;
   transition: all 0.2s ease;
