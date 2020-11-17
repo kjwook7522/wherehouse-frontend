@@ -28,11 +28,11 @@ function Nav({ type }) {
     if (type === "transparent") {
       window.addEventListener("scroll", () => {
         let nowScroll = document.documentElement.scrollTop;
-        if (nowScroll > 100) navBar.style.backgroundColor = "rgba(36, 35, 37, 0.9)";
+        if (nowScroll > 100) navBar.style.backgroundColor = "rgba(255, 255, 255, 1)";
         else navBar.style.backgroundColor = "transparent";
       });
     } else if (type === "fixed") {
-      navBar.style.backgroundColor = "rgba(36, 35, 37, 0.9)";
+      navBar.style.backgroundColor = "rgba(255, 255, 255, 1)";
     } else {
       console.log("Error: wrong type value.");
     }
@@ -41,7 +41,7 @@ function Nav({ type }) {
   return (
     <div className="nav">
       <div className="nav-left">
-        <Link to="/">창고중개플랫폼 반창고</Link>
+        <Link to="/">BANCHAGO</Link>
       </div>
       <div className="nav-right">
         <FontAwesomeIcon icon={faBars} color="#eebb4d" />

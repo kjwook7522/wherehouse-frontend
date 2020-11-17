@@ -1,123 +1,30 @@
-.main-display {
-  width: 100%;
-  height: 600px;
-  position: relative;
+#main-search {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 30px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  word-break: keep-all;
 }
 
-
-.main-display h1 {
+#main-search .search-form h1 {
+  margin-bottom: 15px;
   font-weight: bold;
-  font-size: 35px;
-  color: #eee;
 }
 
-.main-display form {
-  margin: 70px 0;
-  display: flex;
-  flex-direction: row;
-}
-
-.main-display form input {
-  width: 650px;
-  height: 50px;
+#main-search .search-form input {
+  width: 550px;
+  height: 60px;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-  font-size: 18px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  font-size: 1.1em;
 }
 
-.main-display form button {
-  width: 130px;
-  height: 50px;
-  margin: 0 50px;
-  border: none;
-  border-radius: 5px;
-  background-color: #eebb4d;
-  font-size: 18px;
-  color: #fff;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.main-display form button:hover {
-  background-color: #ddac42;
-}
-
-.main-display .survey-btn {
-  width: 250px;
-  height: 50px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  background-color: transparent;
-  font-size: 18px;
-  color: #fff;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.main-display .survey-btn:hover {
-  border: none;
-  background-color: #ddac42;
-  transform: translateZ(0);
-}
-
-.main-display .bg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url('/asset/images/wherehouse-bg.jpg');
-  background-size: cover;
-  z-index: -1;
-}
-
-.main-display .bg::before {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-
-/* Responsive */
-
-@media (max-width: 1024px) {
-  .main-display {
-    height: 800px;
-  }
-
-  .main-display form input {
-    width: 500px;
-  }
-}
-
-@media (max-width: 767px) {
-  .main-display form {
-    width: 90%;
-    flex-direction: column;
-  }
-
-  .main-display form input {
-    width: 100%;
-  }
-
-  .main-display form button {
-    width: 100%;
-    margin: 30px 0;
-  }
-
-  .main-display .survey-btn {
-    width: 90%;
-  }
+#main-search .search-form input:focus {
+  outline: none;
+  border: 2px solid cornflowerblue ;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

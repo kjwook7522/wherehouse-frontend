@@ -1,0 +1,73 @@
+#main-category {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+#main-category > h1 {
+  margin-left: 15px;
+}
+
+#main-category .category-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#main-category .category-flex .category-item {
+  width: 31%;
+  height: 130px;
+  margin: 5px 10px;
+  display: flex;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: rgba(136, 136, 136, 0.3) 0px 0px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#main-category .category-flex .category-item:hover {
+  transform: translateZ(0) scale(0.98);
+}
+
+#main-category .category-flex .category-item:hover h1,
+#main-category .category-flex .category-item:hover h3 {
+  color: #30475e;
+}
+
+#main-category .category-flex .category-item .image-wrapper {
+  width: 35%;
+}
+
+#main-category .category-flex .category-item .image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 10px 0 0 10px;
+}
+
+#main-category .category-flex .category-item .description {
+  width: 65%;
+  padding: 10px;
+}
+
+#main-category .category-flex .category-item .description h1 {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+#main-category .category-flex .category-item .description h2 {
+  margin-bottom: 10px;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: #aaa;
+}
+
+#main-category .category-flex .category-item .description h3 {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: bold;
+  font-size: 0.85em;
+}

@@ -1,0 +1,28 @@
+#category-list {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#category-list h1 {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+#category-list .category-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#category-list .category-flex .flex-item {
+  width: 30%;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(136, 136, 136, 0.3) 0px 0px 15px;
+  background-color: #fff;
+}
+
+#category-list .category-flex .flex-item .storage-item img {
+  width: 100%;
+}
