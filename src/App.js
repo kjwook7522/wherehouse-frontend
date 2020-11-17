@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { Main, Site, Container, Join, Login, Admin} from 'pages';
+import { Main, Site, Container, Join, Login, Admin, Category } from 'pages';
 import AOS from 'aos';
 import AXIOS from 'axios';
 import './App.css';
@@ -18,6 +18,7 @@ function App() {
         <Route path="/join" component={Join} />
         <Route path="/login" component={Login} />
         <Route path="/admin" component={Admin} />
+        <Route path="/category/:item" component={Category} />
         <Redirect path="*" to="/" />
       </Switch>
     </BrowserRouter>
