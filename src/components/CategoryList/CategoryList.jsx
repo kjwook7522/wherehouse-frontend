@@ -1,10 +1,12 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./CategoryList.css";
 
 function CategoryList({ category }) {
   let categoryName;
+  const [containerList, setContainerList] = useState([]);
+
   switch (category) {
     case "cloth":
       categoryName = "의류";
@@ -28,65 +30,47 @@ function CategoryList({ category }) {
       break;
   }
 
+  const changeTimeType = time => {
+    const [hour, minute, second] = time.split(":");
+    return hour + ":" + minute;
+  }
+
   useEffect(() => {
-    axios.get("/warehouses/agency")
-      .then(res => {
-        console.log(res);
-      })
+    axios.get("/warehouses/agency").then(res => {
+      setContainerList(res.data.warehouses);
+    });
   }, []);
 
   return (
     <section id="category-list">
       <h1>{categoryName} 리스트</h1>
       <div className="category-flex">
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-1.jpg" alt="storage-item" />
-          <div className="item-content">
-            <h1>오픈된 창고 팝니다</h1>
-            <h2>경기도 성남시 홍길구 아무개동 208-46</h2>
-            <div className="type-and-condition">
-              <span>상온 창고</span>
-              <span>위험 창고</span>
-              <span>Fulfillment</span>
-            </div>
-            <div className="running-time">
-              <div className="open-time">
-                여는시간
-                <br />
-                09:00
+        {containerList.map(container => (
+          <div key={container.warehouseId} className="flex-item">
+            <img src={container.imageUrl} alt="storage-item" />
+            <div className="item-content">
+              <h1>{container.name}</h1>
+              <h2>{container.address}</h2>
+              <div className="type-and-condition">
+                <span>상온 창고</span>
+                <span>위험 창고</span>
+                <span>Fulfillment</span>
               </div>
-              <div className="close-time">
-                닫는 시간
-                <br />
-                18:00
+              <div className="running-time">
+                <div className="open-time">
+                  여는시간
+                  <br />
+                  {changeTimeType(container.openAt)}
+                </div>
+                <div className="close-time">
+                  닫는 시간
+                  <br />
+                  {changeTimeType(container.closeAt)}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-2.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-3.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-1.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-2.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-3.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-1.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-2.jpg" alt="storage-item" />
-        </div>
-        <div className="flex-item">
-          <img src="/asset/images/description-image/main-des-3.jpg" alt="storage-item" />
-        </div>
+        ))}
       </div>
     </section>
   );

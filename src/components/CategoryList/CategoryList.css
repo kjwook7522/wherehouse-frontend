@@ -27,6 +27,12 @@
   border-radius: 10px;
   box-shadow: rgba(136, 136, 136, 0.3) 0px 0px 15px;
   background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#category-list .category-flex .flex-item:hover {
+  transform: translateY(-5px);
 }
 
 #category-list .category-flex .flex-item img {
