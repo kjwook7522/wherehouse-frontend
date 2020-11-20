@@ -5,7 +5,7 @@ import "./Category.css";
 function Category({ match }) {
   return (
     <section id="category">
-      <Nav />
+      <Nav type={'transparent'} />
       <CategoryFilter />
       <CategoryList category={match.params.item} />
     </section>

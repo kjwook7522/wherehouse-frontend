@@ -1,5 +1,4 @@
 import React from "react";
-import { FaHome } from "react-icons/fa";
 import "./MainTitle.css";
 
 function MainTitle() {

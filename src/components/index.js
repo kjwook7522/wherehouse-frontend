@@ -14,3 +14,4 @@ export { default as ContainerRating } from './ContainerRating/ContainerRating';
 export { default as CategoryFilter } from './CategoryFilter/CategoryFilter';
 export { default as CategoryList } from './CategoryList/CategoryList';
 export { default as Banner} from './Banner/Banner';
+export { default as ScrollToTop} from './ScrollToTop/ScrollToTop';

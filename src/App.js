@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Main, Site, Container, Join, Login, Admin, Category } from 'pages';
+import { ScrollToTop } from 'components';
 import AOS from 'aos';
 import AXIOS from 'axios';
 import './App.css';
 
 function App() {
   AOS.init();
-  AXIOS.defaults.baseURL = "https://api.banchango.shop/v1";
+  AXIOS.defaults.baseURL = "http://3.35.83.208:8080/v2";
   
   return (
     <BrowserRouter>
-      <Switch>
+      <ScrollToTop />
+      <Switch>  
         <Route exact path="/" component={Main} />
         <Route path="/site" component={Site} />
         <Route path="/container/:id" component={Container} />

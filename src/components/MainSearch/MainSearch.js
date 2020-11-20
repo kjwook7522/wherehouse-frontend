@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import "./MainSearch.css";
 
 function MainSearch() {
-  const [search, setSearch] = useState("");
 
   return (
     <section id="main-search">
