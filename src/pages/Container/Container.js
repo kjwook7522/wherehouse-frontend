@@ -1,19 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Nav, Footer, ContainerInfo, ContainerDetail} from "components";
+import { Nav, Footer, ContainerInfo, ContainerDetail, ContainerRating } from "components";
 import "./Container.css";
 
 function Container({ history, match }) {
   let containerDetail;
   const [containerInfo, setContainerInfo] = useState({});
-  var typeFlag1 = false;
-  var typeFlag2 = false;
-  var typeFlag3 = false;
-  var typeFlag4 = false;
-  var typeFlag5 = false;
-  var typeFlag6 = false;
-  var typeFlag7 = false;
+  var typeFlag1 = "false";
+  var typeFlag2 = "false";
+  var typeFlag3 = "false";
+  var typeFlag4 = "false";
+  var typeFlag5 = "false";
+  var typeFlag6 = "false";
+  var typeFlag7 = "false";
   useEffect(() => {
     const token = localStorage.getItem("AccessToken");
     const header = {
@@ -23,14 +23,15 @@ function Container({ history, match }) {
     };
     axios.get(`/warehouses/${match.params.id}`, header).then(res => {
       containerDetail = res.data.warehouse;
+      //  console.log(containerDetail);
       for (let i = 0; i < 7; i++) {
-        if (containerDetail.types[i] === "ROOM_TEMPERATURE") typeFlag1 = true;
-        if (containerDetail.types[i] === "LOW_TEMPERATURE") typeFlag2 = true;
-        if (containerDetail.types[i] === "BONDED") typeFlag3 = true;
-        if (containerDetail.types[i] === "SAVAGE") typeFlag4 = true;
-        if (containerDetail.types[i] === "HAZARDOUS") typeFlag5 = true;
-        if (containerDetail.types[i] === "SELF_STORAGE") typeFlag6 = true;
-        if (containerDetail.types[i] === "CONTAINER") typeFlag7 = true;
+        if (containerDetail.types[i] === "ROOM_TEMPERATURE") typeFlag1 = "true";
+        if (containerDetail.types[i] === "LOW_TEMPERATURE") typeFlag2 = "true";
+        if (containerDetail.types[i] === "BONDED") typeFlag3 = "true";
+        if (containerDetail.types[i] === "SAVAGE") typeFlag4 = "true";
+        if (containerDetail.types[i] === "HAZARDOUS") typeFlag5 = "true";
+        if (containerDetail.types[i] === "SELF_STORAGE") typeFlag6 = "true";
+        if (containerDetail.types[i] === "CONTAINER") typeFlag7 = "true";
       }
       if (containerDetail.serviceType === "GENERAL") {
         setContainerInfo({

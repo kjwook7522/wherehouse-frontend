@@ -12,13 +12,13 @@ class Admin extends PureComponent {
       },
       name: " ",
       types: [],
-      typeFlag1: false,
-      typeFlag2: false,
-      typeFlag3: false,
-      typeFlag4: false,
-      typeFlag5: false,
-      typeFlag6: false,
-      typeFlag7: false,
+      typeFlag1: "false",
+      typeFlag2: "false",
+      typeFlag3: "false",
+      typeFlag4: "false",
+      typeFlag5: "false",
+      typeFlag6: "false",
+      typeFlag7: "false",
       serviceType: "GENERAL",
       landArea: " ",
       totalArea: " ",
@@ -26,34 +26,34 @@ class Admin extends PureComponent {
       closeAt: " ",
       availableWeekdays: 0,
       availNum: 0,
-      sunFlag: false,
-      monFlag: false,
-      tueFlag: false,
-      wedFlag: false,
-      thuFlag: false,
-      friFlag: false,
-      satFlag: false,
+      sunFlag: "false",
+      monFlag: "false",
+      tueFlag: "false",
+      wedFlag: "false",
+      thuFlag: "false",
+      friFlag: "false",
+      satFlag: "false",
       availableTimeDetail: " ",
       latitude: " ",
       longitude: " ",
       address: " ",
       addressDetail: " ",
       description: " ",
-      cctvExist: false,
-      doorLockExist: false,
-      securityCompanyExist: false,
+      cctvExist: "false",
+      doorLockExist: "false",
+      securityCompanyExist: "false",
       securityCompanyName: " ",
-      insuranceExist: false,
+      insuranceExist: "false",
       insuranceName: " ",
-      parkExist: false,
+      parkExist: "false",
       parkingScale: " ",
-      workerExist: false,
-      pickupExist: false,
+      workerExist: "false",
+      pickupExist: "false",
       airConditioningType: "NONE",
-      cjFlag: false,
-      postOfficeFlag: false,
-      hanjinFlag: false,
-      coopangFlag: false,
+      cjFlag: "false",
+      postOfficeFlag: "false",
+      hanjinFlag: "false",
+      coopangFlag: "false",
       monthlyFee: 0,
       depositFee: 0,
       maintenanceFee: 0,
@@ -66,18 +66,18 @@ class Admin extends PureComponent {
       paymentDescription: " ",
       paymentType: " ",
       deliveryCompanies: [],
-      itemFlag1: false,
-      itemFlag2: false,
-      itemFlag3: false,
-      itemFlag4: false,
-      itemFlag5: false,
-      itemFlag6: false,
-      itemFlag7: false,
-      itemFlag8: false,
-      deliveryFlag1: false,
-      deliveryFlag2: false,
-      deliveryFlag3: false,
-      deliveryFlag4: false,
+      itemFlag1: "false",
+      itemFlag2: "false",
+      itemFlag3: "false",
+      itemFlag4: "false",
+      itemFlag5: "false",
+      itemFlag6: "false",
+      itemFlag7: "false",
+      itemFlag8: "false",
+      deliveryFlag1: "false",
+      deliveryFlag2: "false",
+      deliveryFlag3: "false",
+      deliveryFlag4: "false",
       payments: [],
     };
     this.submission = this.submission.bind(this);
@@ -170,9 +170,21 @@ class Admin extends PureComponent {
         this.state.header
       );
     }
+    console.log("sdf" + this.state.payments);
   }
-  componentDidUpdate() {}
-
+  componentDidUpdate() {
+    console.log("payments:" + this.state.payments);
+    console.log(this.state.deliveryCompanies);
+    //console.log("typesTemp(didUpdate) : "+this.state.typesTemp);
+    console.log("types: " + this.state.types);
+    console.log("mainItemTypes: " + this.state.mainItemTypes);
+    //  console.log("deliveryCompanies: "+this.state.deliveryCompanies);
+    //console.log("cur(didUpdate): "+this.state.cur)
+    // console.log("availableNum:"+this.state.availNum)
+    //console.log("availableWeekDays:"+this.state.availableWeekdays)
+    //console.log("type"+typeof(this.state.availableDays))
+    //console.log(this.state.cjFlag);
+  }
   inputAll(e) {
     var typesTemp = this.state.types.slice();
     var deliveryTemp = this.state.deliveryCompanies.slice();
@@ -182,81 +194,86 @@ class Admin extends PureComponent {
       case "name":
         this.setState({ name: e.target.value });
         break;
+        {
+          /*}  case "types" : var typesTemp = this.state.types.slice();
+                  typesTemp.push(e.target.value);
+  this.setState({types:typesTemp});break;*/
+        }
       case "ROOM_TEMPERATURE":
-        if (!this.state.typeFlag1) {
+        if (this.state.typeFlag1 === "false") {
           typesTemp.push("ROOM_TEMPERATURE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag1: true });
+          this.setState({ typeFlag1: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "ROOM_TEMPERATURE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag1: false });
+          this.setState({ typeFlag1: "false" });
         }
         break;
       case "LOW_TEMPERATURE":
-        if (!this.state.typeFlag2) {
+        if (this.state.typeFlag2 === "false") {
           typesTemp.push("LOW_TEMPERATURE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag2: true });
+          this.setState({ typeFlag2: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "LOW_TEMPERATURE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag2: false });
+          this.setState({ typeFlag2: "false" });
         }
         break;
       case "BONDED":
-        if (!this.state.typeFlag3) {
+        if (this.state.typeFlag3 === "false") {
           typesTemp.push("BONDED");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag3: true });
+          this.setState({ typeFlag3: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "BONDED");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag3: false });
+          this.setState({ typeFlag3: "false" });
         }
         break;
       case "SAVAGE":
-        if (!this.state.typeFlag4) {
+        if (this.state.typeFlag4 === "false") {
           typesTemp.push("SAVAGE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag4: true });
+          this.setState({ typeFlag4: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "SAVAGE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag4: false });
+          this.setState({ typeFlag4: "false" });
         }
         break;
       case "HAZARDOUS":
-        if (!this.state.typeFlag5) {
+        if (this.state.typeFlag5 === "false") {
           typesTemp.push("HAZARDOUS");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag5: true });
+          this.setState({ typeFlag5: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "HAZARDOUS");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag5: false });
+          this.setState({ typeFlag5: "false" });
         }
         break;
       case "SELF_STORAGE":
-        if (!this.state.typeFlag6) {
+        if (this.state.typeFlag6 === "false") {
           typesTemp.push("SELF_STORAGE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag6: true });
+          this.setState({ typeFlag6: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "SELF_STORAGE");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag6: false });
+          this.setState({ typeFlag6: "false" });
         }
         break;
       case "CONTAINER":
-        if (!this.state.typeFlag7) {
+        if (this.state.typeFlag7 === "false") {
           typesTemp.push("CONTAINER");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag7: true });
+          this.setState({ typeFlag7: "true" });
         } else {
           typesTemp = typesTemp.filter(type => type !== "CONTAINER");
           this.setState({ types: typesTemp });
-          this.setState({ typeFlag7: false });
+          this.setState({ typeFlag7: "false" });
         }
         break;
       case "serviceType":
@@ -276,77 +293,77 @@ class Admin extends PureComponent {
         break;
       case "sunday":
         {
-          if (!this.state.sunFlag) {
-            this.setState({ sunFlag: true });
+          if (this.state.sunFlag == "false") {
+            this.setState({ sunFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ sunFlag: false });
+            this.setState({ sunFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "monday":
         {
-          if (!this.state.monFlag) {
-            this.setState({ monFlag: true });
+          if (this.state.monFlag == "false") {
+            this.setState({ monFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ monFlag: false });
+            this.setState({ monFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "tuesday":
         {
-          if (!this.state.tueFlag) {
-            this.setState({ tueFlag: true });
+          if (this.state.tueFlag == "false") {
+            this.setState({ tueFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ tueFlag: false });
+            this.setState({ tueFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "wednesday":
         {
-          if (!this.state.wedFlag) {
-            this.setState({ wedFlag: true });
+          if (this.state.wedFlag == "false") {
+            this.setState({ wedFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ wedFlag: false });
+            this.setState({ wedFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "thursday":
         {
-          if (!this.state.thuFlag) {
-            this.setState({ thuFlag: true });
+          if (this.state.thuFlag == "false") {
+            this.setState({ thuFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ thuFlag: false });
+            this.setState({ thuFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "friday":
         {
-          if (!this.state.friFlag) {
-            this.setState({ friFlag: true });
+          if (this.state.friFlag == "false") {
+            this.setState({ friFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ friFlag: false });
+            this.setState({ friFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
         break;
       case "saturday":
         {
-          if (!this.state.satFlag) {
-            this.setState({ satFlag: true });
+          if (this.state.satFlag == "false") {
+            this.setState({ satFlag: "true" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           } else {
-            this.setState({ satFlag: false });
+            this.setState({ satFlag: "false" });
             this.setState({ availableWeekdays: this.state.availableWeekdays + Number(e.target.value) });
           }
         }
@@ -418,91 +435,91 @@ class Admin extends PureComponent {
         this.setState({ type: e.target.value });
         break;
       case "CLOTH":
-        if (!this.state.itemFlag1) {
+        if (this.state.itemFlag1 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag1: true });
+          this.setState({ itemFlag1: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag1: false });
+          this.setState({ itemFlag1: "false" });
         }
         break;
       case "FOOD":
-        if (!this.state.itemFlag2) {
+        if (this.state.itemFlag2 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag2: true });
+          this.setState({ itemFlag2: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag2: false });
+          this.setState({ itemFlag2: "false" });
         }
         break;
       case "ACCESSORY":
-        if (!this.state.itemFlag3) {
+        if (this.state.itemFlag3 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag3: true });
+          this.setState({ itemFlag3: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag3: false });
+          this.setState({ itemFlag3: "false" });
         }
         break;
       case "ELECTRONIC":
-        if (!this.state.itemFlag4) {
+        if (this.state.itemFlag4 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag4: true });
+          this.setState({ itemFlag4: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag4: false });
+          this.setState({ itemFlag4: "false" });
         }
         break;
       case "COSMETIC":
-        if (!this.state.itemFlag5) {
+        if (this.state.itemFlag5 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag5: true });
+          this.setState({ itemFlag5: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag5: false });
+          this.setState({ itemFlag5: "false" });
         }
         break;
       case "COMPONENT":
-        if (!this.state.itemFlag6) {
+        if (this.state.itemFlag6 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag6: true });
+          this.setState({ itemFlag6: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag6: false });
+          this.setState({ itemFlag6: "false" });
         }
         break;
       case "FURNITURE":
-        if (!this.state.itemFlag7) {
+        if (this.state.itemFlag7 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag7: true });
+          this.setState({ itemFlag7: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag7: false });
+          this.setState({ itemFlag7: "false" });
         }
         break;
       case "RAW_MATERIAL":
-        if (!this.state.itemFlag8) {
+        if (this.state.itemFlag8 == "false") {
           itemsTemp.push(e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag8: true });
+          this.setState({ itemFlag8: "true" });
         } else {
           itemsTemp = itemsTemp.filter(item => item !== e.target.value);
           this.setState({ mainItemTypes: itemsTemp });
-          this.setState({ itemFlag8: false });
+          this.setState({ itemFlag8: "false" });
         }
         break;
       case "storageType":
@@ -510,74 +527,76 @@ class Admin extends PureComponent {
         break;
       case "unit":
         this.setState({ unit: e.target.value });
-        payTemp = payTemp.filter(pay => pay === "asdas");
+        payTemp = payTemp.filter(pay => pay == "asdas");
         payTemp.push({ unit: e.target.value, cost: this.state.cost, description: this.state.paymentDescription, type: this.state.paymentType });
         this.setState({ payments: payTemp });
         break;
       case "cost":
         this.setState({ cost: e.target.value });
-        payTemp = payTemp.filter(pay => pay === "asdas");
+        payTemp = payTemp.filter(pay => pay == "asdas");
         payTemp.push({ unit: this.state.unit, cost: e.target.value, description: this.state.paymentDescription, type: this.state.paymentType });
         this.setState({ payments: payTemp });
         break;
       case "paymentDescription":
         this.setState({ paymentDescription: e.target.value });
-        payTemp = payTemp.filter(pay => pay === "asdas");
+        payTemp = payTemp.filter(pay => pay == "asdas");
         payTemp.push({ unit: this.state.unit, cost: this.state.cost, description: e.target.value, type: this.state.paymentType });
         this.setState({ payments: payTemp });
         break;
       case "paymentType":
         this.setState({ paymentType: e.target.value });
-        payTemp = payTemp.filter(pay => pay === "asdas");
+        payTemp = payTemp.filter(pay => pay == "asdas");
         payTemp.push({ unit: this.state.unit, cost: this.state.cost, description: this.state.paymentDescription, type: e.target.value });
         this.setState({ payments: payTemp });
         break;
       case "cj":
-        if (!this.state.deliveryFlag1) {
+        if (this.state.deliveryFlag1 == "false") {
           deliveryTemp.push(e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag1: true });
+          this.setState({ deliveryFlag1: "true" });
         } else {
           deliveryTemp = deliveryTemp.filter(company => company !== e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag1: false });
+          this.setState({ deliveryFlag1: "false" });
         }
         break;
 
       case "postOffice":
-        if (!this.state.deliveryFlag2) {
+        if (this.state.deliveryFlag2 == "false") {
           deliveryTemp.push(e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag2: true });
+          this.setState({ deliveryFlag2: "true" });
         } else {
           deliveryTemp = deliveryTemp.filter(company => company !== e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag2: false });
+          this.setState({ deliveryFlag2: "false" });
         }
         break;
       case "hanjin":
-        if (!this.state.deliveryFlag3) {
+        if (this.state.deliveryFlag3 == "false") {
           deliveryTemp.push(e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag3: true });
+          this.setState({ deliveryFlag3: "true" });
         } else {
           deliveryTemp = deliveryTemp.filter(company => company !== e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag3: false });
+          this.setState({ deliveryFlag3: "false" });
         }
         break;
       case "coopang":
-        if (!this.state.deliveryFlag4) {
+        if (this.state.deliveryFlag4 == "false") {
           deliveryTemp.push(e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag4: true });
+          this.setState({ deliveryFlag4: "true" });
         } else {
           deliveryTemp = deliveryTemp.filter(company => company !== e.target.value);
           this.setState({ deliveryCompanies: deliveryTemp });
-          this.setState({ deliveryFlag4: false });
+          this.setState({ deliveryFlag4: "false" });
         }
         break;
     }
+    console.log("e.target.name: " + e.target.name);
+    console.log("e.target.value: " + e.target.value);
   }
 
   render() {
