@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-// import { NaverMap, Marker } from 'react-naver-maps';
+//import { NaverMap, Marker } from 'react-naver-maps';
 import './MainMap.css';
 
 function MainMap({ push, searchValue }) {

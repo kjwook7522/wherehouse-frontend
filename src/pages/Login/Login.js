@@ -55,7 +55,7 @@ function Login() {
   };
 
   const checkEmail = email => {
-    let form = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    let form = /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/;
     if (form.test(email)) {
       return true;
     } else {
