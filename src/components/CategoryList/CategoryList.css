@@ -17,7 +17,6 @@
 
 #category-list .category-flex .flex-item {
   width: 30%;
-  height: 380px;
   margin-bottom: 15px;
   position: relative;
   display: flex;
@@ -51,28 +50,72 @@
   margin-bottom: 10px;
   line-height: 1;
   font-family: "Nanum Gothic", sans-serif;
-  font-size: 1.8em;
+  font-size: 1.6em;
 }
 
 #category-list .category-flex .flex-item .item-content h2 {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   line-height: 1;
   font-family: "Nanum Gothic", sans-serif;
   font-weight: bold;
+  font-size: 0.7em;
+}
+
+#category-list .category-flex .flex-item .item-content h2 span {
+  margin-left: 8px;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: #eee;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 600;
   font-size: 1em;
 }
 
-#category-list .category-flex .flex-item .item-content .type-and-condition {
+#category-list .category-flex .flex-item .item-content .min-release {
+  width: 60%;
+  display: inline-block;
+  font-size: 0.9em;
+}
+
+#category-list .category-flex .flex-item .item-content .min-release span {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 600;
+  font-size: 2.2em;
+  color: #3f72af;
+}
+
+#category-list .category-flex .flex-item .item-content .delivery-and-area {
+  width: 40%;
+  display: inline-block;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 600;
+}
+
+#category-list .category-flex .flex-item .item-content .delivery-and-area .delivery {
+  margin-right: 10px;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+#category-list .category-flex .flex-item .item-content .delivery-and-area .area {
+  display: inline-block;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/* #category-list .category-flex .flex-item .item-content .type-and-condition {
   margin-top: 40px;
 }
 
 #category-list .category-flex .flex-item .item-content .type-and-condition span {
   margin-right: 8px;
-  padding: 4px;
+  padding: 6px;
   border-radius: 8px;
   background-color: #eee;
   font-family: "Nanum Gothic", sans-serif;
   font-weight: 600;
+  font-size: 0.8em;
 }
 
 #category-list .category-flex .flex-item .item-content .running-time {
@@ -94,4 +137,4 @@
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
-}
+} */
