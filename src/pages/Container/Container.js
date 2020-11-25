@@ -23,7 +23,6 @@ function Container({ history, match }) {
     };
     axios.get(`/warehouses/${match.params.id}`, header).then(res => {
       containerDetail = res.data.warehouse;
-      //  console.log(containerDetail);
       for (let i = 0; i < 7; i++) {
         if (containerDetail.types[i] === "ROOM_TEMPERATURE") typeFlag1 = "true";
         if (containerDetail.types[i] === "LOW_TEMPERATURE") typeFlag2 = "true";
