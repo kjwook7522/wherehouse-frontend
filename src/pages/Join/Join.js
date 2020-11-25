@@ -112,6 +112,7 @@ function Join() {
         } else {
           alert("회원가입에 실패했습니다");
         }
+        window.location.reload();
         throw error;
       });
   };
