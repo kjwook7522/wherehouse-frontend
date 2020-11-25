@@ -35,9 +35,9 @@ function Login() {
     }
 
     axios
-      .post("/auth/sign-in", body)
+      .post("/users/sign-in", body)
       .then(res => {
-        alert(`${res.data.user.name}님 환영합니다.`);
+        alert(`${res.data.User.name}님 환영합니다.`);
         saveToken({
           accessToken: res.data.accessToken,
           refreshToken: res.data.refreshToken,
