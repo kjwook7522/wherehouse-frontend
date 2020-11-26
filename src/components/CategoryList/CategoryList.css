@@ -11,12 +11,12 @@
 #category-list .category-flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
 }
 
 #category-list .category-flex .flex-item {
   width: 30%;
+  margin-right: 30px;
   margin-bottom: 15px;
   position: relative;
   display: flex;
