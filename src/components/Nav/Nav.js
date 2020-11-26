@@ -41,7 +41,7 @@ function Nav({ type }) {
   return (
     <div className="nav">
       <div className="nav-left">
-        <Link to="/">BANCHAGO</Link>
+        <Link to="/">BANCHANGO</Link>
       </div>
       <div className="nav-right">
         <FontAwesomeIcon icon={faBars} color="#eebb4d" />
