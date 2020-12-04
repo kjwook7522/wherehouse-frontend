@@ -11,7 +11,10 @@ function Nav({ type }) {
     message.warning("아직 준비중입니다.");
   };
 
-  const [login, setLogin] = useState(JSON.parse(localStorage.getItem("logined")));
+  document.
+  const [login, setLogin] = useState(
+    JSON.parse(localStorage.getItem("logined"))
+  );
   const logout = () => {
     setLogin(false);
     localStorage.setItem("logined", false);
@@ -28,7 +31,8 @@ function Nav({ type }) {
     if (type === "transparent") {
       window.addEventListener("scroll", () => {
         let nowScroll = document.documentElement.scrollTop;
-        if (nowScroll > 100) navBar.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        if (nowScroll > 100)
+          navBar.style.backgroundColor = "rgba(255, 255, 255, 1)";
         else navBar.style.backgroundColor = "transparent";
       });
     } else if (type === "fixed") {
@@ -50,7 +54,11 @@ function Nav({ type }) {
         </a>
         <a onClick={warningMessage}>ABOUT US</a>
         {login ? null : <Link to="/join">회원가입</Link>}
-        {login ? <a onClick={logout}>로그아웃</a> : <Link to="/login">로그인</Link>}
+        {login ? (
+          <a onClick={logout}>로그아웃</a>
+        ) : (
+          <Link to="/login">로그인</Link>
+        )}
       </div>
     </div>
   );
