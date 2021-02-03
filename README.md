@@ -1,21 +1,13 @@
 # WhereHouse Front End
-<div>
 
 ![Lines of code](https://img.shields.io/tokei/lines/github/kjwook7522/wherehouse-frontend)
-
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fkjwook7522%2Fwherehouse-frontend&count_bg=%2379C83D&title_bg=%23555555&icon=react.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+<img src="https://img.shields.io/badge/language-javascript-yellow" />
 
-https://img.shields.io/badge/language-javascript-yellow
-
-</div>
-
-<div>
+<br />
 
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/kjwook7522/wherehouse-frontend/react)
-
 ![GitHub package.json dependency version (prod)](https://img.shields.io/github/package-json/dependency-version/kjwook7522/wherehouse-frontend/redux)
-
-</div>
 
 Wherehouse는 숭실대학교 창업지원단 지원을 받는 창업팀 '반창고'의 첫 번째 웹서비스 플랫폼입니다.
 이 프로젝트는 기업의 짐을 들어드리고자 뭉쳤습니다. 코로나 사태로 인한, 기업 설비투자 감소, 창고주들의 공실률, 미수율 문제를 중개 플랫폼을 통해 해결하고 물류 업계의 새로운 대안을 만들어 나가고 있습니다.
